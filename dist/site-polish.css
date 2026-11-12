@@ -1,0 +1,185 @@
+/* Shared rhythm: closer content, calmer type, and deliberate visual scale. */
+:root{--section-space:clamp(42px,4.3vw,64px)}
+.section{padding-top:var(--section-space);padding-bottom:var(--section-space)}
+.section-heading{margin-bottom:1.55rem;align-items:end}
+.section-heading h2{font-size:clamp(2.25rem,3.25vw,3.65rem);line-height:1.08}
+.section-heading p{font-size:.84rem;line-height:1.55}
+.section h2{font-size:clamp(2.25rem,3.35vw,3.8rem);line-height:1.08}
+.section h3{font-size:clamp(1.3rem,1.75vw,1.8rem)}
+.section p{line-height:1.58}
+.eyebrow{margin-bottom:.7rem}
+.card{padding:1.35rem}
+.split{gap:clamp(1.4rem,4vw,4.5rem)}
+.grid{gap:1rem}
+.page-hero{padding-top:clamp(42px,5vw,65px);padding-bottom:clamp(42px,5vw,65px)}
+.page-hero.has-media{min-height:320px}
+.page-hero-media{min-height:320px}
+.page-hero.has-media h1,.page-hero h1{font-size:clamp(2.65rem,4vw,4.3rem);line-height:1.05;max-width:760px;margin-bottom:1rem}
+.page-hero p{font-size:.92rem;line-height:1.55;max-width:590px}
+.page-hero-content{max-width:870px}
+/* Home */
+.hero{min-height:clamp(530px,52vw,625px)}
+.hero-copy{padding-top:50px;padding-bottom:42px}
+.hero h1{font-size:clamp(3.05rem,4.45vw,4.95rem);line-height:1.04}
+.hero .lead{font-size:.93rem;line-height:1.62}
+.hero-buttons{margin:1.6rem 0 1.8rem}
+.hero-media{min-height:530px}
+.intro-section{padding-top:55px;padding-bottom:30px}
+.intro-section .section-heading{margin-bottom:1.25rem}
+.service-tile{min-height:285px;padding:1.5rem}
+.service-tile h3{font-size:1.58rem}
+.service-tile p{font-size:.79rem;margin-bottom:1rem}
+.tile-symbol{font-size:3.25rem;margin-top:.4rem}
+.team-section{padding-top:48px;padding-bottom:54px}
+.team-section .section-heading{margin-bottom:1.3rem}
+.team-section .provider-visual{aspect-ratio:1.15/1}
+.team-section .provider-card-body{padding:1.25rem}
+.team-section .provider-card h3{font-size:1.35rem}
+.team-section .provider-card-body>p:not(.provider-role){font-size:.75rem}
+.team-section .subtle{margin-top:.9rem}
+.story-section,.story-photo{min-height:530px}
+.story-copy{padding-top:52px;padding-bottom:52px}
+.story-copy h2{font-size:clamp(2.8rem,4.4vw,4.8rem)}
+.access-section{padding-top:60px;padding-bottom:44px}
+.access-grid{min-height:0}
+.access-feature h3{margin:1.2rem 0 .6rem}
+.access-stack a{padding:1.15rem 1.5rem}
+.insurance-showcase{margin-top:1.25rem}
+.insurance-showcase-head{padding-top:1.65rem}
+.insurance-showcase-head h2{font-size:clamp(2rem,2.65vw,3rem)}
+.insurance-marquee{padding:1.15rem 0}
+.local-care-inner{padding-top:2.7rem;padding-bottom:2.7rem}
+.editorial-section,.assurance-section,.visit-section{padding-top:60px;padding-bottom:60px}
+.editorial-grid,.editorial-lead{min-height:310px}
+.editorial-side a{padding:1.25rem}
+.home-visit,.home-visit .map-card{min-height:310px}
+/* About */
+.about-editorial-hero{min-height:495px}
+.about-editorial-copy{padding-top:52px;padding-bottom:46px}
+.about-editorial-copy h1{font-size:clamp(3rem,4.5vw,5rem);margin:1.55rem 0 1.05rem}
+.about-editorial-copy>p{font-size:.92rem;line-height:1.58}
+.about-hero-rule{margin-top:2rem}
+.about-name-panel{padding-top:45px;padding-bottom:45px}
+.about-name-card h2{font-size:clamp(2.7rem,3.7vw,4rem);margin:.7rem 0}
+.about-name-card p{font-size:.85rem;line-height:1.58}
+.about-reason{gap:clamp(2rem,5vw,5rem)}
+.about-reason-intro h2{font-size:clamp(2.4rem,3.4vw,3.8rem)}
+.about-reason-intro>p{font-size:.86rem;line-height:1.65}
+.about-reason-quote{padding:1.5rem 1.7rem}
+.about-quote-mark{font-size:5rem;height:52px}
+.about-reason-quote blockquote{font-size:clamp(1.7rem,2.1vw,2.4rem);margin-bottom:1rem}
+.story-chapter-layout{margin:1.7rem 0 1.3rem;gap:2rem}
+.story-chapter-tab{min-height:65px;padding:.75rem;font-size:.85rem}
+.story-chapter-stage{min-height:370px}
+.story-chapter-content{padding:1.75rem 2rem}
+.story-chapter-content h3{font-size:clamp(1.85rem,2.7vw,3rem)}
+.about-commitments-heading,.about-people-top{margin-bottom:1.4rem}
+.about-commitment-list>div{padding:1rem .7rem}
+.about-commitment-list h3{font-size:clamp(1.5rem,1.9vw,2rem)}
+.about-founder-feature,.about-founder-manifesto{min-height:0}
+.about-founder-detail{padding:2rem}
+.about-founder-manifesto p{font-size:clamp(1.8rem,2.3vw,2.7rem);margin:1.6rem 0}
+.about-founder-detail h3{font-size:clamp(2rem,2.7vw,3rem)}
+.about-founder-detail .about-inline-action{margin-top:.8rem}
+.about-people-list article{padding:.85rem 0}
+.about-place h2{font-size:clamp(2.45rem,3.5vw,3.8rem)}
+/* Providers and primary care */
+.providers-hero,.providers-hero-gallery{min-height:510px}
+.providers-hero-copy{padding-top:50px;padding-bottom:42px}
+.providers-hero h1{font-size:clamp(3rem,4.4vw,5rem);margin:1rem 0}
+.providers-hero-foot{margin-top:1.7rem}
+.providers-intro{padding-bottom:35px}
+.providers-intro-top{margin-bottom:1.2rem}
+.providers-directory{padding-bottom:42px}
+.clinician-photo{min-height:450px}
+.clinician-copy{padding:clamp(1.5rem,3vw,3rem)}
+.clinician h2{font-size:clamp(2.4rem,3.7vw,4rem)}
+.clinician-lead{margin:1rem 0}
+.providers-guidance{padding-top:50px}
+.care-hero{min-height:520px}
+.care-hero-copy{padding-top:48px;padding-bottom:48px}
+.care-hero-copy h1{font-size:clamp(3rem,4.4vw,5rem);margin:1rem 0}
+.care-hero-copy>p{font-size:.9rem;line-height:1.58}
+.care-hero-copy>small{margin-top:1.2rem}
+.care-hero-actions{margin-top:1.3rem}
+.care-hero-image{min-height:520px}
+.care-overview,.care-detail-section{padding-top:54px;padding-bottom:54px}
+.care-overview-heading{margin-bottom:1.35rem}
+.care-pathway-image{height:240px}
+.care-pathway-body{min-height:0;padding:1.3rem}
+.care-pathway-body h3{font-size:1.5rem}
+.care-end{min-height:0;gap:1.5rem}
+.care-end-graphic{height:300px;display:flex;flex-direction:column;justify-content:center;gap:.55rem;padding:2rem 3rem;background:radial-gradient(circle at 80% 20%,#60a9b547,transparent 40%),linear-gradient(135deg,#113a5d,#0a2a4d);color:#c5e7e9;overflow:hidden}
+.care-end-graphic span{font:clamp(1.7rem,3.2vw,3.4rem)/1.15 var(--serif);letter-spacing:-.03em;border-bottom:1px solid #ffffff40;padding:.25rem 0}
+/* Membership: a navigable comparison, with no simulated checkout. */
+.membership-hero{display:grid;grid-template-columns:58% 42%;min-height:420px;background:#e9f3f4;overflow:hidden}
+.membership-hero-copy{align-self:center;padding:3.5rem 5vw 3.5rem max(4%,calc((100vw - 1400px)/2))}
+.membership-hero h1{font:clamp(3rem,4.6vw,5rem)/1.03 var(--serif);letter-spacing:-.045em;color:#103451;margin:.9rem 0 1rem}
+.membership-hero h1 em{color:#2e8ca2;font-weight:400}
+.membership-hero p{font-size:.92rem;max-width:610px;line-height:1.58;margin-bottom:1.4rem}
+.membership-hero-links{display:flex;gap:.7rem;flex-wrap:wrap}
+.membership-hero-links button,.membership-clarity-actions a{padding:.78rem 1rem;border:1px solid #97bfc9;color:#154c6c;border-radius:99px;font-size:.76rem;font-weight:800;transition:background .2s,color .2s,transform .2s}
+.membership-hero-links button:first-child,.membership-clarity-actions a:first-child{background:#113c60;color:#fff;border-color:#113c60}
+.membership-hero-links button:hover,.membership-clarity-actions a:hover{transform:translateY(-3px);background:#216b88;color:#fff}
+.membership-hero-visual{display:grid;place-items:center;background:radial-gradient(circle at 70% 10%,#2b77955c,transparent 38%),linear-gradient(135deg,#123b5d,#09294b);color:white;padding:2rem;position:relative;overflow:hidden}
+.membership-hero-visual:before,.membership-hero-visual:after{content:'';position:absolute;width:430px;height:430px;border-radius:50%;border:1px solid #a7d9e466;right:-120px;top:-150px;box-shadow:0 0 0 35px #a7d9e412,0 0 0 70px #a7d9e40b}
+.membership-hero-visual:after{width:220px;height:220px;right:auto;left:-85px;top:auto;bottom:-80px}
+.membership-visual-inner{position:relative;z-index:1;max-width:380px}
+.membership-visual-inner>span{font-size:.63rem;letter-spacing:.18em;font-weight:800;color:#a7d6dd}
+.membership-visual-inner strong{display:block;font:clamp(2.2rem,3.4vw,3.7rem)/1.1 var(--serif);margin:1.1rem 0}
+.membership-visual-inner p{color:#c8e0e7;margin:0;font-size:.77rem}
+.membership-intro{display:grid;grid-template-columns:30% 1fr;gap:3rem;padding:2.2rem max(4%,calc((100vw - 1400px)/2));border-bottom:1px solid #d8e7ea}
+.membership-intro h2{font:clamp(1.7rem,2.4vw,2.6rem)/1.12 var(--serif);margin:0;color:#123a59}
+.membership-intro-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.membership-intro-steps>div{border-left:1px solid #b7d2d9;padding-left:1rem;display:grid;align-content:center;gap:.25rem}
+.membership-intro-steps b{font-size:.62rem;color:#2d87a1;letter-spacing:.1em}
+.membership-intro-steps strong{font-size:.85rem;color:#123a5d}
+.membership-intro-steps span{font-size:.69rem;color:#66808e;line-height:1.4}
+.membership-explore{background:#fbfcfb}
+.membership-explore .section-heading h2{max-width:760px}
+.membership-tabs{display:flex;flex-wrap:wrap;gap:.45rem;border-bottom:1px solid #cedfe5;padding-bottom:.7rem;margin-bottom:1.5rem}
+.membership-tabs button{border:1px solid transparent;background:transparent;color:#376477;border-radius:99px;padding:.7rem 1rem;font-size:.76rem;font-weight:800;transition:background .2s,color .2s,transform .2s}
+.membership-tabs button:hover,.membership-tabs button:focus-visible{background:#e4f1f2;transform:translateY(-2px)}
+.membership-tabs button.active{background:#123e61;color:#fff;box-shadow:0 8px 20px #123e6124}
+.membership-panel-head{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:1.2rem}
+.membership-panel-head h3{max-width:550px;font:clamp(1.5rem,2.2vw,2.25rem)/1.2 var(--serif);margin:0;color:#143e5f}
+.membership-panel-head p{max-width:540px;font-size:.77rem;margin:0}
+.membership-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.membership-cards-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.membership-card{display:flex;flex-direction:column;border:1px solid #d6e5e9;background:#fff;border-radius:17px;padding:1.55rem;box-shadow:0 8px 22px #11395808;transition:transform .25s,box-shadow .25s,border-color .25s}
+.membership-card:hover{transform:translateY(-5px);box-shadow:0 20px 42px #123d6017;border-color:#90becb}
+.membership-card-label{font-size:.59rem;letter-spacing:.16em;font-weight:800;color:#2f87a0}
+.membership-card h3{font:clamp(1.35rem,1.65vw,1.8rem)/1.18 var(--serif);color:#153d5d;margin:.7rem 0}
+.membership-price{font:clamp(2rem,2.4vw,2.65rem)/1.05 var(--serif);color:#0e385c;margin:.2rem 0 .6rem}
+.membership-price small{font:.72rem var(--sans);color:#66808e}
+.membership-sub{font-size:.74rem;line-height:1.48;min-height:2.4em;margin:0 0 .65rem}
+.membership-card ul{list-style:none;padding:0;margin:0 0 1.1rem}
+.membership-card li{font-size:.72rem;line-height:1.45;padding:.55rem 0 .55rem 1.3rem;border-top:1px solid #e5edef;position:relative;color:#536b79}
+.membership-card li:before{content:'✓';position:absolute;left:0;color:#238e9b;font-weight:800}
+.membership-card-cta{margin-top:auto;border:1px solid #174a6c;background:#fff;color:#154463;border-radius:99px;padding:.72rem .9rem;font-size:.74rem;font-weight:800;transition:background .2s,color .2s}
+.membership-card-cta:hover,.membership-card-cta:focus-visible{background:#123e61;color:#fff}
+.membership-inline-note{display:flex;gap:1.5rem;align-items:center;border:1px solid #d5e5e8;background:#f1f7f7;border-radius:12px;margin-top:1rem;padding:1rem 1.2rem;font-size:.72rem;color:#5e7483}
+.membership-inline-note strong{color:#154463;min-width:180px}
+.membership-source{font-size:.68rem;color:#677d89;max-width:1050px;margin:1.2rem 0 0}
+.membership-clarity{background:#123c5c;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:3rem}
+.membership-clarity .eyebrow{color:#a6d9df}
+.membership-clarity h2{color:#fff;max-width:720px}
+.membership-clarity p{color:#d6e7eb;max-width:800px;font-size:.82rem;margin:0}
+.membership-clarity-actions{display:flex;flex-direction:column;gap:.6rem;min-width:220px}
+.membership-clarity-actions a{color:#fff;border-color:#8bb9c7;text-align:center}
+.membership-clarity-actions a:first-child{background:#fff;color:#123c5c;border-color:#fff}
+.membership-faq{background:#f2f7f6}
+.membership-faq .faq{max-width:1000px}
+/* Other routes */
+.journey{margin-top:1.25rem}
+.journey-card{padding:1.3rem}
+.logo-grid{gap:.65rem}
+.logo-tile{padding:1.1rem}
+.resource-card{padding:1.35rem}
+.newsletter{padding:1.7rem;margin-top:1.6rem}
+.footer{padding-top:3.2rem}
+.footer-top{gap:2rem}
+@media(max-width:1000px){.membership-intro{grid-template-columns:1fr;gap:1.4rem}.membership-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.membership-panel-head{display:block}.membership-panel-head p{margin-top:.6rem}.about-editorial-hero,.providers-hero,.care-hero{min-height:0}.hero{min-height:0}.hero-media{min-height:480px}}
+@media(max-width:800px){.section{padding-top:45px;padding-bottom:45px}.membership-hero{grid-template-columns:1fr}.membership-hero-copy{padding:3rem 6%}.membership-hero-visual{min-height:260px}.membership-intro{padding:2rem 6%}.membership-clarity{display:block}.membership-clarity-actions{flex-direction:row;margin-top:1.4rem}.care-hero-image{min-height:360px;height:360px}.story-photo{min-height:360px;height:360px}.providers-hero-gallery{min-height:350px;height:350px}.about-name-panel{min-height:285px}.about-editorial-copy h1{margin:1.3rem 0}.about-hero-rule{margin-top:1.3rem}}
+@media(max-width:600px){.section{padding:36px 5%}.section h2,.section-heading h2{font-size:clamp(2.1rem,9vw,2.9rem)}.section-heading{display:block}.section-heading p{margin-top:.65rem}.hero-copy{padding:52px 5% 40px}.hero h1{font-size:clamp(2.85rem,10.5vw,3.8rem)}.hero-media{min-height:290px;height:290px}.hero-buttons{margin:1.4rem 0}.intro-section{padding-top:42px;padding-bottom:25px}.team-section{padding-top:35px;padding-bottom:40px}.service-tile{min-height:245px}.story-copy{padding-top:38px;padding-bottom:38px}.membership-hero-copy{padding:2.7rem 5%}.membership-hero h1{font-size:clamp(2.75rem,10vw,3.75rem)}.membership-hero-visual{min-height:220px}.membership-intro{padding:1.8rem 5%}.membership-intro-steps{grid-template-columns:1fr;gap:.65rem}.membership-intro-steps>div{padding:.4rem 0 .4rem .8rem}.membership-cards,.membership-cards-two{grid-template-columns:1fr}.membership-card{padding:1.25rem}.membership-inline-note{display:block}.membership-inline-note strong{display:block;min-width:0;margin-bottom:.35rem}.membership-clarity-actions{flex-direction:column}.care-hero-copy{padding:3rem 5%}.care-hero-copy h1,.providers-hero h1,.about-editorial-copy h1{font-size:clamp(2.8rem,10vw,3.75rem)}.care-hero-image{min-height:280px;height:280px}.care-end-graphic{height:220px;padding:1.4rem}.providers-hero-copy{padding:3rem 5%}.providers-hero-gallery{height:290px;min-height:290px}.about-editorial-copy{padding:3rem 5%}.about-name-panel{min-height:255px;padding:2rem 5%}.story-chapter-layout{display:block}.story-chapter-nav{margin-bottom:1rem}.story-chapter-tab{min-height:50px}.story-chapter-stage{min-height:330px}.about-founder-detail{padding:1.45rem}.about-founder-manifesto{min-height:240px}.about-founder-manifesto p{margin:1.2rem 0}.footer{padding-top:2.7rem}}
+@media(prefers-reduced-motion:reduce){.membership-card,.membership-tabs button,.membership-hero-links button,.membership-clarity-actions a,.membership-card-cta{transition:none}}

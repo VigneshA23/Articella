@@ -1,0 +1,64 @@
+/* Primary Care: a photographic route through visit types */
+.care-hero{display:grid;grid-template-columns:48% 52%;min-height:660px;background:#e8f1f1}
+.care-hero-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(3rem,6vw,7rem) clamp(2rem,5vw,6rem) clamp(3rem,6vw,7rem) max(5%,calc((100vw - 1400px)/2))}
+.care-hero-copy h1{font-size:clamp(3.7rem,5.4vw,6.8rem);line-height:1.02;margin:1.6rem 0;color:#102f51;max-width:750px}
+.care-hero-copy h1 em,.care-overview-heading h2 em,.care-end h2 em{color:#2684a1;font-weight:400}
+.care-hero-copy>p{font-size:1.02rem;max-width:490px;line-height:1.7;color:#536f7e}
+.care-hero-copy>small{margin-top:3rem;color:#718795;font-size:.7rem}
+.care-hero-actions{display:flex;align-items:center;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+.care-text-link{font-size:.82rem;font-weight:800;color:#154f74;border-bottom:1px solid #80afbf;padding-bottom:.3rem;transition:color .2s}
+.care-text-link:hover{color:#1085ad}
+.care-hero-image{position:relative;overflow:hidden;min-height:610px;background:#274b5d}
+.care-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center;animation:hero-reveal 1s ease-out both}
+.care-hero-image:after{content:'';position:absolute;inset:60% 0 0;background:linear-gradient(transparent,#0729439c)}
+.care-image-label{position:absolute;bottom:2rem;left:2.5rem;right:2.5rem;z-index:1;color:#fff;font-size:.64rem;font-weight:800;letter-spacing:.16em;display:flex;justify-content:space-between;border-top:1px solid #ffffff9c;padding-top:1rem}
+.care-overview{background:#fbfcfa}
+.care-overview-heading{display:flex;justify-content:space-between;align-items:end;gap:3rem;margin-bottom:3rem}
+.care-overview-heading h2{margin:.8rem 0 0;line-height:1.05}
+.care-overview-heading>p{max-width:350px;margin:0;font-size:.9rem}
+.care-pathways{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.care-pathway{background:#edf4f3;min-width:0;overflow:hidden;transition:box-shadow .35s,transform .35s}
+.care-pathway:hover{transform:translateY(-6px);box-shadow:0 20px 42px #10365424}
+.care-pathway-image{height:280px;position:relative;overflow:hidden;background:#bbd2d8}
+.care-pathway-image img{width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .45s;filter:saturate(.84)}
+.care-pathway:nth-child(3) .care-pathway-image img{object-position:center 31%}
+.care-pathway:hover img{transform:scale(1.07);filter:saturate(1)}
+.care-pathway-image>span{position:absolute;top:1rem;left:1rem;background:#ffffffed;color:#16486a;padding:.55rem .75rem;font-size:.62rem;font-weight:800;letter-spacing:.12em}
+.care-pathway-body{padding:2rem;min-height:300px;display:flex;flex-direction:column}
+.care-pathway-body h3{font-size:clamp(2rem,2.8vw,3rem);margin:0 0 .8rem;color:#123957}
+.care-pathway-body p{font-size:.85rem;line-height:1.7;margin:0;color:#526e7c}
+.care-pathway-link{border:0;border-top:1px solid #bed3d8;background:transparent;width:100%;display:flex;justify-content:space-between;align-items:center;color:#145e7d;padding:1rem 0 0;margin-top:auto;font-weight:800;font-size:.77rem;cursor:pointer;text-align:left}
+.care-pathway-link span{font-size:1.15rem;font-weight:400;transition:transform .3s}
+.care-pathway-link:hover span{transform:rotate(90deg)}
+.care-detail-section{background:#eaf2f2;display:grid;grid-template-columns:34% 1fr;gap:clamp(2rem,6vw,7rem)}
+.care-detail-intro h2{line-height:1.08}
+.care-detail-intro>p{max-width:340px;font-size:.87rem}
+.care-detail-aside{background:#123e60;padding:2rem;color:#fff;margin-top:3rem;max-width:400px}
+.care-detail-aside span{font-size:.62rem;letter-spacing:.17em;color:#a3d4e1;font-weight:800}
+.care-detail-aside strong{display:block;font:1.8rem var(--serif);margin:1rem 0}
+.care-detail-aside p{color:#d1e4eb;font-size:.81rem}
+.care-detail-aside .button{border-color:#b8d4df;color:#fff;margin-top:.75rem}
+.care-accordion{border-top:1px solid #abc6cf}
+.care-accordion .service-detail{border-bottom:1px solid #abc6cf;padding:0;background:transparent}
+.care-accordion .service-detail summary{display:grid;grid-template-columns:45px 1fr 30px;gap:.9rem;align-items:center;list-style:none;cursor:pointer;padding:1.25rem .4rem;color:#173d5c;transition:background .25s,padding .25s}
+.care-accordion .service-detail summary::-webkit-details-marker{display:none}
+.care-accordion .service-detail summary:hover{background:#f9fcfb;padding-left:1rem}
+.care-accordion .service-detail summary span{font:1.2rem var(--serif);color:#337e99}
+.care-accordion .service-detail summary strong{font:1.35rem var(--serif)}
+.care-accordion .service-detail summary b{font-size:1.4rem;font-weight:400;transition:transform .3s}
+.care-accordion .service-detail[open] summary{background:#fff}
+.care-accordion .service-detail[open] summary b{transform:rotate(45deg)}
+.service-detail-content{padding:.5rem 2rem 1.6rem 3.8rem;background:#fff;animation:care-reveal .35s both}
+.service-detail-content p{font-size:.84rem;line-height:1.6;margin:.3rem 0 1rem}
+.service-detail-content p b{display:block;color:#2b7b96;font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.2rem}
+.service-detail-content .link-arrow{color:#175a7b;margin-top:.5rem}
+@keyframes care-reveal{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
+.care-end{background:#0b2e53;color:#fff;display:grid;grid-template-columns:1fr 44%;align-items:center;gap:4rem;overflow:hidden}
+.care-end .eyebrow{color:#a3d9e3}
+.care-end h2{color:#fff;line-height:1.07}
+.care-end p{color:#d4e5ee;max-width:450px}
+.care-end img{width:100%;height:420px;object-fit:cover;object-position:center 40%;filter:saturate(.8)}
+@media(max-width:1000px){.care-hero{grid-template-columns:1fr 1fr}.care-hero-copy h1{font-size:clamp(3rem,5vw,5rem)}.care-pathway-image{height:230px}.care-pathway-body{padding:1.5rem}}
+@media(max-width:800px){.care-hero{grid-template-columns:1fr}.care-hero-image{min-height:400px;height:400px}.care-hero-copy{padding:5rem 6%}.care-overview-heading{display:block}.care-overview-heading>p{margin-top:1rem}.care-detail-section{grid-template-columns:1fr}.care-detail-aside{margin:1.5rem 0 2rem;max-width:none}.care-end{grid-template-columns:1fr}.care-end img{height:320px}}
+@media(max-width:600px){.care-hero-copy h1{font-size:clamp(3.3rem,11vw,5rem)}.care-hero-image{height:340px;min-height:340px}.care-pathways{grid-template-columns:1fr}.care-pathway-image{height:270px}.care-pathway-body{min-height:210px}.care-accordion .service-detail summary{grid-template-columns:28px 1fr 20px;gap:.5rem}.care-accordion .service-detail summary strong{font-size:1.1rem}.service-detail-content{padding:1rem}.care-end{gap:2rem}.care-end img{height:260px}}
+@media(prefers-reduced-motion:reduce){.care-pathway,.care-pathway img,.care-pathway-link span,.care-hero-image img,.service-detail-content{animation:none;transition:none}}
