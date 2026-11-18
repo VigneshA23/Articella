@@ -560,3 +560,50 @@ body .chat-panel .chat-head{padding:1.05rem 1.1rem .85rem;background:radial-grad
   .header-actions .button:active{transform:translateY(1px);box-shadow:inset 0 2px 4px #00005255,0 1px 0 #090965}
 }
 @media(prefers-reduced-motion:reduce){.nav>a,.nav-group>button,.nav>a:before,.nav-group>button:before,.header-actions .button{transition:none!important}}
+
+/* About: hero call to action, readable small text and stronger contrast. */
+.about-restored .about-hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.6rem;margin-top:1.7rem}
+.about-restored .about-hero-call{color:#00008b;font-weight:800;font-size:.9rem;border-bottom:1px solid #a4a7e9;padding:.3rem 0}
+.about-restored .about-hero-call:hover,.about-restored .about-hero-call:focus-visible{border-color:#00008b}
+.about-restored .about-editorial-copy>p{color:#3e4f5f}
+.about-restored .about-chapter-label,.about-restored .about-hero-rule,.about-restored .about-section-index,.about-restored .about-name-card small,.about-restored .about-reason-quote small,.about-restored .about-founder-detail small,.about-restored .about-people-list small,.about-restored .about-founder-manifesto span,.about-restored .about-founder-manifesto small,.about-restored .experience-promise span,.about-restored .experience-card span,.about-restored .story-chapter-content span{font-size:.74rem}
+.about-restored .about-reason-quote small{color:#4a5a6b}
+.about-restored .about-people-list p,.about-restored .about-commitment-foot{font-size:.84rem;color:#4a5a6b}
+.about-restored .experience-card p{font-size:.88rem}
+@media(max-width:600px){.about-restored .about-hero-actions{flex-direction:column;align-items:flex-start}}
+
+/* About hero: real photography instead of a decorative panel. */
+.about-restored .about-editorial-hero{grid-template-columns:50% 50%}
+.about-restored .about-hero-photo{position:relative;overflow:hidden;min-height:100%;background:#dfe3ef}
+.about-restored .about-hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.about-restored .about-hero-note{position:absolute;left:1.5rem;bottom:1.5rem;max-width:300px;padding:1rem 1.2rem;background:#ffffffeb;border-radius:12px;box-shadow:0 10px 28px #00008b26;backdrop-filter:blur(6px)}
+.about-restored .about-hero-note small{display:block;font-size:.7rem;letter-spacing:.16em;font-weight:800;color:#00008b;margin-bottom:.4rem}
+.about-restored .about-hero-note p{margin:0;font-size:.86rem;line-height:1.5;color:#2c3b4a}
+.about-restored .about-hero-note b{color:#00008b}
+@media(max-width:800px){.about-restored .about-editorial-hero{grid-template-columns:1fr}.about-restored .about-hero-photo{min-height:340px}.about-restored .about-hero-note{left:1rem;right:1rem;bottom:1rem;max-width:none}}
+.about-restored .about-editorial-copy h1{margin-bottom:1.7rem}
+
+/* About team: photo-led tiles with name and role on a navy gradient. */
+.about-restored .about-people-top{align-items:end;gap:2rem 3rem;margin-bottom:2rem}
+.about-restored .about-team-quote{max-width:380px;margin:0;font:500 1.15rem/1.4 var(--serif);color:#171747}
+.about-restored .about-team-quote span{display:block;font:800 .72rem var(--sans);letter-spacing:.16em;color:#00008b;margin-bottom:.55rem}
+.about-restored .team-tiles{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:1rem}
+.about-restored .team-tile{position:relative;display:block;height:clamp(340px,31vw,470px);padding:0;border:0;border-radius:16px;overflow:hidden;cursor:pointer;text-align:left;background:#00008b;color:#fff;font:inherit;isolation:isolate;box-shadow:0 8px 22px #00008b14;transition:transform .35s,box-shadow .35s}
+.about-restored .team-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;z-index:-2;transition:transform .7s ease}
+.about-restored .team-tile:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#00004dee 0,#00006bb3 30%,#00008b00 62%)}
+.about-restored .team-tile:hover,.about-restored .team-tile:focus-visible{transform:translateY(-5px);box-shadow:0 18px 36px #00008b2e}
+.about-restored .team-tile:hover img,.about-restored .team-tile:focus-visible img{transform:scale(1.05)}
+.about-restored .team-tile:focus-visible{outline:3px solid #00008b;outline-offset:3px}
+.about-restored .team-tile-meta{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:.25rem;padding:1.2rem 1.15rem 1.25rem}
+.about-restored .team-tile-meta small{font-size:.68rem;letter-spacing:.14em;font-weight:800;color:#cfd4ff}
+.about-restored .team-tile-meta strong{font:500 1.3rem/1.15 var(--serif);color:#fff}
+.about-restored .team-tile-meta em{font-style:normal;font-size:.78rem;color:#e3e6ff}
+.about-restored .team-tile-cta{margin-top:.55rem;font-size:.8rem;font-weight:800;color:#fff;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.about-restored .team-tile:hover .team-tile-cta,.about-restored .team-tile:focus-visible .team-tile-cta{opacity:1;transform:none}
+.about-restored .team-tile-founder .team-tile-meta{padding:1.7rem 1.7rem 1.8rem}
+.about-restored .team-tile-founder .team-tile-meta strong{font-size:clamp(1.9rem,2.6vw,2.7rem)}
+.about-restored .team-tile-founder img{object-position:50% 20%}
+@media(hover:none){.about-restored .team-tile-cta{opacity:1;transform:none}}
+@media(max-width:1000px){.about-restored .team-tiles{grid-template-columns:repeat(2,1fr)}.about-restored .team-tile{height:300px}.about-restored .team-tile-founder{grid-column:1/-1;height:380px}}
+@media(max-width:600px){.about-restored .about-people-top{flex-direction:column;align-items:flex-start}.about-restored .team-tile{height:250px}.about-restored .team-tile-founder{height:320px}.about-restored .team-tile-meta{padding:.9rem}.about-restored .team-tile-meta strong{font-size:1.1rem}}
+@media(prefers-reduced-motion:reduce){.about-restored .team-tile,.about-restored .team-tile img,.about-restored .team-tile-cta{transition:none}}

@@ -26,12 +26,6 @@
 .about-story-head{display:flex;align-items:end;justify-content:space-between;gap:2rem}
 .about-story-head h2{margin:0}
 .about-story-head>p{max-width:320px;font-size:.86rem;margin:0}
-.about-story-list{display:grid;grid-template-columns:repeat(4,1fr);list-style:none;padding:0;margin:3rem 0 0;border-top:1px solid #95bdca}
-.about-story-list li{padding:1.8rem 1.4rem 2rem;border-right:1px solid #b6d1d9}
-.about-story-list li:first-child{border-left:1px solid #b6d1d9}
-.about-story-list li>span{font:1.6rem var(--serif);color:#448ba4}
-.about-story-list h3{font-size:1.5rem;line-height:1.2;margin:3.2rem 0 .85rem;min-height:3.6rem;color:#15395b}
-.about-story-list p{font-size:.8rem;line-height:1.6;margin:0}
 .about-long-story{border-top:1px solid #95bdca;padding-top:1.25rem}
 .about-long-story summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;color:#155678;font-size:.79rem;font-weight:800}
 .about-long-story summary::-webkit-details-marker{display:none}
@@ -42,26 +36,16 @@
 .about-commitments{background:#f8f8f5}
 .about-commitments-heading{max-width:800px;margin-bottom:2.4rem}
 .about-commitments-heading p{font-size:.93rem;max-width:640px}
-.about-commitment-list{border-top:1px solid #b5cdd6}
-.about-commitment-list>div{display:grid;grid-template-columns:8% 32% 60%;align-items:baseline;gap:0;border-bottom:1px solid #d1e0e4;padding:1.5rem 0}
-.about-commitment-list span{font-size:.68rem;color:#3585a0;font-weight:800}
-.about-commitment-list h3{font-size:clamp(1.8rem,2.5vw,2.7rem);margin:0;color:#143b5b}
-.about-commitment-list p{font-size:.87rem;max-width:580px;margin:0}
 .about-people{background:#fff}
 .about-people-top{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:2.4rem}
 .about-people-top h2{max-width:800px;margin:0}
 .about-people-top>p{max-width:300px;font-size:.86rem;margin:0}
 .about-founder-feature{display:grid;grid-template-columns:33% 67%;background:#e8f1f2;min-height:420px}
-.about-founder-portrait{overflow:hidden;min-height:420px;background:#c9d9db}
-.about-founder-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 32%}
 .about-founder-detail{padding:clamp(2rem,4vw,4.1rem)}
 .about-founder-detail small,.about-people-list small{font-size:.62rem;letter-spacing:.14em;font-weight:800;color:#297e9c}
 .about-founder-detail h3{font-size:clamp(2.3rem,3.6vw,4rem);margin:.7rem 0 0}
 .about-founder-detail>strong{display:block;font-size:.76rem;letter-spacing:.1em;color:#317e9b;margin:.45rem 0 1.3rem}
 .about-founder-detail>p{font-size:.86rem;max-width:640px;line-height:1.7}
-.about-credentials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;border-top:1px solid #b9d3da;padding-top:1.2rem;margin-top:1.4rem}
-.about-credentials span{display:block;color:#327f9b;font-size:.59rem;letter-spacing:.12em;font-weight:800;margin-bottom:.5rem}
-.about-credentials b{display:block;font-size:.73rem;font-weight:700;line-height:1.45;color:#1d4965}
 .about-inline-action{border:0;border-bottom:1px solid #70a7b9;background:transparent;color:#155c7d;padding:.35rem 0;font-weight:800;font-size:.77rem;text-align:left;white-space:nowrap}
 .about-inline-action:hover{color:#0b2b50;border-color:#0b2b50}
 .about-founder-detail .about-inline-action{margin-top:1.7rem}
@@ -114,9 +98,6 @@
 .about-commitments{background:#faf9f5}
 .about-commitments-heading{max-width:1050px}
 .about-commitments-heading h2{line-height:1.08}
-.about-commitment-list>div{grid-template-columns:16% 38% 46%;align-items:center;padding:1.7rem 1rem;transition:background .3s,padding .3s}
-.about-commitment-list>div:hover{background:#edf5f4;padding-left:1.7rem}
-.about-commitment-list h3{font-size:clamp(1.65rem,2.1vw,2.3rem)}
 .about-commitment-foot{font-size:.73rem;margin-top:1.8rem;color:#657e8a}
 .about-founder-identity{display:flex;align-items:center;gap:1.4rem;margin-bottom:1.3rem}
 .about-founder-identity img{width:82px;height:82px;object-fit:cover;object-position:center 23%;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 15px #123d6020;flex:none}
