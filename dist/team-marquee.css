@@ -1,0 +1,95 @@
+/* ============================================================================
+   Articella — "Meet the care team" auto-scrolling marquee.
+   Built to spec, scoped under .team-marquee-section so it can't collide with the
+   site's existing .team-section (provider cards) styles.
+
+   Brand blue is wired to the demo home's --home-blue (#00008B) with a literal
+   fallback, so it matches its neighbours; the remaining neutrals are the spec's
+   resolved tokens. Headings use Platypi (the loaded brand serif); in the demo
+   wrapper the page's own heading rule takes over, matching adjacent sections.
+   ========================================================================== */
+
+.team-marquee-section{
+  --tm-brand:         var(--home-blue, #00008B);
+  --tm-brand-hover:   #1A1AA0;
+  --tm-brand-subtle:  #F0F0FA;
+  --tm-brand-muted:   #D6D6F0;
+  --tm-text:          #1F2633;
+  --tm-text-soft:     #4E5869;
+  --tm-surface:       #FFFFFF;
+  --tm-surface-sunken:#F7F8FB;
+  --tm-border:        #DCE2EC;
+  --tm-radius:        16px;
+  --tm-ease:          cubic-bezier(.2,0,0,1);
+
+  font-family: var(--sans, 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif);
+  color: var(--tm-text);
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+}
+.team-marquee-section *{ box-sizing: border-box; }
+
+/* ---- heading ---- */
+.team-marquee-head{ text-align:center; padding:0 1rem; margin:0 0 clamp(1.5rem,3vw,2.5rem); }
+.team-marquee-head h2{
+  margin:0; font-family:'Platypi', Georgia, 'Times New Roman', serif; font-weight:400;
+  color:var(--tm-brand); letter-spacing:-.01em; line-height:1.1; font-size:clamp(1.55rem,5vw,2.8rem);
+}
+.team-marquee-head p{
+  max-width:34rem; margin:.6rem auto 0; color:var(--tm-text-soft);
+  font-size:clamp(1rem,1.1vw,1.1rem); line-height:1.5;
+}
+
+/* ---- the auto-scroll marquee ---- */
+.team-marquee{
+  position:relative; overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+          mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.team-marquee-track{
+  display:flex; width:max-content; gap:clamp(.9rem,2vw,1.6rem); padding:.6rem .25rem;
+  animation:team-drift 70s linear infinite; will-change:transform;
+}
+@keyframes team-drift{ from{ transform:translateX(-50%) } to{ transform:translateX(0) } }
+.team-marquee:hover .team-marquee-track,
+.team-marquee:focus-within .team-marquee-track{ animation-play-state:paused; }
+
+/* ---- a chip (a <button>) ---- */
+.team-chip{
+  flex:none; width:clamp(144px,15vw,176px);
+  display:flex; flex-direction:column; align-items:center; gap:.65rem;
+  padding:1.1rem .8rem; text-align:center; cursor:pointer; font-family:inherit;
+  background:var(--tm-surface); border:1px solid var(--tm-border); border-radius:var(--tm-radius);
+  box-shadow:0 2px 4px rgba(0,0,139,.06), 0 1px 2px rgba(0,0,139,.04);
+  transition:transform .2s var(--tm-ease), box-shadow .2s var(--tm-ease), border-color .2s var(--tm-ease);
+}
+.team-chip:is(:hover,:focus-visible){
+  transform:translateY(-5px);
+  box-shadow:0 10px 20px rgba(0,0,139,.10), 0 4px 8px rgba(0,0,139,.06);
+  border-color:var(--tm-brand-muted);
+}
+.team-chip:focus-visible{ outline:2px solid var(--tm-brand); outline-offset:2px; }
+.team-chip-photo{
+  width:clamp(78px,9vw,100px); aspect-ratio:1; border-radius:50%; overflow:hidden;
+  border:2px solid var(--tm-brand-subtle); background:var(--tm-surface-sunken);
+}
+.team-chip-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.team-chip-name{ font-weight:700; font-size:clamp(.92rem,1vw,1.02rem); line-height:1.2; color:var(--tm-text); }
+.team-chip-role{ font-size:clamp(.74rem,.82vw,.84rem); line-height:1.25; color:var(--tm-text-soft); }
+
+/* ---- footer link ---- */
+.team-marquee-foot{ text-align:center; margin-top:clamp(1.4rem,3vw,2.2rem); }
+.team-marquee-link{
+  display:inline-flex; align-items:center; gap:.5rem; font-weight:700; font-size:.9rem;
+  color:var(--tm-brand); text-decoration:none;
+}
+.team-marquee-link span{ display:inline-block; transition:transform .12s var(--tm-ease); }
+.team-marquee-link:hover span{ transform:translateX(3px); }
+.team-marquee-link:focus-visible{ outline:2px solid var(--tm-brand); outline-offset:3px; }
+
+/* ---- reduced motion: no drift, no edge mask, a plain scrollable row of the real set ---- */
+@media(prefers-reduced-motion:reduce){
+  .team-marquee{ -webkit-mask-image:none; mask-image:none; overflow-x:auto; }
+  .team-marquee-track{ animation:none; }
+  .team-chip{ transition:none; }
+  .team-chip[aria-hidden="true"]{ display:none; }   /* drop the 3 duplicate sets */
+}
