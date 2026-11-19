@@ -1,0 +1,168 @@
+/* ============================================================================
+   Articella — "Care for every chapter" services orbit.
+   Adapted from the reference export and RE-SKINNED to Articella's design system.
+
+   Tokens are scoped to .service-orbit and wired to the site's real CSS variables
+   (--navy / --blue / --ice / --warm / --line / --ink / --muted) with literal
+   fallbacks, so the component tracks the design system but never collides with
+   the host's .button / .section / :root styles.
+
+   Built for exactly 6 services (60deg spacing, 6-step cycle, :has() nth-child).
+   To change the count, update the 60deg in `.orbit-items li`, the `*2s` cycle
+   offsets, and the nth-child blocks below.
+   ========================================================================== */
+
+.service-orbit{
+  /* ---- tokens (scoped, context-aware) ----
+     Inside the demo home the brand is --home-blue (#00008B) and surfaces use the
+     demo's soft/rule vars, so the orbit blends with its neighbours. Outside the
+     demo wrapper (e.g. the main branch) it falls back to the base system
+     (--navy / --ice / --line). Hover, active and accent are derived from brand so
+     they track whichever one is in effect. */
+  --color-brand:            var(--home-blue, var(--navy, #10265d));
+  --color-brand-hover:      color-mix(in srgb, var(--color-brand) 80%, #ffffff);
+  --color-brand-active:     color-mix(in srgb, var(--color-brand) 82%, #000000);
+  --color-brand-subtle:     var(--home-soft, var(--ice, #eaf3f5));
+  --color-brand-muted:      var(--home-rule, var(--line, #dce4ed));
+  --color-accent:           color-mix(in srgb, var(--color-brand) 72%, #ffffff);  /* lit interior for the centre object */
+  --color-surface-canvas:   var(--white, #ffffff);
+  --color-surface-sunken:   var(--home-soft, var(--warm, #f5f4ef));
+  --color-surface-subtle:   var(--home-soft, var(--ice, #eaf3f5));
+  --color-surface-muted:    var(--home-rule, var(--line, #dce4ed));
+  --color-text-primary:     var(--ink, #16213d);
+  --color-text-secondary:   var(--muted, #65718a);
+
+  --font-heading: 'Platypi', Georgia, 'Times New Roman', serif;
+  --font-body:    var(--sans, 'DM Sans', Helvetica, Arial, sans-serif);
+
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --radius-xl:       12px;
+  --ease-standard:   cubic-bezier(0.2, 0, 0, 1);
+  --motion-hover: 120ms var(--ease-standard);
+  --motion-base:  200ms var(--ease-standard);
+
+  /* ---- section shell ---- */
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  box-sizing: border-box;
+  /* Soft navy/blue halo behind the orbit so the centre lifts off the white.
+     (background-color is the fallback where color-mix is unsupported.) */
+  background-color: var(--color-surface-canvas);
+  background:
+    radial-gradient(34% 40% at 50% 60%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 70%),
+    radial-gradient(60% 58% at 50% 60%, color-mix(in srgb, var(--color-brand) 12%, transparent), transparent 82%),
+    linear-gradient(180deg, var(--color-surface-canvas), var(--color-surface-subtle));
+  text-align: center;
+  min-height: clamp(640px, 90vh, 900px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem,5vh,4rem) clamp(1rem,4vw,3rem);
+}
+.service-orbit *{ box-sizing: border-box; }
+
+/* ---- heading ---- */
+.service-orbit-head{ display:block; text-align:center; margin-bottom:clamp(1.4rem,4vw,2.6rem); }
+.service-orbit-head .eyebrow{
+  display:block; text-align:center; margin:0 0 .6rem;
+  color:var(--color-brand); font-family:var(--font-body);
+  font-weight:var(--weight-bold); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+}
+.service-orbit-head h2{
+  margin:0 auto; text-align:center; color:var(--color-brand);
+  font-family:var(--font-heading); font-weight:400; letter-spacing:-.01em;
+  line-height:1.1; font-size:clamp(1.75rem,5vw,3rem);
+}
+.service-orbit-head p{
+  max-width:40rem; margin:.75rem auto 0; text-align:center;
+  color:var(--color-text-secondary); font-size:clamp(1rem,1.1vw,1.15rem); line-height:1.5;
+}
+
+/* ---- orbit stage ---- */
+.orbit-stage{
+  --orbit-size:min(clamp(360px,46vw,620px),66vh);
+  --orbit-radius:calc(var(--orbit-size)/2 - clamp(3rem,7vw,5.25rem));
+  position:relative; width:var(--orbit-size); height:var(--orbit-size); margin:0 auto;
+}
+.orbit-ring{position:absolute;top:50%;left:50%;width:calc(var(--orbit-radius)*2);height:calc(var(--orbit-radius)*2);transform:translate(-50%,-50%);border:1px dashed var(--color-brand-muted);border-radius:50%}
+.orbit-ring::after{content:'';position:absolute;inset:-8%;border:1px solid var(--color-surface-subtle);border-radius:50%}
+
+/* Centre of the orbit is a CSS-only 3D object per service (layered SVG outlines,
+   no library, no image files). It follows the cycling highlight; hover/focus on
+   a service takes over via :has(). */
+.orbit-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:clamp(112px,17vw,168px);aspect-ratio:1}
+.orbit-obj{position:absolute;inset:0;perspective:720px;opacity:0;visibility:hidden;transform:scale(.8);animation:orbit-obj-cycle 12s var(--ease-standard) calc(var(--i)*2s) infinite both}
+.orbit-obj-spin{position:absolute;inset:0;transform-style:preserve-3d;animation:orbit-obj-spin 7s linear infinite}
+.orbit-obj-spin svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform:translateZ(calc((var(--k) - 7)*1.4px));color:var(--color-accent)}
+.orbit-obj-spin svg:first-child,.orbit-obj-spin svg:last-child{color:var(--color-brand)}
+.orbit-obj-spin path{fill:currentColor;fill-rule:evenodd;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
+@keyframes orbit-obj-cycle{0%{opacity:0;visibility:hidden;transform:scale(.8)}3%,14%{opacity:1;visibility:visible;transform:scale(1)}16.6%,100%{opacity:0;visibility:hidden;transform:scale(.8)}}
+@keyframes orbit-obj-spin{0%{transform:rotateY(0deg) rotateX(-20deg)}50%{transform:rotateY(180deg) rotateX(20deg)}100%{transform:rotateY(360deg) rotateX(-20deg)}}
+
+/* Pause the cycle (not the spin) while the pointer or focus is in the stage. */
+.orbit-stage:hover .orbit-obj,.orbit-stage:focus-within .orbit-obj{animation-play-state:paused}
+/* A hovered/focused service takes over: hide every object, then show its match. */
+.orbit-stage:has(.orbit-items a:is(:hover,:focus-visible)) .orbit-obj{opacity:0!important;visibility:hidden!important}
+.orbit-stage:has(.orbit-items li:nth-child(1) a:is(:hover,:focus-visible)) .orbit-obj:nth-child(1),
+.orbit-stage:has(.orbit-items li:nth-child(2) a:is(:hover,:focus-visible)) .orbit-obj:nth-child(2),
+.orbit-stage:has(.orbit-items li:nth-child(3) a:is(:hover,:focus-visible)) .orbit-obj:nth-child(3),
+.orbit-stage:has(.orbit-items li:nth-child(4) a:is(:hover,:focus-visible)) .orbit-obj:nth-child(4),
+.orbit-stage:has(.orbit-items li:nth-child(5) a:is(:hover,:focus-visible)) .orbit-obj:nth-child(5),
+.orbit-stage:has(.orbit-items li:nth-child(6) a:is(:hover,:focus-visible)) .orbit-obj:nth-child(6){opacity:1!important;visibility:visible!important;transform:scale(1)!important}
+.orbit-stage:has(.orbit-items a:is(:hover,:focus-visible)) .orbit-items a:not(:hover,:focus-visible){color:var(--color-text-secondary)!important;transform:none!important}
+
+/* ---- orbiting service labels ---- */
+.orbit-items{list-style:none;margin:0;padding:0;position:absolute;inset:0}
+.orbit-items li{position:absolute;top:50%;left:50%;margin:0;transform:translate(-50%,-50%) rotate(calc(var(--i)*60deg)) translateY(calc(-1*var(--orbit-radius))) rotate(calc(var(--i)*-60deg))}
+.orbit-items a{display:inline-block;padding:.35rem .55rem;font-weight:var(--weight-semibold);font-size:clamp(.95rem,1.15vw,1.12rem);letter-spacing:-.01em;line-height:1.15;white-space:nowrap;text-decoration:none;color:var(--color-text-secondary);border-radius:var(--radius-xl);transition:color var(--motion-base),transform var(--motion-base);animation:orbit-cycle 12s var(--ease-standard) calc(var(--i)*2s) infinite both}
+.orbit-stage .orbit-items a:is(:hover,:focus-visible){color:var(--color-brand)!important;transform:scale(1.08)!important}
+.orbit-items a:focus-visible{outline:2px solid var(--color-brand);outline-offset:3px}
+.orbit-stage:hover .orbit-items a,.orbit-stage:focus-within .orbit-items a{animation-play-state:paused}
+@keyframes orbit-cycle{0%,16%,100%{color:var(--color-text-secondary);transform:scale(1)}4%,12%{color:var(--color-brand);transform:scale(1.09)}}
+
+/* ---- panels flanking the orbit ---- */
+.orbit-layout{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(1.25rem,3.5vw,3.75rem);width:100%;max-width:1380px;margin:0 auto}
+.orbit-panel{max-width:23rem}
+.orbit-panel-left{justify-self:end;text-align:right}
+.orbit-panel-right{justify-self:start;text-align:left}
+.orbit-panel h3{margin:0 0 .5rem;font-family:var(--font-heading);font-size:clamp(1.3rem,1.9vw,1.75rem);font-weight:400;letter-spacing:-.01em;color:var(--color-text-primary)}
+.orbit-panel p{margin:0 0 1.25rem;color:var(--color-text-secondary);font-size:clamp(.95rem,1.05vw,1.08rem);line-height:1.5}
+
+/* ---- self-contained buttons (scoped so they never touch the host's .button) ---- */
+.service-orbit .orbit-btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border:1px solid var(--color-brand);padding:.92rem 1.28rem;font-family:var(--font-body);font-weight:var(--weight-bold);font-size:.78rem;letter-spacing:.01em;border-radius:4px;text-decoration:none;cursor:pointer;white-space:nowrap;box-shadow:0 8px 20px #082b5012;transition:transform var(--motion-hover),background var(--motion-hover),color var(--motion-hover),box-shadow var(--motion-hover)}
+.service-orbit .orbit-btn:hover{transform:translateY(-3px);box-shadow:0 14px 32px #082b502b}
+.service-orbit .orbit-btn:focus-visible{outline:2px solid var(--color-brand);outline-offset:3px}
+.service-orbit .orbit-btn-dark{background:var(--color-brand);color:#fff}
+.service-orbit .orbit-btn-dark:hover{background:var(--color-brand-hover);border-color:var(--color-brand-hover)}
+.service-orbit .orbit-btn-outline{background:transparent;color:var(--color-brand)}
+.service-orbit .orbit-btn-outline:hover{background:var(--color-brand-subtle)}
+.service-orbit .orbit-btn span{display:inline-block;transition:transform var(--motion-hover)}
+.service-orbit .orbit-btn:hover span{transform:translateX(3px)}
+
+/* ---- tablet: stack panels above/below the orbit ---- */
+@media(max-width:900px){
+  .service-orbit{min-height:0}
+  .orbit-layout{grid-template-columns:1fr;justify-items:center;gap:clamp(1.5rem,4vw,2.5rem)}
+  .orbit-panel{max-width:32rem}
+  .orbit-panel-left,.orbit-panel-right{justify-self:center;text-align:center}
+}
+
+/* ---- phone: drop the ring, show services as a 2-col grid ---- */
+@media(max-width:640px){
+  .orbit-stage{width:auto;height:auto;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+  .orbit-ring{display:none}
+  .orbit-core{position:static;transform:none}
+  .orbit-items{position:static;inset:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;width:100%;max-width:22rem}
+  .orbit-items li{position:static;transform:none}
+  .orbit-items a{display:block;padding:.85rem .6rem;white-space:normal;background:var(--color-surface-sunken);border:1px solid var(--color-surface-muted)}
+  .orbit-stage .orbit-items a:is(:hover,:focus-visible){transform:none!important;border-color:var(--color-brand-muted)}
+}
+
+/* ---- reduced motion: freeze the ring, show the first object steady ---- */
+@media(prefers-reduced-motion:reduce){
+  .orbit-items a{animation:none;color:var(--color-text-primary)}
+  .orbit-obj{animation:none}
+  .orbit-obj:first-child{opacity:1;visibility:visible;transform:none}
+  .orbit-obj-spin{animation:none;transform:rotateY(-24deg) rotateX(-10deg)}
+}

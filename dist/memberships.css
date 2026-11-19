@@ -1,0 +1,207 @@
+/* Memberships page. Every rule is scoped to .mem-page so it cannot leak into other pages. */
+.mem-page{--beige:#f4f5ff;--teal:#00008B;--teal2:#000070;--lime:#dfe2ff;--ink:#11111e;--muted:#555b6b;--white:#fff;--line:#dcddeb;
+--m-serif:'Platypi',Georgia,serif;--m-sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+background:var(--beige);color:var(--ink);font-family:var(--m-sans);line-height:1.55;overflow-x:hidden;font-size:16px}
+.mem-page *{box-sizing:border-box}
+.mem-page h1,.mem-page h2,.mem-page h3{margin:0;font-family:var(--m-serif);font-weight:400;letter-spacing:-.01em;color:inherit}
+.mem-page p,.mem-page ul,.mem-page blockquote,.mem-page hr{margin:0}
+.mem-page a{color:inherit;text-decoration:none}
+.mem-page button{font-family:inherit}
+.mem-page em{font-weight:400}
+.mem-wrap{max-width:1680px;margin:0 auto;padding:18px 22px 40px}
+.mem-eyebrow{font-size:15px;letter-spacing:.02em;text-transform:uppercase;text-align:center;margin-bottom:22px;color:var(--ink)}
+
+/* hero */
+.mem-page .mhero{background:var(--teal);color:#fff;border-radius:32px;position:relative;overflow:hidden;min-height:640px;display:flex;flex-direction:column}
+.mem-page .waves{position:absolute;inset:0;pointer-events:none;z-index:0}
+.mem-page .waves svg{position:absolute;top:0;height:100%;width:34%;opacity:.55}
+.mem-page .waves svg.l{left:-2%}.mem-page .waves svg.r{right:-2%;transform:scaleX(-1)}
+.mem-page .waves path{fill:none;stroke:#8a90ff;stroke-opacity:.22;stroke-width:1.1}
+.mem-page .mhero .inner{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 24px 70px;position:relative;z-index:2;will-change:transform,opacity}
+.mem-page .mhero h1{font-size:clamp(46px,6.6vw,96px);line-height:1.05;margin-bottom:34px;max-width:1100px;text-wrap:balance;color:#fff}
+.mem-page .mhero h1 .w{display:inline-block;opacity:0;transform:translateY(34px);filter:blur(8px);animation:memRise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.mem-page .mhero h1 .w:nth-child(2){animation-delay:.12s}.mem-page .mhero h1 .w:nth-child(3){animation-delay:.24s}.mem-page .mhero h1 .w:nth-child(4){animation-delay:.36s}
+.mem-page .mhero h1 .w.it{font-style:italic;color:#b9beff}
+@keyframes memRise{to{opacity:1;transform:none;filter:none}}
+.mem-page .mhero p.sub{font-size:clamp(17px,1.5vw,22px);font-weight:500;max-width:720px;opacity:0;animation:memRise 1s .55s cubic-bezier(.2,.8,.2,1) forwards;color:#fff}
+.mem-page .chev{margin-top:46px;width:44px;height:44px;border:0;background:none;color:#fff;cursor:pointer;animation:memBob 2.2s ease-in-out infinite;opacity:.95;padding:0}
+.mem-page .chev svg{width:44px;height:26px}
+@keyframes memBob{50%{transform:translateY(9px)}}
+
+/* pricing */
+.mem-page .pricing{padding:110px 0 100px;position:relative}
+.mem-page .switch{display:flex;justify-content:center;margin-bottom:84px}
+.mem-page .switch div{display:inline-flex;background:rgba(0,0,139,.08);border-radius:99px;padding:5px;position:relative}
+.mem-page .switch button{position:relative;z-index:1;border:0;background:transparent;font:600 16px var(--m-sans);color:var(--teal);padding:13px 30px;border-radius:99px;cursor:pointer;transition:color .3s}
+.mem-page .switch button.on{color:#fff}
+.mem-page .switch .pillbg{position:absolute;top:5px;bottom:5px;left:5px;background:var(--teal);border-radius:99px;transition:all .45s cubic-bezier(.2,.8,.2,1)}
+.mem-page .fan{display:grid;gap:26px;max-width:1280px;margin:0 auto;align-items:stretch;perspective:1400px}
+.mem-page .fan.c3{grid-template-columns:repeat(3,1fr)}
+.mem-page .fan.c2{grid-template-columns:repeat(2,1fr);max-width:920px}
+@media(max-width:960px){.mem-page .fan.c3,.mem-page .fan.c2{grid-template-columns:1fr;max-width:520px}}
+.mem-page .mplan{background:#fff;border:1.5px solid rgba(17,17,30,.16);border-radius:28px;padding:44px 40px 40px;position:relative;display:flex;flex-direction:column;transition:transform 1.05s cubic-bezier(.2,.85,.2,1),opacity .8s ease,box-shadow .4s;transform-origin:50% 100%;opacity:0}
+.mem-page .mplan.rec{border-color:var(--teal);z-index:3;box-shadow:0 30px 60px -34px rgba(0,0,139,.45)}
+.mem-page .fan .mplan:first-child{transform:translate(52%,36px) rotate(-9deg)}
+.mem-page .fan .mplan:last-child{transform:translate(-52%,36px) rotate(9deg)}
+.mem-page .fan.c3 .mplan:nth-child(2){transform:translateY(24px) scale(.94)}
+.mem-page .fan.in .mplan,.mem-page .fan.in .mplan:first-child,.mem-page .fan.in .mplan:last-child,.mem-page .fan.in.c3 .mplan:nth-child(2){transform:none;opacity:1}
+.mem-page .fan.in .mplan:hover,.mem-page .fan.in.c3 .mplan:nth-child(2):hover{transform:translateY(-6px)}
+@media(max-width:960px){.mem-page .fan .mplan:first-child,.mem-page .fan .mplan:last-child,.mem-page .fan.c3 .mplan:nth-child(2){transform:translateY(30px)}}
+.mem-page .mbadge{position:absolute;top:-20px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-weight:600;font-size:15px;padding:10px 26px;border-radius:99px;display:flex;gap:9px;align-items:center;white-space:nowrap}
+.mem-page .mplan h3{font:500 25px var(--m-sans);margin-bottom:6px;letter-spacing:-.01em}
+.mem-page .mplan .cat{color:var(--muted);font-size:15.5px;margin-bottom:22px}
+.mem-page .mprice{font:700 clamp(56px,5.6vw,84px)/1 var(--m-sans);letter-spacing:-.04em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.mem-page .mprice small{font:400 17px var(--m-sans);letter-spacing:0;color:var(--muted)}
+.mem-page .mplan hr{border:0;border-top:2px dotted rgba(17,17,30,.35);margin:26px 0 28px}
+.mem-page .mplan ul{list-style:none;padding:0;display:grid;gap:15px;margin-bottom:38px;flex:1}
+.mem-page .mplan li{display:flex;gap:14px;align-items:flex-start;font-size:16.5px}
+.mem-page .mplan li:before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--ink);margin-top:9px}
+.mem-page .mplan li.add{color:var(--muted)}.mem-page .mplan li.add:before{background:none;border:1.5px solid var(--muted)}
+.mem-page .btn{display:block;width:100%;text-align:center;border:0;cursor:pointer;border-radius:99px;padding:19px 26px;font-weight:700;font-size:17px;background:var(--lime);color:var(--ink);transition:transform .3s,background .3s,color .3s}
+.mem-page .btn:hover{transform:translateY(-2px);background:var(--teal);color:#fff}
+.mem-page .mplan.rec .btn{background:var(--teal);color:#fff}
+.mem-page .mplan.rec .btn:hover{background:var(--lime);color:var(--ink)}
+.mem-page .fine{text-align:center;color:var(--muted);font-size:15px;margin-top:46px;max-width:760px;margin-left:auto;margin-right:auto}
+
+/* band */
+.mem-page .band{background:var(--lime);border-radius:32px;padding:100px 40px 110px;text-align:center}
+.mem-page .band h2{font-size:clamp(34px,4.6vw,64px);line-height:1.1;max-width:980px;margin:0 auto 56px}
+.mem-page .band .rule{height:5px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);margin:0 auto 64px;max-width:1500px;transform:scaleX(0);transition:transform 1.3s cubic-bezier(.2,.8,.2,1)}
+.mem-page .band.in .rule{transform:scaleX(1)}
+.mem-page .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;max-width:1500px;margin:0 auto}
+@media(max-width:960px){.mem-page .cols{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.mem-page .cols{grid-template-columns:1fr}}
+.mem-page .col{opacity:0;transform:translateY(30px);transition:all .9s cubic-bezier(.2,.8,.2,1)}
+.mem-page .band.in .col{opacity:1;transform:none}
+.mem-page .band.in .col:nth-child(2){transition-delay:.12s}.mem-page .band.in .col:nth-child(3){transition-delay:.24s}.mem-page .band.in .col:nth-child(4){transition-delay:.36s}
+.mem-page .col svg{width:64px;height:64px;stroke:var(--ink);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:26px;transition:transform .6s}
+.mem-page .col:hover svg{transform:translateY(-6px) rotate(-4deg)}
+.mem-page .col h3{font-size:30px;margin-bottom:14px}
+.mem-page .col p{font-size:17px;max-width:300px;margin:0 auto 26px}
+.mem-page .col:after{content:"";display:block;width:36px;height:5px;margin:0 auto;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+
+/* compare */
+.mem-page .compare{padding:120px 0 40px}
+.mem-page .compare h2{font-size:clamp(34px,4.4vw,60px);line-height:1.1;text-align:center;max-width:900px;margin:0 auto 60px}
+.mem-page .mem-card{background:#fff;border-radius:28px;padding:20px 40px 30px;max-width:1280px;margin:0 auto;overflow-x:auto}
+.mem-page table{width:100%;border-collapse:collapse;min-width:620px}
+.mem-page th,.mem-page td{padding:20px 14px;text-align:center;border-bottom:1px solid rgba(17,17,30,.12);font-size:17px;background:none}
+.mem-page th:first-child,.mem-page td:first-child{text-align:left;width:50%}
+.mem-page thead th{border-bottom:2px solid var(--ink);padding-top:26px;vertical-align:bottom;font-weight:400}
+.mem-page thead .pn{font:500 28px var(--m-serif)}.mem-page thead .pp{font-size:15px;color:var(--muted)}
+.mem-page .hl{background:#eef0ff}
+.mem-page .ck{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;font-size:14px}
+.mem-page .tag{font-size:13.5px;font-weight:600;background:rgba(0,0,139,.08);color:var(--teal);padding:4px 12px;border-radius:99px}
+.mem-page tr:last-child td{border-bottom:0}
+
+/* approach */
+.mem-page .approach{padding:130px 0 80px}
+.mem-page .approach h2{font-size:clamp(34px,4.6vw,64px);line-height:1.1;text-align:center;max-width:900px;margin:0 auto 70px}
+.mem-page .arow{display:grid;grid-template-columns:1fr 360px;gap:24px;max-width:1500px;margin:0 auto}
+@media(max-width:1000px){.mem-page .arow{grid-template-columns:1fr}}
+.mem-page .quote{background:#fff;border-radius:28px;display:grid;grid-template-columns:300px 1fr;gap:50px;padding:60px 60px 50px;align-items:center}
+@media(max-width:760px){.mem-page .quote{grid-template-columns:1fr;padding:36px 26px;gap:26px;justify-items:center}}
+.mem-page .ring{position:relative;width:260px;height:260px}
+.mem-page .ring svg.t{position:absolute;inset:0;width:100%;height:100%;animation:memSpin 28s linear infinite}
+.mem-page .ring svg.t text{font:500 15px var(--m-sans);letter-spacing:.32em;fill:var(--ink);text-transform:uppercase}
+.mem-page .ring .q{position:absolute;inset:0;display:grid;place-items:center;font:700 120px/1 var(--m-serif);color:var(--teal);padding-top:44px}
+@keyframes memSpin{to{transform:rotate(360deg)}}
+.mem-page .qbody{min-height:340px;display:flex;flex-direction:column}
+.mem-page .slide{display:none;flex:1;flex-direction:column}
+.mem-page .slide.on{display:flex;animation:memFade .7s ease}
+@keyframes memFade{from{opacity:0;transform:translateY(16px)}}
+.mem-page .slide .lab{font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--teal);margin-bottom:18px}
+.mem-page .slide blockquote{font:italic 400 clamp(24px,2.4vw,34px)/1.35 var(--m-serif);flex:1}
+.mem-page .who{display:flex;align-items:center;gap:20px;border-top:1px solid rgba(17,17,30,.2);padding-top:28px;margin-top:34px;flex-wrap:wrap}
+.mem-page .mono{width:70px;height:70px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font:500 30px var(--m-serif)}
+.mem-page .who b{display:block;font-size:22px;font-weight:600}.mem-page .who span{color:var(--muted);font-size:16px}
+.mem-page .arrows{margin-left:auto;display:flex;gap:12px}
+.mem-page .arrows button{width:68px;height:68px;border-radius:50%;border:0;cursor:pointer;background:var(--teal);color:#fff;display:grid;place-items:center;transition:transform .3s;padding:0}
+.mem-page .arrows button+button{background:var(--lime);color:var(--ink)}
+.mem-page .arrows button:hover{transform:scale(1.08)}
+.mem-page .arrows svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mem-page .stat{background:var(--lime);border-radius:28px;padding:56px 36px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.mem-page .stat h3{font-size:50px;line-height:1.1;margin-bottom:46px}
+.mem-page .avs{display:flex;margin-bottom:46px}
+.mem-page .avs img{width:76px;height:76px;border-radius:50%;border:3px solid var(--lime);object-fit:cover;object-position:center top;margin-left:-14px;box-shadow:0 0 0 1.5px #fff}
+.mem-page .avs img:first-child{margin-left:0}
+.mem-page .stat p{font-size:22px;line-height:1.35;font-weight:500;max-width:270px}
+
+/* scroll reveal */
+.mem-page .rv{opacity:0;transform:translateY(28px);transition:all .9s cubic-bezier(.2,.8,.2,1)}.mem-page .rv.in{opacity:1;transform:none}
+@media(max-width:600px){.mem-wrap{padding:12px 12px 24px}.mem-page .mhero{border-radius:24px;min-height:560px}.mem-page .pricing{padding:80px 0 70px}.mem-page .switch{margin-bottom:64px}.mem-page .switch button{padding:12px 18px;font-size:15px}.mem-page .mplan{padding:36px 26px 30px}.mem-page .band{padding:70px 22px 80px;border-radius:24px}.mem-page .mem-card{padding:10px 18px 20px}.mem-page .arrows button{width:56px;height:56px}}
+@media(prefers-reduced-motion:reduce){.mem-page *{animation:none!important;transition:none!important}.mem-page .mhero h1 .w,.mem-page .mhero p.sub,.mem-page .mplan,.mem-page .col,.mem-page .rv{opacity:1!important;transform:none!important;filter:none!important}.mem-page .band .rule{transform:none}}
+
+/* ===== Compact scale: smaller type, and each section sized to fit one screen (viewport minus the 86px site header) ===== */
+.mem-page{--mem-h:calc(100vh - 86px);font-size:14px}
+.mem-wrap{padding:12px 18px 24px}
+.mem-eyebrow{font-size:12.5px;margin-bottom:14px}
+.mem-page .mhero{min-height:calc(var(--mem-h) - 24px);border-radius:26px}
+.mem-page .mhero .inner{padding:48px 24px 40px}
+.mem-page .mhero h1{font-size:clamp(34px,4.7vw,68px);margin-bottom:22px;max-width:900px}
+.mem-page .mhero p.sub{font-size:clamp(14.5px,1.15vw,17px);max-width:620px}
+.mem-page .chev{margin-top:30px;width:36px;height:36px}.mem-page .chev svg{width:36px;height:21px}
+.mem-page .pricing{padding:44px 0;min-height:var(--mem-h);display:flex;flex-direction:column;justify-content:center}
+.mem-page .switch{margin-bottom:46px}
+.mem-page .switch button{font-size:14px;padding:10px 24px}
+.mem-page .fan{gap:20px}
+.mem-page .fan.c3{max-width:1120px}.mem-page .fan.c2{max-width:800px}
+.mem-page .mplan{padding:30px 28px 26px;border-radius:22px}
+.mem-page .mbadge{font-size:12.5px;padding:7px 20px;top:-15px}
+.mem-page .mplan h3{font-size:19px}
+.mem-page .mplan .cat{font-size:13px;margin-bottom:14px}
+.mem-page .mprice{font-size:clamp(38px,3.7vw,54px)}
+.mem-page .mprice small{font-size:14px}
+.mem-page .mplan hr{margin:16px 0 18px}
+.mem-page .mplan ul{gap:9px;margin-bottom:22px}
+.mem-page .mplan li{font-size:13.5px;gap:11px;line-height:1.4}
+.mem-page .mplan li:before{width:7px;height:7px;margin-top:6px}
+.mem-page .btn{padding:14px 20px;font-size:14.5px}
+.mem-page .fine{font-size:12.5px;margin-top:28px}
+.mem-page .band{padding:48px 32px 52px;border-radius:26px;min-height:var(--mem-h);display:flex;flex-direction:column;justify-content:center}
+.mem-page .band h2{font-size:clamp(26px,3.3vw,46px);margin-bottom:34px}
+.mem-page .band .rule{margin-bottom:38px}
+.mem-page .cols{gap:30px}
+.mem-page .col svg{width:48px;height:48px;margin-bottom:16px}
+.mem-page .col h3{font-size:22px;margin-bottom:9px}
+.mem-page .col p{font-size:14px;margin-bottom:18px;max-width:250px}
+.mem-page .compare{padding:44px 0 24px;min-height:var(--mem-h);display:flex;flex-direction:column;justify-content:center}
+.mem-page .compare h2{font-size:clamp(26px,3.2vw,42px);margin-bottom:30px}
+.mem-page .mem-card{padding:8px 30px 16px;border-radius:22px;max-width:1040px}
+.mem-page th,.mem-page td{padding:10px 12px;font-size:14px}
+.mem-page thead th{padding-top:16px}
+.mem-page thead .pn{font-size:21px}.mem-page thead .pp{font-size:13px}
+.mem-page .ck{width:22px;height:22px;font-size:12px}
+.mem-page .tag{font-size:12px;padding:3px 10px}
+.mem-page .approach{padding:44px 0 24px;min-height:var(--mem-h);display:flex;flex-direction:column;justify-content:center}
+.mem-page .approach h2{font-size:clamp(26px,3.3vw,46px);margin-bottom:34px}
+.mem-page .arow{grid-template-columns:1fr 300px;gap:18px;max-width:1240px}
+.mem-page .quote{padding:36px 40px 30px;grid-template-columns:210px 1fr;gap:34px;border-radius:22px}
+.mem-page .ring{width:190px;height:190px}
+.mem-page .ring svg.t text{font-size:15px}
+.mem-page .ring .q{font-size:86px;padding-top:30px}
+.mem-page .qbody{min-height:250px}
+.mem-page .slide .lab{font-size:12px;margin-bottom:12px}
+.mem-page .slide blockquote{font-size:clamp(18px,1.7vw,24px)}
+.mem-page .who{padding-top:18px;margin-top:20px;gap:14px}
+.mem-page .mono{width:52px;height:52px;font-size:22px}
+.mem-page .who b{font-size:17px}.mem-page .who span{font-size:13.5px}
+.mem-page .arrows button{width:48px;height:48px}.mem-page .arrows svg{width:20px;height:20px}
+.mem-page .stat{padding:34px 24px;border-radius:22px}
+.mem-page .stat h3{font-size:36px;margin-bottom:28px}
+.mem-page .avs{margin-bottom:28px}.mem-page .avs img{width:58px;height:58px}
+.mem-page .stat p{font-size:16px;max-width:230px}
+@media(max-width:1000px){.mem-page .arow{grid-template-columns:1fr}}
+@media(max-width:900px){.mem-page .mhero,.mem-page .pricing,.mem-page .band,.mem-page .compare,.mem-page .approach{min-height:0}.mem-page .pricing{padding:60px 0}.mem-page .compare,.mem-page .approach{padding:50px 0 24px}}
+@media(max-width:600px){.mem-page .mhero h1{font-size:36px}.mem-page .mplan{padding:28px 20px 24px}.mem-page .quote{grid-template-columns:1fr;padding:28px 20px}.mem-page .band{padding:44px 18px}}
+@media(min-width:901px) and (max-height:830px){
+.mem-page .pricing{padding:26px 0}.mem-page .switch{margin-bottom:30px}
+.mem-page .mplan{padding:22px 24px 20px}.mem-page .mplan .cat{margin-bottom:8px}
+.mem-page .mprice{font-size:clamp(34px,3.3vw,46px)}
+.mem-page .mplan hr{margin:12px 0 12px}.mem-page .mplan ul{gap:6px;margin-bottom:14px}
+.mem-page .mplan li{font-size:13px;line-height:1.35}.mem-page .btn{padding:11px 18px}
+.mem-page .fine{margin-top:18px}
+.mem-page .compare{padding:26px 0 12px}.mem-page .compare h2{margin-bottom:18px}
+.mem-page th,.mem-page td{padding:6px 12px}
+.mem-page .band{padding:34px 28px 36px}.mem-page .band h2{margin-bottom:22px}.mem-page .band .rule{margin-bottom:26px}
+.mem-page .approach{padding:26px 0 12px}.mem-page .approach h2{margin-bottom:22px}
+}

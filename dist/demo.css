@@ -729,3 +729,71 @@ body .chat-panel .chat-head{padding:1.05rem 1.1rem .85rem;background:radial-grad
   .about-restored .ecg-dot.is-lit:after{animation:none}
   .about-restored .ecg-step,.about-restored .ecg-dot,.about-restored .ecg-num{transition:none}
 }
+/* FAQ split out from Stories into its own stacked, single-column section. */
+.demo-full-home .assurance-split{grid-template-columns:1fr}
+.demo-full-home .assurance-split>div{max-width:880px;width:100%;margin-inline:auto}
+.demo-full-home .assurance-faq-section{background:#fff;border-top:1px solid #e7e7f3}
+
+/* Stories that matter: centered heading with one auto-rotating, cross-fading review. */
+.demo-full-home .stories-center{text-align:center}
+.demo-full-home .stories-center .eyebrow{display:block}
+.demo-full-home .stories-intro{margin:.55rem auto 0;max-width:620px;font-size:.84rem;line-height:1.55;color:#4a4f70}
+.demo-full-home .stories-rotator{position:relative;display:grid;margin:1.7rem auto 0;max-width:600px}
+.demo-full-home .review-card{grid-area:1/1;display:flex;align-items:center;gap:1.1rem;text-align:left;padding:1.35rem 1.6rem;background:#fff;border:1px solid #e4e4f2;border-left:3px solid #00008B;border-radius:14px;box-shadow:0 12px 34px #00008b10;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .55s ease,transform .55s ease,visibility 0s linear .55s}
+.demo-full-home .review-card.is-active{opacity:1;visibility:visible;transform:none;transition:opacity .55s ease,transform .55s ease,visibility 0s}
+.demo-full-home .review-avatar{flex:0 0 auto;width:56px;height:56px;border-radius:50%;background:#eeeeff;color:#00008b;display:grid;place-items:center;border:1px solid #dcdcf4}
+.demo-full-home .review-body{min-width:0}
+.demo-full-home .review-mark{display:block;font:2.1rem var(--serif);line-height:.55;color:#9a9ad8;height:1rem}
+.demo-full-home .review-text{font-family:var(--serif);font-size:clamp(1.1rem,1.5vw,1.3rem);font-weight:500;line-height:1.3;letter-spacing:-.01em;color:#23234a;margin:.35rem 0 .55rem}
+.demo-full-home .review-meta{font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:#636a86}
+.demo-full-home .review-dots{display:flex;gap:.5rem;justify-content:center;margin-top:1.2rem}
+.demo-full-home .review-dots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#cfd0ea;cursor:pointer;transition:background .3s,transform .3s}
+.demo-full-home .review-dots button:hover{background:#9a9bd3}
+.demo-full-home .review-dots button.is-active{background:#00008b;transform:scale(1.3)}
+.demo-full-home .stories-center .subtle{margin-top:1.4rem;color:#697084}
+@media(prefers-reduced-motion:reduce){.demo-full-home .review-card{transition:visibility 0s;transform:none}.demo-full-home .review-card.is-active{transition:visibility 0s}}
+@media(max-width:560px){.demo-full-home .review-card{flex-direction:column;text-align:center;gap:.7rem;padding:1.5rem 1.2rem}.demo-full-home .review-mark{display:none}}
+
+/* Premium animated FAQ accordion (home): numbered pill rows, single-open, height+opacity reveal. */
+.demo-full-home .faq-accordion{display:flex;flex-direction:column;gap:.85rem;margin-top:2rem;text-align:left}
+.demo-full-home .faq-item{border:1px solid #e4e5ef;border-radius:16px;background:#f4f5f9;transition:transform .3s ease,box-shadow .3s ease,background .3s ease,border-color .3s ease}
+.demo-full-home .faq-item:hover{transform:translateY(-2px);background:#fbfbff;box-shadow:0 12px 26px #0b14450f}
+.demo-full-home .faq-h{margin:0;font:inherit}
+.demo-full-home .faq-trigger{width:100%;display:flex;align-items:center;gap:1rem;min-height:78px;padding:1.1rem 1.35rem 1.1rem 1.5rem;background:none;border:0;cursor:pointer;text-align:left;color:#15234d;border-radius:16px}
+.demo-full-home .faq-trigger:focus-visible{outline:2px solid #2b8eaa;outline-offset:3px}
+.demo-full-home .faq-num{flex:0 0 auto;display:grid;place-items:center;min-width:38px;height:34px;padding:0 .45rem;border-radius:9px;background:#e7f1f4;color:#1f7d9c;font:700 .82rem/1 var(--sans);letter-spacing:.04em}
+.demo-full-home .faq-q{flex:1 1 auto;font:650 1.04rem/1.35 var(--sans);letter-spacing:-.01em;color:#172550}
+.demo-full-home .faq-ctrl{flex:0 0 auto;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #dfe1ee;color:#1d2b57;transition:transform .3s ease,background .3s ease,border-color .3s ease,color .3s ease}
+.demo-full-home .faq-item:hover .faq-ctrl{transform:scale(1.07)}
+.demo-full-home .faq-ctrl-icon{transition:transform .4s cubic-bezier(.22,.8,.3,1)}
+.demo-full-home .faq-ctrl-v{transform-origin:12px 12px;transition:transform .35s ease,opacity .35s ease}
+/* Open state */
+.demo-full-home .faq-item.is-open{background:#fff;border-color:transparent;box-shadow:0 18px 40px #0b14451a}
+.demo-full-home .faq-item.is-open::before{content:"";position:absolute;inset:0;border-radius:16px;padding:1px;background:linear-gradient(120deg,#3f9bb8,#3a6fc4,#7b6cc9);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0;transition:opacity .4s ease}
+.demo-full-home .faq-item{position:relative}
+.demo-full-home .faq-item.is-open::before{opacity:1}
+.demo-full-home .faq-item.is-open .faq-ctrl{background:#13224c;border-color:#13224c;color:#fff}
+.demo-full-home .faq-item.is-open .faq-ctrl-icon{transform:rotate(180deg)}
+.demo-full-home .faq-item.is-open .faq-ctrl-v{transform:scaleY(0);opacity:0}
+/* Collapsible panel: animate height via grid-template-rows 0fr -> 1fr */
+.demo-full-home .faq-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.22,.8,.3,1)}
+.demo-full-home .faq-item.is-open .faq-panel{grid-template-rows:1fr}
+.demo-full-home .faq-panel-inner{overflow:hidden;visibility:hidden;transition:visibility 0s linear .42s}
+.demo-full-home .faq-item.is-open .faq-panel-inner{visibility:visible;transition:visibility 0s}
+.demo-full-home .faq-panel-inner p{max-width:60ch;margin:0;padding:.1rem 3.2rem 1.45rem 4.4rem;font:400 .92rem/1.65 var(--sans);color:#4b5473;opacity:0;transform:translateY(6px);transition:opacity .4s ease .08s,transform .4s ease .08s}
+.demo-full-home .faq-item.is-open .faq-panel-inner p{opacity:1;transform:none}
+@media(max-width:620px){
+ .demo-full-home .faq-trigger{gap:.7rem;padding:.95rem 1rem;min-height:66px}
+ .demo-full-home .faq-num{min-width:32px;height:30px;font-size:.74rem}
+ .demo-full-home .faq-q{font-size:.95rem}
+ .demo-full-home .faq-ctrl{width:34px;height:34px}
+ .demo-full-home .faq-panel-inner p{padding:.1rem 1.1rem 1.2rem 1.1rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .demo-full-home .faq-item,.demo-full-home .faq-panel,.demo-full-home .faq-ctrl,.demo-full-home .faq-ctrl-icon,.demo-full-home .faq-ctrl-v,.demo-full-home .faq-panel-inner p,.demo-full-home .faq-item.is-open::before{transition:none}
+ .demo-full-home .faq-panel-inner p{opacity:1;transform:none}
+}
+
+/* Center the "Explore all FAQs" link under the FAQ accordion. */
+.demo-full-home .faq-explore{display:flex;justify-content:center;margin-top:1.7rem}
+.demo-full-home .faq-explore .link-arrow{font-weight:700}
