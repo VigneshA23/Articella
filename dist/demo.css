@@ -666,3 +666,66 @@ body .chat-panel .chat-head{padding:1.05rem 1.1rem .85rem;background:radial-grad
   .about-restored .story-scroll-img,.about-restored .story-scroll.is-ready .story-chapter,.about-restored .story-chapter-num{transition:none;transform:none}
 }
 .about-restored .about-editorial-copy h1{margin-top:0}
+/* About: "Why Articella" — a photo carrying the idea, beside the reason and three editorial rows. */
+.about-restored .about-purpose{background:#fff;padding-top:4.5rem;padding-bottom:4.5rem}
+.about-restored .about-purpose-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(2.5rem,6vw,6rem);align-items:center}
+.about-restored .about-purpose-photo{position:relative;margin:0;aspect-ratio:4/5;isolation:isolate}
+.about-restored .about-purpose-photo:before{content:'';position:absolute;z-index:-1;top:1.3rem;left:1.3rem;right:-1.3rem;bottom:-1.3rem;border-radius:22px;background:#eceeff}
+.about-restored .about-purpose-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 40%;border-radius:20px}
+.about-restored .about-purpose-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:6rem 1.7rem 1.6rem;border-radius:0 0 20px 20px;background:linear-gradient(0deg,#00004de6 0,#00006b8c 52%,#00008b00 100%);color:#fff}
+.about-restored .about-purpose-photo figcaption p{margin:0 0 .8rem;font:500 clamp(1.4rem,2vw,1.9rem)/1.25 var(--serif);color:#fff;max-width:340px}
+.about-restored .about-purpose-photo figcaption span{font-size:.72rem;letter-spacing:.16em;font-weight:800;color:#cdd1ff}
+.about-restored .about-purpose-body h2{font-size:clamp(2.1rem,3vw,3.2rem);line-height:1.12;margin:0 0 1.2rem;max-width:560px}
+.about-restored .about-purpose-lead{margin:0;max-width:560px;font-size:1rem;line-height:1.75;color:#4a5a6b}
+.about-restored .about-purpose-rows{list-style:none;margin:2.4rem 0 0;padding:0}
+.about-restored .about-purpose-rows li{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);align-items:center;gap:1.5rem;padding:1.35rem 0;border-top:1px solid #dedfee}
+.about-restored .about-purpose-rows li:last-child{border-bottom:1px solid #dedfee}
+.about-restored .about-purpose-rows li:before{content:'';position:absolute;left:0;top:-1px;height:1px;width:0;background:#00008b;transition:width .6s cubic-bezier(.16,1,.3,1)}
+.about-restored .about-purpose-rows li:hover:before{width:100%}
+.about-restored .about-purpose-rows h3{margin:0;font:500 clamp(1.45rem,2vw,1.95rem)/1.15 var(--serif);color:#171747;transition:color .3s}
+.about-restored .about-purpose-rows li:hover h3{color:#00008b}
+.about-restored .about-purpose-rows p{margin:0;font-size:.94rem;line-height:1.55;color:#4a5a6b}
+@media(max-width:850px){
+  .about-restored .about-purpose{padding-top:3rem;padding-bottom:3rem}
+  .about-restored .about-purpose-grid{grid-template-columns:1fr;gap:2.4rem}
+  .about-restored .about-purpose-photo{aspect-ratio:4/3;margin-right:1.3rem}
+  .about-restored .about-purpose-rows li{grid-template-columns:1fr;gap:.35rem}
+}
+@media(prefers-reduced-motion:reduce){.about-restored .about-purpose-rows li:before,.about-restored .about-purpose-rows h3{transition:none}}
+
+/* About: centred founding-story heading, brand-colour label. */
+.about-restored .about-story-head{justify-content:center;text-align:center}
+.about-restored .about-story-steps .about-story-head .about-section-index{color:#00008b}
+/* About: the patient experience as a heartbeat line that draws itself as you scroll. */
+.about-restored .about-ecg{background:#f8f8fc;padding-top:4.5rem;padding-bottom:4.5rem;overflow:hidden}
+.about-restored .about-ecg-head{text-align:center;max-width:720px;margin:0 auto 2.4rem}
+.about-restored .about-ecg-head h2{margin:0;font-size:clamp(2.1rem,3vw,3.2rem);line-height:1.12}
+.about-restored .ecg-stage{position:relative;max-width:1180px;margin:0 auto;border-radius:22px;background-color:#fff;background-image:linear-gradient(#e9ebf8 1px,transparent 1px),linear-gradient(90deg,#e9ebf8 1px,transparent 1px);background-size:28px 28px;border:1px solid #e1e3f4;box-shadow:0 20px 44px #00008b12;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)}
+.about-restored .ecg-svg{display:block;width:100%;height:auto;overflow:visible}
+.about-restored .ecg-track,.about-restored .ecg-live{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.about-restored .ecg-track{stroke:#cfd2f0;stroke-width:3}
+.about-restored .ecg-live{stroke:#00008b;stroke-width:3.5;filter:drop-shadow(0 0 5px #00008b66)}
+.about-restored .ecg-head{fill:#fff;stroke:#00008b;stroke-width:3;filter:drop-shadow(0 0 9px #00008b99);opacity:0}
+.about-restored .ecg-dot{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#fff;border:3px solid #c3c7ee;transition:background .5s,border-color .5s,transform .5s cubic-bezier(.16,1,.3,1)}
+.about-restored .ecg-dot.is-lit{background:#00008b;border-color:#00008b;transform:scale(1.25)}
+.about-restored .ecg-dot.is-lit:after{content:'';position:absolute;inset:-9px;border-radius:50%;border:2px solid #00008b55;animation:ecgPing 2.2s ease-out infinite}
+@keyframes ecgPing{0%{transform:scale(.55);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+.about-restored .ecg-steps{list-style:none;margin:2.2rem auto 0;padding:0;max-width:1180px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+.about-restored .ecg-step{text-align:center;padding:0 1rem;transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.about-restored .about-ecg.is-ready .ecg-step{opacity:.22;transform:translateY(16px)}
+.about-restored .about-ecg.is-ready .ecg-step.is-lit{opacity:1;transform:none}
+.about-restored .ecg-num{display:block;margin-bottom:.4rem;font:500 clamp(3.2rem,5vw,4.6rem)/1 var(--serif);color:transparent;-webkit-text-stroke:1.5px #b8bcf5;transition:color .6s,-webkit-text-stroke-color .6s}
+.about-restored .ecg-step.is-lit .ecg-num{color:#00008b;-webkit-text-stroke-color:#00008b}
+.about-restored .ecg-step small{display:block;margin-bottom:.6rem;font-size:.74rem;letter-spacing:.16em;font-weight:800;color:#00008b}
+.about-restored .ecg-step h3{margin:0 0 .55rem;font:500 clamp(1.5rem,2vw,1.95rem)/1.15 var(--serif);color:#171747}
+.about-restored .ecg-step p{margin:0 auto;max-width:260px;font-size:.96rem;line-height:1.55;color:#4a5a6b}
+.about-restored .about-ecg-close{margin:2.8rem 0 0;text-align:center;font:500 clamp(1.3rem,1.9vw,1.75rem)/1.3 var(--serif);color:#00008b}
+@media(max-width:900px){
+  .about-restored .about-ecg{padding-top:3.2rem;padding-bottom:3.2rem}
+  .about-restored .ecg-steps{grid-template-columns:1fr;gap:1.8rem;margin-top:1.8rem}
+  .about-restored .ecg-dot{width:12px;height:12px;margin:-6px 0 0 -6px;border-width:2px}
+}
+@media(prefers-reduced-motion:reduce){
+  .about-restored .ecg-dot.is-lit:after{animation:none}
+  .about-restored .ecg-step,.about-restored .ecg-dot,.about-restored .ecg-num{transition:none}
+}
