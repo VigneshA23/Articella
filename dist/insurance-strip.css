@@ -21,6 +21,8 @@
   font-family: var(--sans, 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif);
   color: var(--is-text);
   padding-top: clamp(1.25rem, 2.5vw, 2.25rem);
+  padding-bottom: clamp(2rem, 4vw, 3.25rem);
+  margin-top: clamp(-3.5rem, -4vw, -2rem);
 }
 .insurance-strip *{ box-sizing:border-box; }
 

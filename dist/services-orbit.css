@@ -22,12 +22,12 @@
   --color-brand:            var(--home-blue, var(--navy, #10265d));
   --color-brand-hover:      color-mix(in srgb, var(--color-brand) 80%, #ffffff);
   --color-brand-active:     color-mix(in srgb, var(--color-brand) 82%, #000000);
-  --color-brand-subtle:     var(--home-soft, var(--ice, #eaf3f5));
+  --color-brand-subtle:     var(--home-soft, var(--ice, #eaedf5));
   --color-brand-muted:      var(--home-rule, var(--line, #dce4ed));
   --color-accent:           color-mix(in srgb, var(--color-brand) 72%, #ffffff);  /* lit interior for the centre object */
   --color-surface-canvas:   var(--white, #ffffff);
   --color-surface-sunken:   var(--home-soft, var(--warm, #f5f4ef));
-  --color-surface-subtle:   var(--home-soft, var(--ice, #eaf3f5));
+  --color-surface-subtle:   var(--home-soft, var(--ice, #eaedf5));
   --color-surface-muted:    var(--home-rule, var(--line, #dce4ed));
   --color-text-primary:     var(--ink, #16213d);
   --color-text-secondary:   var(--muted, #65718a);
@@ -148,11 +148,11 @@
   .orbit-panel-left,.orbit-panel-right{justify-self:center;text-align:center}
 }
 
-/* ---- phone: drop the ring, show services as a 2-col grid ---- */
-@media(max-width:640px){
+/* ---- phone/tablet: drop the ring, stack the service names below the visual ---- */
+@media(max-width:900px){
   .orbit-stage{width:auto;height:auto;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
   .orbit-ring{display:none}
-  .orbit-core{position:static;transform:none}
+  .orbit-core{position:relative;top:auto;left:auto;transform:none}
   .orbit-items{position:static;inset:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;width:100%;max-width:22rem}
   .orbit-items li{position:static;transform:none}
   .orbit-items a{display:block;padding:.85rem .6rem;white-space:normal;background:var(--color-surface-sunken);border:1px solid var(--color-surface-muted)}

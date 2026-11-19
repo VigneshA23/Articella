@@ -1,0 +1,267 @@
+/* Main services page: simple and straightforward. Uses only the existing tokens from demo.css :root. */
+.svc-page{background:var(--white,#fff);color:var(--ink)}
+.svc-hero,.svc-section,.svc-end-section{padding-left:max(5vw,calc((100vw - 1460px)/2));padding-right:max(5vw,calc((100vw - 1460px)/2))}
+
+.svc-hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center;background:var(--ice);padding-top:clamp(2.5rem,5vw,4.5rem);padding-bottom:clamp(2.5rem,5vw,4.5rem)}
+.svc-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.9rem,4.8vw,5.4rem);line-height:1.04;letter-spacing:-.04em;margin:0 0 1.2rem;color:var(--ink)}
+.svc-hero h1 em{color:var(--navy);font-weight:400}
+.svc-hero p{font-size:1.08rem;line-height:1.65;max-width:30rem;color:var(--muted);margin:0}
+.svc-actions{display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap;margin-top:2rem}
+.svc-hero-media{aspect-ratio:5/4;border-radius:12px;overflow:hidden;background:var(--line)}
+.svc-hero-media img{width:100%;height:100%;object-fit:cover;object-position:center}
+
+.svc-section{padding-top:clamp(2.8rem,5vw,4.5rem);padding-bottom:clamp(2.8rem,5vw,4.5rem);background:var(--white,#fff)}
+.svc-heading{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:2rem}
+.svc-heading h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,3.2vw,3.4rem);line-height:1.1;letter-spacing:-.035em;margin:0;color:var(--ink)}
+.svc-heading p{max-width:22rem;margin:0;color:var(--muted);font-size:.96rem;line-height:1.6}
+
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.svc-card{display:flex;flex-direction:column;background:var(--warm);border:1px solid var(--line);border-radius:11px;padding:1.75rem;color:var(--ink);transition:transform .25s,box-shadow .25s,border-color .25s,background-color .25s}
+.svc-card:hover,.svc-card:focus-visible{background:var(--navy);border-color:var(--navy)}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px #00008b33}
+.svc-card:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.svc-card-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--ice);color:var(--navy);margin-bottom:1.2rem;transition:background-color .25s,color .25s}
+.svc-card-icon svg{width:26px;height:26px}
+.svc-card h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;line-height:1.2;letter-spacing:-.02em;margin:0 0 .5rem;color:var(--ink);transition:color .25s}
+.svc-card p{margin:0 0 1.4rem;color:var(--muted);font-size:.93rem;line-height:1.6;transition:color .25s}
+.svc-card-link{margin-top:auto;color:var(--navy);font-size:.84rem;font-weight:700;display:inline-flex;gap:.5rem;align-items:center;transition:color .25s}
+.svc-card:hover h3,.svc-card:focus-visible h3,.svc-card:hover .svc-card-link,.svc-card:focus-visible .svc-card-link{color:#fff}
+.svc-card:hover p,.svc-card:focus-visible p{color:#dfe0ff}
+.svc-card:hover .svc-card-icon,.svc-card:focus-visible .svc-card-icon{background:#fff}
+.svc-card:hover .svc-card-link span{transform:translateX(3px)}
+.svc-card-link span{transition:transform .2s}
+.svc-also{margin:1.6rem 0 0;color:var(--muted);font-size:.93rem}
+.svc-also strong{color:var(--ink)}
+
+.svc-booking{background:var(--ice)}
+.svc-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.svc-steps li{background:var(--white,#fff);border:1px solid var(--line);border-radius:11px;padding:1.75rem}
+.svc-steps h3{font-family:var(--serif);font-weight:500;font-size:1.4rem;margin:0 0 .5rem;color:var(--ink)}
+.svc-steps p{margin:0;color:var(--muted);font-size:.93rem;line-height:1.6}
+
+.svc-end-section{background:var(--white,#fff);padding-top:clamp(.5rem,2vw,1.5rem);padding-bottom:clamp(2.8rem,5vw,4.5rem)}
+.svc-end{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;background:var(--navy);color:#fff;border-radius:12px;padding:clamp(2rem,4vw,3.4rem) clamp(1.6rem,4vw,3.4rem)}
+.svc-end h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,3vw,3rem);line-height:1.1;letter-spacing:-.035em;margin:0 0 .6rem;color:#fff}
+.svc-end p{margin:0;color:#dfe0ff;max-width:30rem;line-height:1.6}
+.svc-end .svc-actions{margin-top:0}
+.svc-end-button{background:#fff;color:var(--navy);border-color:#fff}
+.svc-end-button:hover{background:var(--ice)}
+.svc-end-link{color:#fff;font-size:.84rem;font-weight:700;border-bottom:1px solid #ffffff88;padding-bottom:.3rem}
+.svc-end-link:hover{border-color:#fff}
+.svc-end a:focus-visible,.svc-end button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+@media(max-width:1000px){
+  .svc-hero{grid-template-columns:1fr}
+  .svc-hero-media{aspect-ratio:16/9}
+  .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){.svc-steps{grid-template-columns:1fr}}
+@media(max-width:650px){
+  .svc-hero-media{aspect-ratio:4/3}
+  .svc-hero,.svc-section,.svc-end-section{padding-left:6vw;padding-right:6vw}
+  .svc-heading{display:block}
+  .svc-heading p{margin-top:.8rem}
+  .svc-grid{grid-template-columns:1fr}
+  .svc-actions .button{width:100%}
+  .svc-end{display:block}
+  .svc-end .svc-actions{margin-top:1.6rem}
+}
+@media(prefers-reduced-motion:reduce){.svc-card,.svc-card-link span,.svc-card-icon,.svc-card h3,.svc-card p,.svc-card-link{transition:none}.svc-card:hover{transform:none}}
+
+/* Individual service pages: same system as the main services page. */
+.svc-crumb{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;padding:1rem max(5vw,calc((100vw - 1460px)/2));background:var(--white,#fff);border-bottom:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+.svc-crumb a{color:var(--navy);font-weight:600}
+.svc-crumb a:hover{text-decoration:underline}
+.svc-crumb a:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.svc-crumb [aria-current]{color:var(--ink)}
+
+.svc-heading-wide p{max-width:36rem}
+.svc-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.svc-card-static{cursor:default}
+.svc-card-static:hover{transform:none;box-shadow:none;background:var(--warm);border-color:var(--line)}
+.svc-card-static p{margin-bottom:0}
+
+.svc-help{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.svc-help h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,2.6vw,2.6rem);line-height:1.1;letter-spacing:-.035em;margin:0 0 1.4rem;color:var(--ink)}
+.svc-checks{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+.svc-checks li{position:relative;padding:1rem 1.2rem 1rem 3.2rem;background:var(--warm);border:1px solid var(--line);border-radius:11px;color:var(--ink);font-size:.95rem;line-height:1.5}
+.svc-checks li::before{content:'';position:absolute;left:1.2rem;top:50%;width:1.1rem;height:1.1rem;margin-top:-.55rem;border-radius:50%;background:var(--navy)}
+.svc-checks li::after{content:'';position:absolute;left:1.58rem;top:50%;width:.32rem;height:.6rem;margin-top:-.38rem;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+
+.svc-faq{border-top:1px solid var(--line)}
+.svc-faq details{border-bottom:1px solid var(--line);padding:0}
+.svc-faq summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer;list-style:none;padding:1.1rem .2rem;color:var(--ink);font-weight:700;font-size:.97rem;line-height:1.4}
+.svc-faq summary::-webkit-details-marker{display:none}
+.svc-faq summary::after{content:'+';flex:none;color:var(--navy);font-size:1.5rem;font-weight:400;line-height:1;transition:transform .2s}
+.svc-faq details[open] summary::after{transform:rotate(45deg)}
+.svc-faq summary:hover{color:var(--navy)}
+.svc-faq summary:focus-visible{outline:3px solid var(--navy);outline-offset:2px;border-radius:4px}
+.svc-faq p{margin:0;padding:0 2rem 1.2rem .2rem;color:var(--muted);font-size:.93rem;line-height:1.65}
+
+.svc-more .svc-heading{justify-content:space-between}
+.svc-pills{display:flex;flex-wrap:wrap;gap:.7rem}
+.svc-pill{display:inline-flex;align-items:center;padding:.8rem 1.3rem;border:1px solid var(--line);border-radius:50px;background:var(--warm);color:var(--navy);font-size:.88rem;font-weight:700;transition:background-color .25s,color .25s,border-color .25s}
+.svc-pill:hover,.svc-pill:focus-visible{background:var(--navy);border-color:var(--navy);color:#fff}
+.svc-pill:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.svc-note{margin:2rem 0 0;color:var(--muted);font-size:.8rem;line-height:1.6;max-width:44rem}
+
+@media(max-width:1000px){.svc-help{grid-template-columns:1fr}}
+@media(max-width:650px){
+  .svc-crumb{padding:.9rem 6vw}
+  .svc-grid-2{grid-template-columns:1fr}
+  .svc-more .svc-heading{display:block}
+  .svc-more .svc-heading .demo-text-link{margin-top:.8rem}
+}
+@media(prefers-reduced-motion:reduce){.svc-pill,.svc-faq summary::after{transition:none}}
+
+/* Detail pages: FAQ rows (the main page uses the .faq-accordion block at the end). */
+.svc-faq a{color:var(--navy);font-weight:700;border-bottom:1px solid #00008b55}
+.svc-faq a:hover{border-color:var(--navy)}
+.svc-faq a:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:2px}
+.svc-faq details[open]{background:var(--warm)}
+.svc-faq details[open] summary{color:var(--navy)}
+.svc-faq details{padding-left:.2rem;padding-right:.2rem;transition:background-color .2s}
+@media(prefers-reduced-motion:reduce){.svc-faq details{transition:none}}
+
+/* Main page FAQ: heading and help note on the left, collapsed questions on the right. */
+.svc-faq-section{background:var(--white,#fff)}
+.svc-faq-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:clamp(2rem,7vw,7rem);align-items:start}
+.svc-faq-head{padding-top:.56rem}
+.svc-faq-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,3.8vw,3.6rem);line-height:1.05;letter-spacing:-.035em;margin:0 0 .6rem;color:var(--ink)}
+.svc-faq-sub{margin:0 0 1.2rem;color:var(--muted);font-size:1.15rem;line-height:1.5}
+.svc-faq-contact{margin:0;color:var(--muted);font-size:.95rem;line-height:1.6}
+.svc-faq-contact a{color:var(--ink);border-bottom:0;white-space:nowrap}
+.svc-faq-contact a:hover{border-bottom:1px solid var(--ink)}
+
+@media(max-width:850px){.svc-faq-wrap{grid-template-columns:1fr;gap:2rem}.svc-faq-head{padding-top:0}}
+
+/* Premium animated FAQ accordion (shared with the home page): numbered pill rows, single-open, height+opacity reveal. */
+.svc-page .faq-accordion{display:flex;flex-direction:column;gap:.85rem;margin-top:2rem;text-align:left}
+.svc-page .faq-item{border:1px solid #e4e5ef;border-radius:16px;background:#f4f5f9;transition:transform .3s ease,box-shadow .3s ease,background .3s ease,border-color .3s ease}
+.svc-page .faq-item:hover{transform:translateY(-2px);background:#fbfbff;box-shadow:0 12px 26px #0b14450f}
+.svc-page .faq-h{margin:0;font:inherit}
+.svc-page .faq-trigger{width:100%;display:flex;align-items:center;gap:1rem;min-height:78px;padding:1.1rem 1.35rem 1.1rem 1.5rem;background:none;border:0;cursor:pointer;text-align:left;color:#15234d;border-radius:16px}
+.svc-page .faq-trigger:focus-visible{outline:2px solid #2b49aa;outline-offset:3px}
+.svc-page .faq-num{flex:0 0 auto;display:grid;place-items:center;min-width:38px;height:34px;padding:0 .45rem;border-radius:9px;background:#e7eaf4;color:#1f3c9c;font:700 .82rem/1 var(--sans);letter-spacing:.04em}
+.svc-page .faq-q{flex:1 1 auto;font:650 1.04rem/1.35 var(--sans);letter-spacing:-.01em;color:#172550}
+.svc-page .faq-ctrl{flex:0 0 auto;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #dfe1ee;color:#1d2b57;transition:transform .3s ease,background .3s ease,border-color .3s ease,color .3s ease}
+.svc-page .faq-item:hover .faq-ctrl{transform:scale(1.07)}
+.svc-page .faq-ctrl-icon{transition:transform .4s cubic-bezier(.22,.8,.3,1)}
+.svc-page .faq-ctrl-v{transform-origin:12px 12px;transition:transform .35s ease,opacity .35s ease}
+/* Open state */
+.svc-page .faq-item.is-open{background:#fff;border-color:transparent;box-shadow:0 18px 40px #0b14451a}
+.svc-page .faq-item.is-open::before{content:"";position:absolute;inset:0;border-radius:16px;padding:1px;background:linear-gradient(120deg,#3f5bb8,#3a6fc4,#7b6cc9);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0;transition:opacity .4s ease}
+.svc-page .faq-item{position:relative}
+.svc-page .faq-item.is-open::before{opacity:1}
+.svc-page .faq-item.is-open .faq-ctrl{background:#13224c;border-color:#13224c;color:#fff}
+.svc-page .faq-item.is-open .faq-ctrl-icon{transform:rotate(180deg)}
+.svc-page .faq-item.is-open .faq-ctrl-v{transform:scaleY(0);opacity:0}
+/* Collapsible panel: animate height via grid-template-rows 0fr -> 1fr */
+.svc-page .faq-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.22,.8,.3,1)}
+.svc-page .faq-item.is-open .faq-panel{grid-template-rows:1fr}
+.svc-page .faq-panel-inner{overflow:hidden;visibility:hidden;transition:visibility 0s linear .42s}
+.svc-page .faq-item.is-open .faq-panel-inner{visibility:visible;transition:visibility 0s}
+.svc-page .faq-panel-inner p{max-width:60ch;margin:0;padding:.1rem 3.2rem 1.45rem 4.4rem;font:400 .92rem/1.65 var(--sans);color:#4b5473;opacity:0;transform:translateY(6px);transition:opacity .4s ease .08s,transform .4s ease .08s}
+.svc-page .faq-item.is-open .faq-panel-inner p{opacity:1;transform:none}
+@media(max-width:620px){
+ .svc-page .faq-trigger{gap:.7rem;padding:.95rem 1rem;min-height:66px}
+ .svc-page .faq-num{min-width:32px;height:30px;font-size:.74rem}
+ .svc-page .faq-q{font-size:.95rem}
+ .svc-page .faq-ctrl{width:34px;height:34px}
+ .svc-page .faq-panel-inner p{padding:.1rem 1.1rem 1.2rem 1.1rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .svc-page .faq-item,.svc-page .faq-panel,.svc-page .faq-ctrl,.svc-page .faq-ctrl-icon,.svc-page .faq-ctrl-v,.svc-page .faq-panel-inner p,.svc-page .faq-item.is-open::before{transition:none}
+ .svc-page .faq-panel-inner p{opacity:1;transform:none}
+}
+.svc-page .faq-panel-inner a{color:var(--navy);font-weight:700;border-bottom:1px solid #00008b55}
+.svc-page .faq-panel-inner a:hover{border-color:var(--navy)}
+.svc-page .faq-panel-inner a:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:2px}
+.svc-page .faq-accordion{margin-top:0}
+
+/* "The right care for this moment" pathways: photo cards on the same tokens and hover as .svc-card. */
+.svc-pathways{background:var(--warm)}
+.svc-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.svc-path{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:11px;overflow:hidden;color:var(--ink);transition:transform .25s,box-shadow .25s,border-color .25s,background-color .25s}
+.svc-path-photo{aspect-ratio:3/2;overflow:hidden;background:var(--line)}
+.svc-path-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.svc-path:nth-child(3) .svc-path-photo img{object-position:center 30%}
+.svc-path-body{display:flex;flex-direction:column;flex:1;padding:1.5rem 1.75rem 1.75rem}
+.svc-path h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;line-height:1.2;letter-spacing:-.02em;margin:0 0 .5rem;color:var(--ink);transition:color .25s}
+.svc-path p{margin:0 0 1.4rem;color:var(--muted);font-size:.93rem;line-height:1.6;transition:color .25s}
+.svc-path-link{margin-top:auto;align-self:flex-start;padding:0;border:0;background:none;cursor:pointer;color:var(--navy);font:700 .84rem/1.2 var(--sans);display:inline-flex;gap:.5rem;align-items:center;transition:color .25s}
+.svc-path-link::after{content:'';position:absolute;inset:0;border-radius:11px}
+.svc-path-link span{transition:transform .2s}
+.svc-path:hover,.svc-path:focus-within{background:var(--navy);border-color:var(--navy)}
+.svc-path:hover{transform:translateY(-4px);box-shadow:0 14px 28px #00008b33}
+.svc-path:hover img{transform:scale(1.04)}
+.svc-path:hover h3,.svc-path:focus-within h3,.svc-path:hover .svc-path-link,.svc-path:focus-within .svc-path-link{color:#fff}
+.svc-path:hover p,.svc-path:focus-within p{color:#dfe0ff}
+.svc-path:hover .svc-path-link span{transform:translateX(3px)}
+.svc-path-link:focus-visible{outline:0}
+.svc-path:has(.svc-path-link:focus-visible){outline:3px solid var(--navy);outline-offset:3px}
+@media(max-width:900px){.svc-path-body{padding:1.25rem 1.25rem 1.5rem}.svc-path h3{font-size:1.35rem}}
+@media(max-width:700px){.svc-paths{grid-template-columns:1fr}.svc-path-body{padding:1.5rem 1.75rem 1.75rem}.svc-path h3{font-size:1.5rem}}
+@media(prefers-reduced-motion:reduce){.svc-path,.svc-path-photo img,.svc-path h3,.svc-path p,.svc-path-link,.svc-path-link span{transition:none}.svc-path:hover{transform:none}.svc-path:hover img{transform:none}}
+
+/* Hero extras and "Explore the details" (content brought over from the main branch). */
+.svc-hero .svc-hero-note{margin:1.2rem 0 0;max-width:30rem;font-size:.8rem;line-height:1.5;color:var(--muted)}
+.svc-details{border-bottom:1px solid var(--line)}
+
+
+/* Category list (ported from the shadcn CategoryList): bordered rows that grow on hover, with corner brackets,
+   a navy border, a tinted fill and an arrow. Click opens the row. Colours and fonts are the site tokens. */
+.svc-page .cat-list{display:flex;flex-direction:column;gap:.75rem}
+.svc-page .cat-item{position:relative;background:#fff;border:1px solid var(--line);border-radius:4px;transition:border-color .3s ease,box-shadow .3s ease,background-color .3s ease}
+.svc-page .cat-item::before,.svc-page .cat-item::after{content:'';position:absolute;width:1rem;height:1rem;border:0 solid var(--navy);opacity:0;pointer-events:none;transition:opacity .3s ease}
+.svc-page .cat-item::before{top:.75rem;left:.75rem;border-top-width:2px;border-left-width:2px}
+.svc-page .cat-item::after{bottom:.75rem;right:.75rem;border-bottom-width:2px;border-right-width:2px}
+.svc-page .cat-item:hover,.svc-page .cat-item.is-open,.svc-page .cat-item:focus-within{border-color:var(--navy);background:var(--ice);box-shadow:0 10px 24px #00008b1f}
+.svc-page .cat-item:hover::before,.svc-page .cat-item:hover::after,.svc-page .cat-item.is-open::before,.svc-page .cat-item.is-open::after,.svc-page .cat-item:focus-within::before,.svc-page .cat-item:focus-within::after{opacity:1}
+.svc-page .cat-h{margin:0;font:inherit}
+.svc-page .cat-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;min-height:5.5rem;padding:1.1rem 2rem;background:none;border:0;border-radius:4px;cursor:pointer;text-align:left;color:var(--ink);transition:min-height .3s ease}
+.svc-page .cat-item:hover .cat-trigger,.svc-page .cat-item.is-open .cat-trigger{min-height:7rem}
+.svc-page .cat-trigger:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.svc-page .cat-text{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.svc-page .cat-title{font-family:var(--serif);font-weight:500;font-size:1.4rem;line-height:1.2;letter-spacing:-.02em;color:var(--ink);transition:color .3s ease}
+.svc-page .cat-sub{font-size:.93rem;line-height:1.5;color:var(--muted);transition:color .3s ease}
+.svc-page .cat-item:hover .cat-title,.svc-page .cat-item.is-open .cat-title{color:var(--navy)}
+.svc-page .cat-item:hover .cat-sub,.svc-page .cat-item.is-open .cat-sub{color:var(--ink)}
+.svc-page .cat-icon{flex:none;display:grid;place-items:center;color:var(--navy);opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease}
+.svc-page .cat-item:hover .cat-icon,.svc-page .cat-item.is-open .cat-icon,.svc-page .cat-item:focus-within .cat-icon{opacity:1;transform:none}
+.svc-page .cat-item.is-open .cat-icon{transform:rotate(90deg)}
+.svc-page .cat-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.22,.8,.3,1)}
+.svc-page .cat-item.is-open .cat-panel{grid-template-rows:1fr}
+.svc-page .cat-panel-inner{overflow:hidden;visibility:hidden;transition:visibility 0s linear .4s}
+.svc-page .cat-item.is-open .cat-panel-inner{visibility:visible;transition:visibility 0s}
+.svc-page .cat-panel-inner p{margin:0;padding:.1rem 2rem .9rem;max-width:44rem;font-size:.95rem;line-height:1.6;color:var(--muted)}
+.svc-page .cat-panel-inner p strong{display:block;margin-bottom:.15rem;color:var(--ink);font-size:.82rem;font-weight:700}
+.svc-page .cat-panel-inner .svc-ask{margin:0 2rem 1.6rem;padding:0;border:0;background:none;cursor:pointer;color:var(--navy);font:700 .84rem/1.2 var(--sans);display:inline-flex;gap:.5rem;align-items:center}
+.svc-page .cat-panel-inner .svc-ask:hover{text-decoration:underline;text-underline-offset:4px}
+.svc-page .cat-panel-inner .svc-ask:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:2px}
+@media(max-width:620px){
+  .svc-page .cat-trigger{padding:1rem 1.2rem;min-height:5rem}
+  .svc-page .cat-item:hover .cat-trigger,.svc-page .cat-item.is-open .cat-trigger{min-height:5rem}
+  .svc-page .cat-title{font-size:1.2rem}
+  .svc-page .cat-panel-inner p{padding-left:1.2rem;padding-right:1.2rem}
+  .svc-page .cat-panel-inner .svc-ask{margin-left:1.2rem;margin-right:1.2rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .svc-page .cat-item,.svc-page .cat-item::before,.svc-page .cat-item::after,.svc-page .cat-trigger,.svc-page .cat-title,.svc-page .cat-sub,.svc-page .cat-icon,.svc-page .cat-panel,.svc-page .cat-panel-inner{transition:none}
+}
+
+/* Explore the details: centred heading above a single-column list, help card underneath. */
+.svc-details-wrap{max-width:56rem;margin:0 auto}
+.svc-details-head{text-align:center;margin:0 auto 2.2rem;max-width:40rem}
+.svc-details-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,3.4vw,3.2rem);line-height:1.05;letter-spacing:-.035em;margin:0 0 .6rem;color:var(--ink)}
+.svc-details-head .svc-faq-sub{margin:0}
+.svc-help-card{margin-top:1.5rem;padding:1.4rem 1.75rem;background:var(--ice);border:1px solid var(--line);border-radius:11px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.svc-help-card h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.2;letter-spacing:-.02em;margin:0 0 .35rem;color:var(--ink)}
+.svc-help-card p{margin:0;max-width:34rem;color:var(--muted);font-size:.93rem;line-height:1.6}
+@media(max-width:620px){.svc-help-card{padding:1.25rem}.svc-help-card .button{width:100%}}
+
+/* Explore the details: brand-navy section background; cards stay white with brand-colour text. */
+.svc-details{background:var(--navy);border-bottom:0;color:#fff}
+.svc-details .svc-details-head h2,.svc-details .svc-details-head .svc-faq-sub{color:#fff}
+.svc-details .cat-title{color:var(--navy)}
+
