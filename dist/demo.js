@@ -12,8 +12,49 @@ const demoAbout = () => `<div class="demo-page demo-about">
 </div>`;
 const demoLabels = {providers:'Providers',services:'Services',service:'Service',memberships:'Memberships','new-patients':'New Patients',insurance:'Insurance & Billing',insights:'Insights & Events',faq:'FAQs',locations:'Locations',contact:'Contact',portal:'Patient Portal',privacy:'Privacy',terms:'Terms'};
 const demoPlaceholder = (key) => `<div class="demo-page"><section class="demo-placeholder"><span class="demo-kicker">ARTICELLA · ${demoLabels[key]||'EXPLORE'}</span><div class="demo-placeholder-mark" aria-hidden="true"></div><h1>${demoLabels[key]||'This page'} is taking shape.</h1><p>We’re preparing this part of the Articella experience. For this presentation, explore the finished Home and About pages.</p><div><a class="button button-dark" href="#/">Explore Home</a><a class="demo-text-link" href="#/about">Read our story</a></div></section></div>`;
+const svcIcons = {
+  preventive:'<path d="M16 3 27 7v8c0 7-4.5 11-11 14C9.5 26 5 22 5 15V7l11-4Z"/><path d="m11 16 3.5 3.5L21 13"/>',
+  womens:'<circle cx="16" cy="12" r="7"/><path d="M16 19v9m-5-4.5h10"/>',
+  heart:'<path d="M16 27 5.5 16.5a7 7 0 0 1 10-10l.5.5.5-.5a7 7 0 0 1 10 10L16 27Z"/><path d="M7 16h5l2-3 3 6 2-3h6"/>',
+  diabetes:'<path d="M16 3C12 9 8 14 8 19a8 8 0 0 0 16 0c0-5-4-10-8-16Z"/><path d="M13 20h6m-3-3v6"/>',
+  thyroid:'<path d="M16 11c-2.5-4-8-5-10-1.5-2.5 5 1.5 13 7 14.5l3-3 3 3c5.5-1.5 9.5-9.5 7-14.5-2-3.5-7.5-2.5-10 1.5Z"/><path d="M16 11v10"/>',
+  medicare:'<rect x="7" y="5" width="18" height="23" rx="3"/><path d="M12 11h8m-8 5h8m-8 5h4m5-1 2 2 4-4"/>',
+  phone:'<path d="M7 4h4l2 6-3 2a14 14 0 0 0 7 7l2-3 6 2v4a3 3 0 0 1-3 3C13 25 5 17 4 7a3 3 0 0 1 3-3Z"/>',
+  calendar:'<rect x="4" y="6" width="24" height="22" rx="3"/><path d="M10 3v6m12-6v6M4 14h24m-18 6h6"/>',
+  door:'<path d="M6 28V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v22M3 28h26"/><circle cx="17" cy="17" r="1.2"/>'
+};
+const svcIcon = (name) => `<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${svcIcons[name]}</svg>`;
+const svcList = [
+  ['preventive','Preventive care','preventive-care','Checkups, screenings, vaccines and a plan for staying well.'],
+  ['womens','Women’s health','womens-health','Screenings, birth control, menopause and everyday questions.'],
+  ['heart','Heart health','heart-health','Blood pressure, cholesterol and a clear view of your risk.'],
+  ['diabetes','Diabetes care','diabetes-care','Monitoring, medicines and steady follow-up over time.'],
+  ['thyroid','Thyroid care','thyroid-care','Symptoms, lab testing and next steps you can follow.'],
+  ['medicare','Medicare visits','medicare','Annual wellness visits and help with coverage questions.']
+];
+const svcSteps = [
+  ['calendar','Pick a time','Book online, or call or text (214) 872-6502. Same-week visits are often available.'],
+  ['phone','We confirm the visit','The team checks the visit type and answers questions about coverage.'],
+  ['door','Come in','Visit us at 10234 Coit Rd, Suite 100 in Frisco. Bring your medications and questions.']
+];
+const svcFaqs = [
+  ['Can I ask which visit is appropriate?','Yes. <a href="tel:+12148726502">Call or text the team</a> to talk through the type of appointment you are looking for.'],
+  ['Do you offer virtual visits?','Telehealth is listed among the current services. Appointment availability and eligible visit types should be confirmed with the clinic.'],
+  ['How can I see whether my insurance is accepted?','Review the Insurance & Billing page and confirm your specific plan with the practice before your visit.']
+];
+const svcDetailsAccordion = (items) => `<div class="cat-list" data-faq-accordion>${items.map(([t,who,exp],i)=>{const pid='svcdp'+i,tid='svcdt'+i;return `<div class="cat-item"><h3 class="cat-h"><button type="button" class="cat-trigger" id="${tid}" aria-expanded="false" aria-controls="${pid}"><span class="cat-text"><span class="cat-title">${t}</span><span class="cat-sub">${who}</span></span><span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></button></h3><div class="cat-panel" id="${pid}" role="region" aria-labelledby="${tid}"><div class="cat-panel-inner"><p><strong>What to expect</strong>${exp}</p><button type="button" class="svc-ask book-trigger">Ask about a visit <span aria-hidden="true">→</span></button></div></div></div>`;}).join('')}</div>`;
+const demoServices = () => `<div class="demo-page svc-page">
+  <section class="svc-hero"><div class="svc-hero-copy"><h1>Primary care,<br><em>made simple.</em></h1><p>Checkups, ongoing condition care and same-week visits with one team in Frisco, Texas.</p><div class="svc-actions">${book('Book appointment')}<a class="demo-text-link" href="tel:+12148726502">Call or text (214) 872-6502</a><a class="demo-text-link" href="#/providers">Meet the clinicians</a></div><p class="svc-hero-note">Visit types and appointment availability are confirmed by the practice.</p></div><div class="svc-hero-media"><img src="assets/home-primary-care-2026.webp" alt="Illustrative clinician talking with a patient during a primary care visit" fetchpriority="high"></div></section>
+  <section class="svc-section svc-pathways" id="svcPathways" aria-labelledby="svcPathwaysTitle"><div class="svc-heading"><h2 id="svcPathwaysTitle">The right care for<br><em>this moment.</em></h2></div><div class="svc-paths">${services.map((item,i)=>`<article class="svc-path"><div class="svc-path-photo"><img src="${['assets/care-prevention.jpg','assets/care-treatment.jpg','assets/care-followup.jpg'][i]}" loading="lazy" alt="${['Illustrative preventive health check','Illustrative patient discussing a concern with a clinician','Illustrative clinical follow-up conversation'][i]}"></div><div class="svc-path-body"><h3>${item[1]}</h3><p>${item[2]}</p><button type="button" class="svc-path-link" data-scroll-target="svcDetails">See visit types <span aria-hidden="true">→</span></button></div></article>`).join('')}</div></section>
+  <section class="svc-section svc-details" id="svcDetails" aria-labelledby="svcDetailsTitle"><div class="svc-details-wrap"><div class="svc-details-head"><h2 id="svcDetailsTitle">Explore the details</h2><p class="svc-faq-sub">Open a service for who it may help and what to discuss with the practice.</p></div>${svcDetailsAccordion(serviceDetails)}<div class="svc-help-card"><div><h3>Need help choosing?</h3><p>Start with a conversation. The team can help you identify the right appointment type and confirm current availability.</p></div><button class="button svc-end-button book-trigger" type="button">Ask about an appointment</button></div></div></section>
+  <section class="svc-section" id="svcList"><div class="svc-heading"><h2>What we help with</h2></div><div class="svc-grid">${svcList.map(([ic,t,slug,d])=>`<a class="svc-card" href="#/service/${slug}"><span class="svc-card-icon">${svcIcon(ic)}</span><h3>${t}</h3><p>${d}</p><span class="svc-card-link">Learn more <span aria-hidden="true">→</span></span></a>`).join('')}</div><p class="svc-also"><strong>Also available:</strong> sick visits, telehealth, labs and referrals, immunizations, and men’s health.</p></section>
+  <section class="svc-section svc-booking"><div class="svc-heading"><h2>Booking is simple</h2></div><ol class="svc-steps">${svcSteps.map(([ic,t,d])=>`<li><span class="svc-card-icon">${svcIcon(ic)}</span><h3>${t}</h3><p>${d}</p></li>`).join('')}</ol></section>
+  <section class="svc-section svc-faq-section" id="svcFaq" aria-labelledby="svcFaqTitle"><div class="svc-faq-wrap"><div class="svc-faq-head"><h2 id="svcFaqTitle">FAQs</h2><p class="svc-faq-sub">Everything you need to know before you book</p><p class="svc-faq-contact">Can’t find what you’re looking for? Reach out to the <a href="tel:+12148726502">Articella team</a> at (214) 872-6502 for assistance.</p></div>${faqAccordion(svcFaqs)}</div></section>
+  <section class="svc-end-section"><div class="svc-end"><div><h2>Not sure where to start?</h2><p>Tell us what is on your mind. The team will help you choose the right visit.</p></div><div class="svc-actions"><button class="button svc-end-button book-trigger" type="button">Book appointment</button><a class="svc-end-link" href="tel:+12148726502">Call or text the team</a></div></div></section>
+</div>`;
 renderers['']=demoHome;renderers.about=()=>`<div class="about-restored">${about()}</div>`;
 Object.keys(renderers).forEach(key=>{if(key!==''&&key!=='about')renderers[key]=()=>demoPlaceholder(key)});
+renderers.services=demoServices;renderers['new-patients']=demoNewPatients;
 render();
 
 /* Stories rotator: one review at a time, cross-fading on an interval. Re-queries the DOM each tick so it survives route re-renders. */
@@ -50,15 +91,54 @@ render();
 
 /* FAQ accordion: single-open toggle. Delegated on document so it survives route re-renders. The whole row is a <button>, so keyboard (Enter/Space) and aria-expanded come for free. */
 document.addEventListener('click',function(e){
-  var btn=e.target.closest&&e.target.closest('.faq-trigger');
+  var btn=e.target.closest&&e.target.closest('.faq-trigger,.cat-trigger');
   if(!btn)return;
-  var item=btn.closest('.faq-item');
+  var item=btn.closest('.faq-item,.cat-item');
   var acc=btn.closest('[data-faq-accordion]');
   var wasOpen=item.classList.contains('is-open');
-  if(acc){[].forEach.call(acc.querySelectorAll('.faq-item.is-open'),function(it){
+  if(acc){[].forEach.call(acc.querySelectorAll('.faq-item.is-open,.cat-item.is-open'),function(it){
     it.classList.remove('is-open');
-    var b=it.querySelector('.faq-trigger');
+    var b=it.querySelector('.faq-trigger,.cat-trigger');
     if(b)b.setAttribute('aria-expanded','false');
   });}
   if(!wasOpen){item.classList.add('is-open');btn.setAttribute('aria-expanded','true');}
 });
+
+/* Category rows (Explore the details): with a real pointer, hovering a row reveals it and leaving the list closes it.
+   Touch uses tap (the shared handler above), keyboard users open a row by focusing it. One row is open at a time. */
+(function(){
+  var mq=window.matchMedia?window.matchMedia('(hover:hover) and (pointer:fine)'):{matches:false};
+  function setOpen(item,on){
+    item.classList.toggle('is-open',on);
+    var b=item.querySelector('.cat-trigger');
+    if(b)b.setAttribute('aria-expanded',on?'true':'false');
+  }
+  function openOnly(item){
+    var list=item.closest('.cat-list');
+    if(list)[].forEach.call(list.querySelectorAll('.cat-item.is-open'),function(it){if(it!==item)setOpen(it,false);});
+    setOpen(item,true);
+  }
+  document.addEventListener('mouseover',function(e){
+    if(!mq.matches||!e.target.closest)return;
+    var item=e.target.closest('.cat-item');
+    if(item&&!item.classList.contains('is-open'))openOnly(item);
+  });
+  document.addEventListener('mouseout',function(e){
+    if(!mq.matches||!e.target.closest)return;
+    var list=e.target.closest('.cat-list');
+    if(!list||list.contains(e.relatedTarget))return;
+    if(list.querySelector('.cat-trigger:focus-visible'))return;
+    [].forEach.call(list.querySelectorAll('.cat-item.is-open'),function(it){setOpen(it,false);});
+  });
+  document.addEventListener('focusin',function(e){
+    var t=e.target;
+    if(t.matches&&t.matches('.cat-trigger:focus-visible'))openOnly(t.closest('.cat-item'));
+  });
+  /* On hover devices a click only keeps the row open; it must not toggle it shut. Runs before the shared handler. */
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest&&e.target.closest('.cat-trigger');
+    if(!btn||!mq.matches)return;
+    e.stopImmediatePropagation();
+    openOnly(btn.closest('.cat-item'));
+  },true);
+})();
