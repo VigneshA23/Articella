@@ -54,7 +54,7 @@ const demoServices = () => `<div class="demo-page svc-page">
 </div>`;
 renderers['']=demoHome;renderers.about=()=>`<div class="about-restored">${about()}</div>`;
 Object.keys(renderers).forEach(key=>{if(key!==''&&key!=='about')renderers[key]=()=>demoPlaceholder(key)});
-renderers.services=demoServices;renderers['new-patients']=demoNewPatients;
+renderers.services=demoServices;renderers['new-patients']=demoNewPatients;renderers.contact=()=>`<div class="contact-restored">${contact()}</div>`;
 render();
 
 /* Stories rotator: one review at a time, cross-fading on an interval. Re-queries the DOM each tick so it survives route re-renders. */
