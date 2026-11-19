@@ -53,8 +53,8 @@ const demoServices = () => `<div class="demo-page svc-page">
   <section class="svc-end-section"><div class="svc-end"><div><h2>Not sure where to start?</h2><p>Tell us what is on your mind. The team will help you choose the right visit.</p></div><div class="svc-actions"><button class="button svc-end-button book-trigger" type="button">Book appointment</button><a class="svc-end-link" href="tel:+12148726502">Call or text the team</a></div></div></section>
 </div>`;
 renderers['']=demoHome;renderers.about=()=>`<div class="about-restored">${about()}</div>`;
-Object.keys(renderers).forEach(key=>{if(key!==''&&key!=='about')renderers[key]=()=>demoPlaceholder(key)});
-renderers.services=demoServices;renderers['new-patients']=demoNewPatients;renderers.contact=()=>`<div class="contact-restored">${contact()}</div>`;
+Object.keys(renderers).forEach(key=>{if(key!==''&&key!=='about'&&key!=='service')renderers[key]=()=>demoPlaceholder(key)});
+renderers.services=demoServices;renderers['new-patients']=demoNewPatients;renderers.insurance=demoInsurance;renderers.contact=()=>`<div class="contact-restored">${contact()}</div>`;
 render();
 
 /* Stories rotator: one review at a time, cross-fading on an interval. Re-queries the DOM each tick so it survives route re-renders. */
