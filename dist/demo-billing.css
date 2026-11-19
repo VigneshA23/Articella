@@ -1,0 +1,101 @@
+/* Insurance and Billing page. Hero reuses .np-hero (demo-patients.css); headings reuse .svc-section/.svc-heading.
+   Layout follows passionhealthphysicians.com (logo grid in a tinted panel, white cards with line icons, call-to-confirm
+   button). Colours, fonts and radii are this branch's tokens. All selectors are prefixed ib-. */
+
+/* Insurer explorer: logo gallery + company guide inside one tinted panel */
+.ib-explorer{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:1.5rem;align-items:start;background:var(--ice);border:1px solid var(--line);border-radius:16px;padding:clamp(1.2rem,2.4vw,2rem)}
+.ib-search{position:relative;display:block;margin-bottom:1rem}
+.ib-search-icon{position:absolute;left:1rem;top:50%;width:20px;height:20px;margin-top:-10px;color:var(--muted);pointer-events:none}
+.ib-search-icon svg{width:20px;height:20px}
+.ib-search input{width:100%;height:3.2rem;padding:0 1rem 0 2.9rem;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--ink);font:400 .98rem var(--sans);box-sizing:border-box}
+.ib-search input::placeholder{color:var(--muted)}
+.ib-search input:focus-visible{outline:3px solid var(--navy);outline-offset:2px;border-color:var(--navy)}
+.ib-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+.ib-card{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.35rem;padding:1.3rem 1rem 1.1rem;background:#fff;border:1px solid var(--line);border-radius:12px;cursor:pointer;color:var(--ink);font:inherit;transition:border-color .25s,box-shadow .25s,transform .25s}
+.ib-card[hidden]{display:none}
+.ib-card:hover{transform:translateY(-3px);border-color:var(--navy);box-shadow:0 12px 26px #00008b14}
+.ib-card:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.ib-card[aria-pressed="true"]{border:2px solid var(--navy);padding:calc(1.3rem - 1px) calc(1rem - 1px) calc(1.1rem - 1px);box-shadow:0 12px 26px #00008b1f}
+.ib-logo{display:grid;place-items:center;width:100%;height:56px;margin-bottom:.35rem}
+.ib-logo img{max-width:140px;max-height:44px;width:auto;height:auto;object-fit:contain}
+.ib-card-name{font-size:.95rem;font-weight:700;line-height:1.3;color:var(--ink)}
+.ib-card small{font-size:.8rem;line-height:1.35;color:var(--muted)}
+.ib-tick{position:absolute;top:.6rem;right:.6rem;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;opacity:0;transform:scale(.6);transition:opacity .2s,transform .2s}
+.ib-tick svg{width:13px;height:13px}
+.ib-card[aria-pressed="true"] .ib-tick{opacity:1;transform:none}
+.ib-empty{margin:1rem 0 0;padding:1rem 1.2rem;background:#fff;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:.93rem}
+
+/* Company and plan guide */
+.ib-guide{position:sticky;top:110px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:clamp(1.4rem,2.4vw,2rem);box-shadow:0 14px 34px #00008b0f}
+.ib-guide.detail-refresh{animation:ibGuideIn .35s ease}
+@keyframes ibGuideIn{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+.ib-guide h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,2.2vw,2.1rem);line-height:1.15;letter-spacing:-.03em;margin:0 0 .7rem;color:var(--ink)}
+.ib-company{margin:0 0 1rem;color:var(--muted);font-size:.95rem;line-height:1.6}
+.ib-official{display:inline-flex;align-items:center;gap:.45rem;color:var(--navy);font-size:.88rem;font-weight:700;border-bottom:1px solid #00008b55;padding-bottom:.15rem}
+.ib-official svg{width:18px;height:18px}
+.ib-official:hover{border-color:var(--navy)}
+.ib-official:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:2px}
+.ib-ask{margin:1.4rem 0 0;padding:1rem 1.1rem;background:var(--ice);border-radius:10px}
+.ib-ask strong,.ib-check strong{display:block;margin-bottom:.3rem;color:var(--ink);font-size:.85rem;font-weight:700}
+.ib-ask p{margin:0;color:var(--ink);font-size:.93rem;line-height:1.55}
+.ib-check{margin:1.3rem 0 1.5rem}
+.ib-check ul{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.45rem}
+.ib-check li{position:relative;padding-left:1.6rem;color:var(--muted);font-size:.92rem;line-height:1.5}
+.ib-check li::before{content:'';position:absolute;left:0;top:.2rem;width:1rem;height:1rem;border-radius:50%;background:var(--navy)}
+.ib-check li::after{content:'';position:absolute;left:.36rem;top:.36rem;width:.24rem;height:.48rem;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.ib-guide .ib-call{width:100%;justify-content:center;background:var(--navy);color:#fff;border-color:var(--navy)}
+.ib-guide .ib-call:hover{background:#000070}
+.ib-guide .ib-call:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.ib-disclaimer{margin:1.2rem 0 0;max-width:52rem;color:var(--muted);font-size:.8rem;line-height:1.6}
+
+/* Ways to pay */
+.ib-pay{background:var(--warm)}
+.ib-ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.ib-way{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:11px;padding:1.75rem;transition:border-color .25s,box-shadow .25s,transform .25s}
+.ib-way:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:0 12px 26px #00008b14}
+.ib-way h3{font-family:var(--serif);font-weight:500;font-size:1.4rem;line-height:1.2;letter-spacing:-.02em;margin:0 0 .5rem;color:var(--ink)}
+.ib-way p{margin:0 0 1.4rem;color:var(--muted);font-size:.93rem;line-height:1.6}
+.ib-questions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(1.5rem,5vw,4rem);align-items:center;margin-top:1.5rem;background:var(--navy);color:#fff;border-radius:16px;padding:clamp(1.8rem,3.5vw,3rem)}
+.ib-questions-head h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,2.6vw,2.4rem);line-height:1.15;letter-spacing:-.03em;margin:0 0 .7rem;color:#fff}
+.ib-questions-head p{margin:0;color:#fff;font-size:.95rem;line-height:1.6}
+.ib-questions ol{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+.ib-questions li{display:flex;align-items:center;gap:.9rem;padding:.95rem 1.1rem;background:#ffffff14;border:1px solid #ffffff38;border-radius:11px;color:#fff;font-size:.98rem;line-height:1.45}
+.ib-q-mark{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--navy);font-weight:800;font-size:.95rem}
+
+@media(max-width:1000px){
+  .ib-explorer{grid-template-columns:1fr}
+  .ib-guide{position:static}
+  .ib-questions{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+  .ib-ways{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .ib-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ib-card{padding:1rem .6rem .9rem}
+  .ib-logo img{max-width:118px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ib-card,.ib-tick,.ib-way{transition:none}
+  .ib-card:hover,.ib-way:hover{transform:none}
+  .ib-guide.detail-refresh{animation:none}
+}
+
+/* Let the logo cards fill the panel height beside the taller guide (desktop only). */
+@media(min-width:1001px){
+  .ib-explorer{align-items:stretch}
+  .ib-gallery-wrap{display:flex;flex-direction:column}
+  .ib-gallery{flex:1;grid-auto-rows:1fr}
+  .ib-card{justify-content:center}
+  .ib-guide{align-self:start}
+}
+
+/* Insurance hero: show the photo in full colour as a rounded image, no white fade (New Patients keeps its fade). */
+.ib-hero{padding-right:max(5vw,calc((100vw - 1460px)/2));column-gap:clamp(2rem,4vw,4rem)}
+.ib-hero .np-hero-copy{padding-bottom:clamp(2.5rem,5vw,4.5rem)}
+.ib-hero .np-hero-media{margin:clamp(2rem,4vw,3.5rem) 0;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px #00008b1a}
+.ib-hero .np-hero-media img{-webkit-mask-image:none;mask-image:none;object-position:center 40%}
+@media(max-width:900px){
+  .ib-hero{padding-right:6vw}
+  .ib-hero .np-hero-media{margin:0 0 2.5rem;min-height:16rem}
+}
