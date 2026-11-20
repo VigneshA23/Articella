@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Articella — Services orbit</title>
+
+<!-- Optional: brand fonts (Platypi headings + DM Sans body). Safe system
+     fallbacks are in the CSS, so you can delete this line if you prefer. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,400;0,600&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="articella-services-orbit.css">
+</head>
+<body>
+
+<!-- ============================================================
+     Services orbit — paste this <section> into any page.
+     It needs: the stylesheet above, and the small script below.
+     Edit the `services` array to change / add service items.
+     ============================================================ -->
+<section class="service-orbit" aria-labelledby="orbitHeading">
+  <div class="service-orbit-head">
+    <h2 id="orbitHeading">Care for every chapter.</h2>
+    <p>These are the services we are specialized in.</p>
+  </div>
+
+  <div class="orbit-layout">
+    <!-- left panel -->
+    <div class="orbit-panel orbit-panel-left">
+      <h3>Explore all services</h3>
+      <!-- TODO: point href at your "all services" page -->
+      <a href="#" class="button button-dark">Browse services <span aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    <!-- the orbit itself; service objects + labels are injected by the script -->
+    <div class="orbit-stage">
+      <div class="orbit-ring" aria-hidden="true"></div>
+      <div class="orbit-core" aria-hidden="true"></div>
+      <ul class="orbit-items"></ul>
+    </div>
+
+    <!-- right panel -->
+    <div class="orbit-panel orbit-panel-right">
+      <h3>Membership options</h3>
+      <!-- TODO: point href at your memberships page -->
+      <a href="#" class="button button-outline">View memberships <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<script>
+/* The six services. Each is [ label, link, svgPath ].
+   svgPath is drawn on a 64x64 grid. Add/replace items here.
+   NOTE: the CSS ring is tuned for exactly 6 items (60deg spacing, a 6-step
+   cycle, and :has() nth-child rules). If you change the count, also adjust
+   the 60deg / cycle offsets / nth-child blocks in the CSS (see its header). */
+const services = [
+  ['Women’s Health', '#', 'M32 6a16 16 0 1 0 0 32a16 16 0 1 0 0-32ZM32 13a9 9 0 1 1 0 18a9 9 0 1 1 0-18ZM28 38h8v8h8v7h-8v8h-8v-8h-8v-7h8Z'],
+  ['Diabetes Care',       '#', 'M32 4C32 4 12 28 12 40A20 20 0 0 0 52 40C52 28 32 4 32 4Z'],
+  ['Heart Health',        '#', 'M32 56C12 42 6 30 6 21C6 12 13 6 21 6C26 6 30 9 32 13C34 9 38 6 43 6C51 6 58 12 58 21C58 30 52 42 32 56Z'],
+  ['Preventive Care',     '#', 'M32 4L54 12V30C54 44 44 54 32 60C20 54 10 44 10 30V12ZM19 31l6-6 5 5 10-11 6 6-16 18Z'],
+  ['Medicare',            '#', 'M24 6h16v18h18v16H40v18H24V40H6V24h18Z'],
+  ['Thyroid Care',        '#', 'M32 34C28 30 27 20 24 12C22 6 14 6 12 14C9 26 12 44 20 52C26 58 31 52 32 44C33 52 38 58 44 52C52 44 55 26 52 14C50 6 42 6 40 12C37 20 36 30 32 34Z']
+];
+
+/* Stacks each outline in 15 layers along Z so the object has real thickness
+   when it spins — mirrors the original `orbitObject` helper. */
+const layers = d => Array.from({length:15}, (_,k) =>
+  `<svg viewBox="0 0 64 64" style="--k:${k}"><path d="${d}"/></svg>`
+).join('');
+
+const core = document.querySelector('.service-orbit .orbit-core');
+const list = document.querySelector('.service-orbit .orbit-items');
+core.innerHTML = services.map((s,i) =>
+  `<div class="orbit-obj" style="--i:${i}"><div class="orbit-obj-spin">${layers(s[2])}</div></div>`
+).join('');
+list.innerHTML = services.map((s,i) =>
+  `<li style="--i:${i}"><a href="${s[1]}">${s[0]}</a></li>`
+).join('');
+</script>
+
+</body>
+</html>

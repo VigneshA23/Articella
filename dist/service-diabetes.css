@@ -1,5 +1,5 @@
 /* Diabetes Care editorial layout. Everything is scoped to .service-page--journey so the other five service pages are untouched. */
-.service-page--journey{--dz-navy:#0c2a4d;--dz-royal:#1c3f9e;--dz-teal:#4a5fa6;--dz-cream:#faf6ee;--dz-mist:#f4f7fb;--dz-line:#dfe5ee;--dz-ease:cubic-bezier(.2,.7,.2,1)}
+.service-page--journey{--dz-navy:#0c2a4d;--dz-royal:#1c3f9e;--dz-teal:#4a9aa6;--dz-cream:#faf6ee;--dz-mist:#f4f7fb;--dz-line:#dfe5ee;--dz-ease:cubic-bezier(.2,.7,.2,1)}
 
 /* Hero: layout unchanged, only the photograph differs. */
 .service-page--journey .service-hero-photo img{object-position:46% 38%}
@@ -62,10 +62,10 @@
 
 /* We begin with what matters to you */
 .service-page--journey .dz-begin{background:linear-gradient(115deg,#091f40,#143a7a);color:#fff;padding:4.6rem 0;position:relative;overflow:hidden}
-.service-page--journey .dz-begin::before{content:'';position:absolute;right:-120px;top:-140px;width:420px;height:420px;border-radius:50%;border:1px solid #ffffff2b;box-shadow:0 0 0 34px #ffffff0a,0 0 0 76px #ffffff07;pointer-events:none}
+.service-page--journey .dz-begin::before{display:none;content:'';position:absolute;right:-120px;top:-140px;width:420px;height:420px;border-radius:50%;border:1px solid #ffffff2b;box-shadow:0 0 0 34px #ffffff0a,0 0 0 76px #ffffff07;pointer-events:none}
 .service-page--journey .dz-begin .service-wrap{position:relative}
 .service-page--journey .dz-begin-main{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,5rem);align-items:center}
-.service-page--journey .dz-begin-kicker{font-size:.6rem;font-weight:800;letter-spacing:.2em;color:#9faddc}
+.service-page--journey .dz-begin-kicker{font-size:.6rem;font-weight:800;letter-spacing:.2em;color:#9fd3dc}
 .service-page--journey .dz-begin h2{color:#fff;font-size:clamp(2.1rem,3.6vw,3.6rem);line-height:1.12;margin:.8rem 0 1.4rem}
 .service-page--journey .dz-begin ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
 .service-page--journey .dz-begin li{padding:.45rem .9rem;border:1px solid #ffffff3d;border-radius:100px;font-size:.74rem;color:#e2ecf8}
@@ -119,3 +119,18 @@
 }
 @media(max-width:390px){.service-page--journey .dz-cards{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.service-page--journey [data-reveal]{opacity:1}.service-page--journey .dz-stage:not(:last-child)::after{transform:none}}
+
+/* Women's Health: "begin" section takes the cream background of the removed closing section */
+.service-page--journey .dz-begin--light{background:var(--dz-cream);color:var(--dz-navy)}
+.service-page--journey .dz-begin--light::before{border-color:#1c3f9e26;box-shadow:0 0 0 34px #1c3f9e08,0 0 0 76px #1c3f9e06}
+.service-page--journey .dz-begin--light h2,.service-page--journey .dz-begin--light .dz-more h3{color:var(--dz-navy)}
+.service-page--journey .dz-begin--light .dz-begin-kicker{color:var(--dz-royal)}
+.service-page--journey .dz-begin--light li{border-color:#1c3f9e3d;color:#33415c}
+.service-page--journey .dz-begin--light .dz-begin-cta p{color:#48556f}
+.service-page--journey .dz-begin--light .dz-team-link{color:var(--dz-navy);border-color:#1c3f9e59}
+.service-page--journey .dz-begin--light .dz-team-link:hover{background:#1c3f9e12;border-color:var(--dz-royal)}
+.service-page--journey .dz-begin--light .button-light{background:var(--dz-navy);color:#fff}
+.service-page--journey .dz-begin--light .dz-more{border-top-color:#1c3f9e1f}
+
+/* Women's Health: hero fills the first screen below the fixed 92px header */
+@media(min-width:761px){.service-page--lean .service-detail-hero{min-height:calc(100svh - 92px)}}
