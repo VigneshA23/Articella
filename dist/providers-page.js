@@ -51,10 +51,9 @@
 
   const page = () => `<div class="demo-page pv">
     <section class="pv-hero">
-            <div class="pv-hero-copy"><span class="demo-kicker"><span class="kicker-line"></span> YOUR CARE TEAM / FRISCO</span>
-        <h1>Meet the people<br><em>behind your care.</em></h1>
+            <div class="pv-hero-copy">        <h1>Meet the people<br><em>behind your care.</em></h1>
         <p>Thoughtful, continuous care starts with people who take the time to know you. Get to know the clinicians at Articella before you ask about an appointment.</p></div>
-      ${pattern()}
+      ${pattern()}${pattern().replace("class=\"pv-pattern\"","class=\"pv-pattern pv-pattern--l\"")}
     </section>
     <section class="pv-gallery" id="pv-gallery" aria-labelledby="pv-gallery-h" tabindex="-1">
       <div class="pv-gallery-head" data-reveal><div><span class="demo-kicker">MEET OUR CARE TEAM</span><h2 id="pv-gallery-h">A closer look at your clinicians.</h2></div>
@@ -62,8 +61,7 @@
       <ul class="pv-track" aria-roledescription="carousel" aria-label="Articella clinicians" tabindex="0">${team.map(card).join('')}</ul>
     </section>
     <dialog class="pv-modal" id="pvModal" aria-labelledby="pv-m-title"><button type="button" class="pv-m-close" aria-label="Close profile">${svg('x')}</button><div class="pv-m-body"></div></dialog>
-    <section class="pv-help"><div class="pv-help-head" data-reveal><span class="demo-kicker">NOT SURE WHERE TO START?</span><h2>Choose a conversation,<br><em>then a time.</em></h2><p>Tell the office what you are looking for. The team can confirm the suitable clinician and available visit types. This page does not recommend care.</p>
-      <a class="button button-light" href="tel:+12148726502">Talk to Our Team</a></div>
+    <section class="pv-help"><div class="pv-help-head" data-reveal><span class="demo-kicker">NOT SURE WHERE TO START?</span><h2>Choose a conversation,<br><em>then a time.</em></h2>      <a class="button button-light" href="tel:+12148726502">Talk to Our Team</a></div>
       <ol>${[['Read a profile', 'Learn who is on the clinical team and what they focus on.', 'check'], ['Tell the office what you need', 'Call or text and describe the kind of visit you are seeking.', 'chat'], ['Confirm a clinician and time', 'The team will check availability before your visit.', 'cal']].map(([h, t, i], k) => `<li data-reveal style="--i:${k}"><span class="pv-ico">${svg(i)}</span><small>0${k + 1}</small><h3>${h}</h3><p>${t}</p></li>`).join('')}</ol></section>
     <section class="pv-cta"><div data-reveal><h2>Your next step can be a simple one.</h2><p>Book a visit or reach the office. We’ll help from there.</p></div>
       <div class="pv-cta-actions" data-reveal style="--i:1"><button type="button" class="button button-dark book-trigger">Book an Appointment</button><a class="pv-link" href="tel:+12148726502">${svg('phone')}Call or Text</a></div></section>

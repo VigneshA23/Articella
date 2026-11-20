@@ -141,5 +141,6 @@ dialog.pv-modal.is-closing{animation:pvOut .18s ease forwards}dialog.pv-modal.is
 @media(prefers-reduced-motion:reduce){dialog.pv-modal,dialog.pv-modal::backdrop{animation:none}.pv-card>button,.pv-card-photo img,.pv-card-link,.pv-m-close{transition:none}.pv-card>button:hover,.pv-card>button:hover img{transform:none}}
 
 /* Brand pattern: concentric curves, blue-on-white, kept faint and off to the side of the text */
-.pv-pattern{position:absolute;right:-14%;top:-4%;height:112%;width:auto;color:var(--pv-blue);opacity:.1;pointer-events:none}
-@media(max-width:900px){.pv-hero{min-height:calc(100svh - 72px)}.pv-hero-copy{padding:3rem 6vw}.pv-pattern{right:-42%;top:auto;bottom:-8%;height:75%;opacity:.08}}
+.pv-pattern{position:absolute;right:0;transform:translateX(25%);bottom:0;height:80%;width:auto;color:var(--pv-blue);opacity:.05;pointer-events:none}
+.pv-pattern--l{right:auto;left:0;bottom:auto;top:0;transform:translateX(-25%) rotate(180deg)}
+@media(max-width:900px){.pv-hero{min-height:calc(100svh - 72px)}.pv-hero-copy{padding:3rem 6vw}.pv-pattern{right:0;top:auto;bottom:0;height:38%;opacity:.04}.pv-pattern--l{right:auto;left:0;top:0;bottom:auto;height:38%}}
