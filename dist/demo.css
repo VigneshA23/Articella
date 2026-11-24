@@ -902,9 +902,14 @@ body .chat-panel .chat-head{padding:1.05rem 1.1rem .85rem;background:radial-grad
 /* Footer actions: primary "Explore appointments" = filled white rectangle (.button-light); secondary "Call or text" = white outline/stroke on the navy footer. Inverts to white fill on hover. */
 .footer-actions .footer-call-btn{background:transparent;color:#fff;border:1.5px solid #fff}
 .footer-actions .footer-call-btn:hover{background:#fff;color:var(--navy)}
-/* Social icons live at the far right of the footer's bottom bar. */
+/* "Find us in" + social icons form a group at the far right of the footer's bottom bar. */
 .footer-bottom{align-items:center}
-.footer-bottom .social-links{margin:0 0 0 auto}
+.footer-bottom .footer-social{display:flex;align-items:center;gap:.65rem;margin-left:auto}
+.footer-bottom .footer-social-label{color:#b8c9e4;font-size:.72rem;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+.footer-bottom .social-links{margin:0}
+/* Footer text uses the Platypi brand font. (--sans was 'Helvetica Neue', which isn't on Windows, so it fell back to Arial here.) */
+.footer h3{font-family:var(--serif);font-weight:600;letter-spacing:.1em}
+.footer a:not(.button):not(.footer-brand){font-family:var(--serif)}
 
 /* ===== FAQ section decorative striped question marks (bg, left + right) ===== */
 .demo-full-home .assurance-faq-section{position:relative;overflow:hidden}
