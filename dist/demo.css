@@ -31,7 +31,7 @@ body{font-family:var(--sans);color:#11111e}.header{border-bottom:1px solid #e8e8
 .demo-full-home .hero h1{font:500 clamp(3.3rem,5.1vw,6rem)/1.03 var(--serif);color:#15152f;margin:1.25rem 0}
 .demo-full-home .hero h1 em{color:#00008B}
 .demo-full-home .hero .lead{color:#4b5367;max-width:530px;font-size:1rem;line-height:1.6}
-.demo-full-home .hero-buttons{margin:1.7rem 0 2rem;gap:.8rem}.demo-full-home .hero .button-ghost{border:1px solid #aeb3df;color:#00008B;background:white}
+.demo-full-home .hero-buttons{margin:1.7rem 0 2rem;gap:.8rem}.demo-full-home .hero .button-ghost{border:1.5px solid var(--navy);color:var(--navy);background:#fff}.demo-full-home .hero .button-ghost:hover{background:var(--ice);border-color:var(--navy)}
 .demo-full-home .hero-bottom{color:#4b5367;border-color:#d8dbed}.demo-full-home .hero-badge{color:#00008B;border-color:#00008B}
 .demo-full-home .hero-media{min-height:565px;background:#e4e6f1;overflow:hidden}
 .demo-full-home .hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% center;filter:none;animation:heroArrive 1.2s both}
@@ -834,12 +834,12 @@ body .chat-panel .chat-head{padding:1.05rem 1.1rem .85rem;background:radial-grad
  .nav>a:hover::after,.nav>a:focus-visible::after,.nav-group>button:hover::after,.nav-group>button:focus-visible::after,.nav>a.active::after,.nav-group.active>button::after,.nav-group.open>button::after{transform:scaleX(1)!important}
 }
 
-/* Map section ("Find your place to feel well."): both actions become matched white buttons with navy text. */
+/* Map section ("Find your place to feel well."): single "Get directions" button, navy fill (theme color) with a white outline; inverts to white on hover. */
 .demo-full-home .home-visit .visit-actions .button-dark,
 .demo-full-home .home-visit .visit-actions .link-arrow{
  display:inline-flex;align-items:center;gap:.5rem;
- background:#fff!important;color:#0b2d57!important;
- border:1px solid #fff!important;border-radius:8px!important;
+ background:var(--navy)!important;color:#fff!important;
+ border:1.5px solid #fff!important;border-radius:8px!important;
  padding:.9rem 1.35rem!important;min-height:0!important;
  font:700 .8rem/1 var(--sans)!important;letter-spacing:.01em;text-decoration:none;
  box-shadow:0 8px 20px #0a142526;
@@ -849,7 +849,7 @@ body .chat-panel .chat-head{padding:1.05rem 1.1rem .85rem;background:radial-grad
 .demo-full-home .home-visit .visit-actions .link-arrow:hover,
 .demo-full-home .home-visit .visit-actions .button-dark:focus-visible,
 .demo-full-home .home-visit .visit-actions .link-arrow:focus-visible{
- background:#eef0ff!important;color:#00008b!important;
+ background:#fff!important;color:var(--navy)!important;
  transform:translateY(-2px);box-shadow:0 13px 28px #0a14252e;
 }
 
@@ -898,26 +898,13 @@ body .chat-panel .chat-head{padding:1.05rem 1.1rem .85rem;background:radial-grad
 /* ===== Footer decorative concentric line pattern (bottom-left) ===== */
 .footer{position:relative;overflow:hidden}
 .footer-top,.footer-bottom{position:relative;z-index:1}
-.footer::before{
-  content:"";
-  position:absolute;
-  left:-46px;
-  bottom:-34px;
-  width:min(640px,54%);
-  height:min(370px,82%);
-  background:url(assets/footer-pattern.svg) left bottom/contain no-repeat;
-  opacity:.24;
-  pointer-events:none;
-  z-index:0;
-  -webkit-mask-image:linear-gradient(to top right,#000 42%,transparent 86%);
-  mask-image:linear-gradient(to top right,#000 42%,transparent 86%);
-}
-@media(max-width:900px){
-  .footer::before{width:min(430px,74%);height:min(300px,52%);opacity:.14;left:-34px;bottom:-24px}
-}
-@media(max-width:600px){
-  .footer::before{width:300px;height:210px;opacity:.1}
-}
+
+/* Footer actions: primary "Explore appointments" = filled white rectangle (.button-light); secondary "Call or text" = white outline/stroke on the navy footer. Inverts to white fill on hover. */
+.footer-actions .footer-call-btn{background:transparent;color:#fff;border:1.5px solid #fff}
+.footer-actions .footer-call-btn:hover{background:#fff;color:var(--navy)}
+/* Social icons live at the far right of the footer's bottom bar. */
+.footer-bottom{align-items:center}
+.footer-bottom .social-links{margin:0 0 0 auto}
 
 /* ===== FAQ section decorative striped question marks (bg, left + right) ===== */
 .demo-full-home .assurance-faq-section{position:relative;overflow:hidden}
@@ -1198,3 +1185,14 @@ body .chat-panel .chat-head{padding:1.05rem 1.1rem .85rem;background:radial-grad
   .chat-fab-label small{display:block!important;color:#636a7c!important;font-size:.6rem!important}
   .chat-fab-pulse{display:none!important}
 }
+
+/* Google Rating badge (home reviews visual) */
+.story-gbadge{position:absolute;right:0;bottom:1.4rem;width:max-content;max-width:80%;background:#00008b;border-radius:14px;box-shadow:0 2px 5px #0b123c24,0 10px 24px #0b123c33,0 30px 60px #0b123c45;overflow:hidden;font-family:var(--sans);text-align:left}
+.story-gbadge .gbadge-row{display:flex;align-items:center;gap:.85rem;padding:1.1rem 1.2rem}
+.story-gbadge .gbadge-logo{flex:none;width:40px;height:40px;background:#fff;border-radius:50%;display:grid;place-items:center}
+.story-gbadge .gbadge-logo svg{display:block;width:27px;height:27px}
+.story-gbadge .gbadge-text{display:flex;flex-direction:column;gap:.18rem;min-width:0}
+.story-gbadge .gbadge-title{margin:0;font-size:.92rem;font-weight:700;color:#fff;letter-spacing:0;line-height:1.15;text-transform:none}
+.story-gbadge .gbadge-score{display:flex;align-items:center;gap:.45rem}
+.story-gbadge .gbadge-score strong{font:700 1.35rem/1 var(--sans);font-style:normal;color:#f5a623}
+.story-gbadge .gbadge-stars{color:#f5a623;font-size:1.02rem;letter-spacing:.06em;line-height:1}
