@@ -7,7 +7,7 @@
   const types = { insight: 'Insights', news: 'News', event: 'Events' };
   const items = [
     { type: 'insight', featured: true, title: 'Preventive Screenings: What You Need and When',
-      excerpt: 'An overview of key checkups and immunizations, based on age, sex, and health risks.',
+      excerpt: 'Key checkups and immunizations by age, sex, and health risk.',
       date: '2026-02-09', url: 'https://www.articella.com/preventive-screenings-what-you-need-and-when/',
       img: 'assets/insights-screenings.jpg', alt: 'A stethoscope resting on a clinic bed', cta: 'Read Article',
       keywords: 'prevention checkups immunizations vaccines screening health risks' },
@@ -44,8 +44,8 @@
   const page = () => {
     const f = items.find(i => i.featured) || items[0];
     return `<div class="ins-page" id="insPage">
-<section class="ins-hero">${pattern()}<div class="ins-hero-copy"><span class="ins-kicker">PATIENT RESOURCES</span><h1>Insights, News &amp; Wellness Tips</h1><p>Thoughtful health information, practice updates, and community events to help you stay informed and take an active role in your wellness journey.</p></div><div class="ins-hero-img"><img src="assets/insights-hero.jpg" alt="Friends standing arm in arm looking out over hills at sunset"></div></section>
-<section class="ins-featured" data-reveal><div class="ins-featured-card"><div class="ins-featured-img"><img src="${f.img}" alt="${f.alt}"></div><div class="ins-featured-copy"><span class="ins-kicker">FEATURED</span><div class="ins-meta">${meta(f)}</div><h2>${f.title}</h2><p>${f.excerpt} Talk with your clinician about what is right for you.</p></div></div></section>
+<section class="ins-hero"><div class="ins-hero-copy">${pattern()}<span class="ins-kicker">PATIENT RESOURCES</span><h1>Insights, News &amp; Wellness Tips</h1><p>Health information, practice updates, and community events to keep you informed.</p></div><div class="ins-hero-img"><img src="assets/insights-hero.jpg" alt="Friends standing arm in arm looking out over hills at sunset"></div></section>
+<section class="ins-featured" data-reveal><div class="ins-featured-card"><div class="ins-featured-img"><img src="${f.img}" alt="${f.alt}"></div><div class="ins-featured-copy"><span class="ins-kicker">FEATURED</span><div class="ins-meta">${meta(f)}</div><h2>${f.title}</h2><p>${f.excerpt}</p></div></div></section>
 <section class="ins-library" id="insLibrary"><div class="ins-toolbar"><div class="ins-filters" role="group" aria-label="Filter by category">${['all', ...Object.keys(types)].map((k, i) => `<button type="button" data-ins-type="${k}" aria-pressed="${i === 0}" class="${i === 0 ? 'active' : ''}">${k === 'all' ? 'All' : types[k]}</button>`).join('')}</div><label class="ins-search">${svg('search')}<input id="insSearch" type="search" placeholder="Search articles and events" aria-label="Search articles and events" autocomplete="off"></label></div>
 <p class="ins-count" id="insCount" aria-live="polite"></p>
 <div class="ins-layout"><div class="ins-main"><div class="ins-grid" id="insGrid"></div>
