@@ -141,8 +141,8 @@
 .svc-page .faq-item:hover{transform:translateY(-2px);background:#fbfbff;box-shadow:0 12px 26px #0b14450f}
 .svc-page .faq-h{margin:0;font:inherit}
 .svc-page .faq-trigger{width:100%;display:flex;align-items:center;gap:1rem;min-height:78px;padding:1.1rem 1.35rem 1.1rem 1.5rem;background:none;border:0;cursor:pointer;text-align:left;color:#15234d;border-radius:16px}
-.svc-page .faq-trigger:focus-visible{outline:2px solid #2b8eaa;outline-offset:3px}
-.svc-page .faq-num{flex:0 0 auto;display:grid;place-items:center;min-width:38px;height:34px;padding:0 .45rem;border-radius:9px;background:#e7f1f4;color:#1f7d9c;font:700 .82rem/1 var(--sans);letter-spacing:.04em}
+.svc-page .faq-trigger:focus-visible{outline:2px solid #2b49aa;outline-offset:3px}
+.svc-page .faq-num{flex:0 0 auto;display:grid;place-items:center;min-width:38px;height:34px;padding:0 .45rem;border-radius:9px;background:#e7eaf4;color:#1f3c9c;font:700 .82rem/1 var(--sans);letter-spacing:.04em}
 .svc-page .faq-q{flex:1 1 auto;font:650 1.04rem/1.35 var(--sans);letter-spacing:-.01em;color:#172550}
 .svc-page .faq-ctrl{flex:0 0 auto;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #dfe1ee;color:#1d2b57;transition:transform .3s ease,background .3s ease,border-color .3s ease,color .3s ease}
 .svc-page .faq-item:hover .faq-ctrl{transform:scale(1.07)}
@@ -150,7 +150,7 @@
 .svc-page .faq-ctrl-v{transform-origin:12px 12px;transition:transform .35s ease,opacity .35s ease}
 /* Open state */
 .svc-page .faq-item.is-open{background:#fff;border-color:transparent;box-shadow:0 18px 40px #0b14451a}
-.svc-page .faq-item.is-open::before{content:"";position:absolute;inset:0;border-radius:16px;padding:1px;background:linear-gradient(120deg,#3f9bb8,#3a6fc4,#7b6cc9);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0;transition:opacity .4s ease}
+.svc-page .faq-item.is-open::before{content:"";position:absolute;inset:0;border-radius:16px;padding:1px;background:linear-gradient(120deg,#3f5bb8,#3a6fc4,#7b6cc9);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:0;transition:opacity .4s ease}
 .svc-page .faq-item{position:relative}
 .svc-page .faq-item.is-open::before{opacity:1}
 .svc-page .faq-item.is-open .faq-ctrl{background:#13224c;border-color:#13224c;color:#fff}
@@ -260,17 +260,8 @@
 .svc-help-card p{margin:0;max-width:34rem;color:var(--muted);font-size:.93rem;line-height:1.6}
 @media(max-width:620px){.svc-help-card{padding:1.25rem}.svc-help-card .button{width:100%}}
 
-/* Explore the details on Articella blue (--navy), all text white. Scoped overrides of the light styles above. */
+/* Explore the details: brand-navy section background; cards stay white with brand-colour text. */
 .svc-details{background:var(--navy);border-bottom:0;color:#fff}
 .svc-details .svc-details-head h2,.svc-details .svc-details-head .svc-faq-sub{color:#fff}
-.svc-page .svc-details .cat-item{background:#ffffff0f;border-color:#ffffff47}
-.svc-page .svc-details .cat-item::before,.svc-page .svc-details .cat-item::after{border-color:#fff}
-.svc-page .svc-details .cat-item:hover,.svc-page .svc-details .cat-item.is-open,.svc-page .svc-details .cat-item:focus-within{background:#ffffff1f;border-color:#fff;box-shadow:0 12px 28px #00003f66}
-.svc-page .svc-details .cat-title,.svc-page .svc-details .cat-sub,.svc-page .svc-details .cat-item:hover .cat-title,.svc-page .svc-details .cat-item:hover .cat-sub,.svc-page .svc-details .cat-item.is-open .cat-title,.svc-page .svc-details .cat-item.is-open .cat-sub{color:#fff}
-.svc-page .svc-details .cat-trigger{color:#fff}
-.svc-page .svc-details .cat-icon,.svc-page .svc-details .cat-panel-inner p,.svc-page .svc-details .cat-panel-inner p strong,.svc-page .svc-details .cat-panel-inner .svc-ask{color:#fff}
-.svc-page .svc-details .cat-trigger:focus-visible,.svc-page .svc-details .cat-panel-inner .svc-ask:focus-visible{outline-color:#fff}
-.svc-details .svc-help-card{background:#ffffff14;border-color:#ffffff47}
-.svc-details .svc-help-card h3,.svc-details .svc-help-card p{color:#fff}
-.svc-details .svc-help-card .svc-end-button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.svc-details .cat-title{color:var(--navy)}
 

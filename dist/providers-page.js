@@ -56,7 +56,7 @@
       ${pattern()}${pattern().replace("class=\"pv-pattern\"","class=\"pv-pattern pv-pattern--l\"")}
     </section>
     <section class="pv-gallery" id="pv-gallery" aria-labelledby="pv-gallery-h" tabindex="-1">
-      <div class="pv-gallery-head" data-reveal><div><span class="demo-kicker">MEET OUR CARE TEAM</span><h2 id="pv-gallery-h">A closer look at your clinicians.</h2></div>
+      <div class="pv-gallery-head" data-reveal><div><span class="demo-kicker">OUR CLINICIANS</span><h2 id="pv-gallery-h">MEET OUR CARE TEAM</h2></div>
         <div class="pv-ctrl"><span class="pv-count" aria-live="polite"></span><button type="button" class="pv-nav" data-pv-dir="-1" aria-label="Previous clinicians">${svg('prev')}</button><button type="button" class="pv-nav" data-pv-dir="1" aria-label="Next clinicians">${svg('next')}</button></div></div>
       <ul class="pv-track" aria-roledescription="carousel" aria-label="Articella clinicians" tabindex="0">${team.map(card).join('')}</ul>
     </section>

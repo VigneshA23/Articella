@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews Section — Portable Component</title>
+
+<!--
+  ============================================================
+  ARTICELLA "STORIES THAT MATTER" REVIEWS SECTION — PORTABLE
+  ============================================================
+  Replicated from the Articella homepage so it can be dropped into
+  ANY website, in any stack, with no external dependencies.
+
+  HOW TO USE IT ON THE OTHER SITE
+  1. Copy the <style id="reviews-section-styles"> block into that
+     site's CSS (or keep it in a <style> tag in the page head).
+  2. Copy the <section class="reviews-section"> markup into the page
+     where you want the reviews to appear.
+  3. Swap the three <img> sources for your own patient/clinician
+     photos (search "REPLACE:" below). Edit the quote cards and the
+     floating note text to match the new brand.
+
+  WHY IT'S SAFE TO PASTE
+  - Every selector is scoped under .reviews-section, so it will not
+    collide with the host site's existing styles.
+  - All brand colors and sizes are inlined (no CSS variables needed).
+  - Fonts load from Google Fonts; remove the <link> and the component
+    falls back to Georgia / system sans gracefully.
+  - The photo slideshow is pure CSS (no JavaScript) and honours
+    prefers-reduced-motion.
+  ============================================================
+-->
+
+<!-- Fonts (optional — safe to remove; the component falls back cleanly). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Platypi:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+<style id="reviews-section-styles">
+/* ============================================================
+   REVIEWS SECTION — all rules scoped under .reviews-section
+   ============================================================ */
+
+.reviews-section{
+  --rev-serif:'Platypi',Georgia,serif;
+  --rev-sans:'DM Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --rev-ink:#10265d;
+  --rev-teal:#26849d;
+  box-sizing:border-box;
+  padding:clamp(60px,8vw,112px) max(5%,calc((100vw - 1400px)/2));
+  font-family:var(--rev-sans);
+  color:#2b4a63;
+  background:#fff;            /* REPLACE: set to match the host page background */
+}
+.reviews-section *,
+.reviews-section *::before,
+.reviews-section *::after{box-sizing:border-box}
+
+/* --- Two-column layout: photo (narrower) + copy (wider) --- */
+.reviews-section .stories-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
+  align-items:center;
+  gap:clamp(2rem,5vw,5rem);
+}
+.reviews-section .stories-copy{min-width:0}
+.reviews-section .stories-copy h2{
+  margin:0 0 1rem;
+  font-family:var(--rev-serif);
+  font-weight:400;
+  font-size:clamp(2.3rem,3.5vw,3.5rem);
+  line-height:1.08;
+  letter-spacing:-.01em;
+  color:var(--rev-ink);
+}
+.reviews-section .stories-copy>p{
+  max-width:34rem;
+  margin:0;
+  font-size:.95rem;
+  line-height:1.6;
+  color:#55707f;
+}
+
+/* --- Testimonial quote cards --- */
+.reviews-section .quote-shell{
+  border-left:3px solid #4c9ab6;
+  background:#edf5f6;
+  padding:1.5rem 2rem;
+  margin-top:1.5rem;
+  border-radius:0 10px 10px 0;
+}
+.reviews-section .quote-shell.second{margin-top:.75rem;background:#f6f8f7}
+.reviews-section .quote-shell>span{
+  display:block;
+  height:3.5rem;
+  font:4rem var(--rev-serif);
+  color:#66a5b9;
+}
+.reviews-section .quote-shell p{
+  margin:0 0 .6rem;
+  font-family:var(--rev-serif);
+  font-size:1.2rem;
+  line-height:1.55;
+  color:#2b5068;
+}
+.reviews-section .quote-shell small{
+  font-size:.62rem;
+  letter-spacing:.08em;
+  color:#68899b;
+  text-transform:uppercase;
+}
+
+/* --- Visual side: organic-shaped photo + floating note --- */
+.reviews-section .story-visual{
+  position:relative;
+  min-width:0;
+  order:-1;                 /* photo sits on the left of the copy */
+  max-width:510px;
+  width:100%;
+  margin:auto;
+  padding:1.3rem .3rem;
+}
+.reviews-section .story-halo{
+  position:absolute;
+  inset:.3rem 1rem 1.3rem .3rem;
+  border-radius:28px;
+  background:linear-gradient(140deg,#dceef5 0%,#dbe8f6 46%,#e8e9fb 68%,#f3e6fb);
+  transform:rotate(-3deg);
+  transition:transform .65s ease;
+}
+.reviews-section .story-visual:hover .story-halo{transform:rotate(0deg)}
+.reviews-section .story-photo{
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  aspect-ratio:1.2;
+  background:#dfe9ee;
+  box-shadow:0 20px 38px #123c5b1a;
+}
+.reviews-section .story-photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.reviews-section .story-visual:hover .story-photo img{transform:scale(1.045)}
+.reviews-section .story-note{
+  position:absolute;
+  right:0;
+  bottom:.9rem;
+  padding:.9rem 1.05rem;
+  background:#fff;
+  box-shadow:0 12px 30px #0b3f6224;
+  border-radius:12px;
+  transform:rotate(2deg);
+  transition:transform .4s;
+}
+.reviews-section .story-visual:hover .story-note{transform:rotate(0deg) translateY(-4px)}
+.reviews-section .story-note span{
+  display:block;
+  margin-bottom:.35rem;
+  font-size:.62rem;
+  letter-spacing:.16em;
+  font-weight:800;
+  color:var(--rev-teal);
+}
+.reviews-section .story-note strong{
+  font:italic clamp(1.1rem,1.7vw,1.5rem)/1.15 var(--rev-serif);
+  color:#19395b;
+}
+
+/* --- CSS-only crossfade slideshow (no JS, no timers to manage) --- */
+.reviews-section .story-photo-cycle img{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  animation:revStoryCycle 18s infinite;
+}
+.reviews-section .story-photo-cycle img:nth-child(1){animation-delay:0s}
+.reviews-section .story-photo-cycle img:nth-child(2){animation-delay:6s}
+.reviews-section .story-photo-cycle img:nth-child(3){animation-delay:12s}
+@keyframes revStoryCycle{
+  0%{opacity:0}3%{opacity:1}30%{opacity:1}36%{opacity:0}100%{opacity:0}
+}
+
+/* --- Responsive --- */
+@media(max-width:1100px){.reviews-section .story-visual{max-width:440px}}
+@media(max-width:800px){
+  .reviews-section .stories-grid{grid-template-columns:1fr}
+  .reviews-section .story-visual{order:0;max-width:420px}
+}
+@media(max-width:600px){
+  .reviews-section{padding:48px 1.2rem}
+  .reviews-section .quote-shell{padding:1.2rem}
+  .reviews-section .story-note{right:0;bottom:1.6rem;padding:.9rem 1rem}
+}
+
+/* --- Respect reduced-motion: freeze the slideshow on the first photo --- */
+@media(prefers-reduced-motion:reduce){
+  .reviews-section .story-photo-cycle img{animation:none;opacity:0}
+  .reviews-section .story-photo-cycle img:first-child{opacity:1}
+  .reviews-section .story-photo img,
+  .reviews-section .story-note,
+  .reviews-section .story-halo{transition:none}
+}
+</style>
+</head>
+<body style="margin:0">
+
+<!-- ============================================================
+     MARKUP — copy this <section> into the target page.
+     ============================================================ -->
+<section class="reviews-section" aria-labelledby="reviewsTitle">
+  <div class="stories-grid">
+
+    <!-- LEFT/COPY: heading + testimonial cards -->
+    <div class="stories-copy">
+      <h2 id="reviewsTitle">Stories that matter.</h2>
+      <p>Real patient feedback, shown with consented quotes and clear source links. Add or remove a card by duplicating a <code>.quote-shell</code> block.</p>
+
+      <!-- Duplicate this block to add more reviews. Add class "second" for the lighter card background. -->
+      <div class="quote-shell">
+        <span>&ldquo;</span>
+        <p>a doctor who listens, explains, and actually remembers me</p>
+        <small>PRIYA K. &middot; FRISCO, TX</small>
+      </div>
+      <div class="quote-shell second">
+        <span>&ldquo;</span>
+        <p>thoughtful care without feeling rushed</p>
+        <small>DYLAN M. &middot; PLANO, TX</small>
+      </div>
+    </div>
+
+    <!-- RIGHT/VISUAL: crossfading photo with floating note -->
+    <div class="story-visual">
+      <div class="story-halo" aria-hidden="true"></div>
+      <div class="story-photo story-photo-cycle">
+        <!-- REPLACE: use your own realistic photos (WebP preferred). First img carries the real alt text; the others are decorative. -->
+        <img src="https://picsum.photos/id/1027/600/500" alt="A patient and clinician talking during a visit" loading="lazy" width="600" height="500">
+        <img src="https://picsum.photos/id/1062/600/500" alt="" aria-hidden="true" loading="lazy" width="600" height="500">
+        <img src="https://picsum.photos/id/177/600/500" alt="" aria-hidden="true" loading="lazy" width="600" height="500">
+      </div>
+      <div class="story-note">
+        <span>THE APPROACH</span>
+        <strong>Care starts with<br>being heard.</strong>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

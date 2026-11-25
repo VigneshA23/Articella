@@ -10,7 +10,7 @@ const demoAbout = () => `<div class="demo-page demo-about">
   <section class="demo-team demo-section" id="our-team"><div class="demo-section-heading"><span class="demo-kicker">THE ARTICELLA TEAM</span><h2>Get to know the people.</h2><p>From clinical care to the first welcome at the front desk, each person plays a part in the patient experience.</p></div><div class="demo-team-grid demo-about-team">${[['rahul.jpg','Dr. Rahul Singh','Physician · Founder',0],['sylaza.webp','Dr. Sylaza Kantamneni','Physician · Internal Medicine',1],['anupa.webp','Anupa Adhikari','Nurse Practitioner',2],['meghna.jpg','Meghna Nagpal, MBBS','Practice Manager',3],['trish.jpg','Trish Stafford','Front Desk Coordinator',4]].map(([img,n,r,i])=>`<article class="demo-person"><div class="demo-person-photo"><img src="assets/${img}" loading="lazy" alt="${n}"></div><div class="demo-person-meta"><div><h3>${n}</h3><p>${r}</p></div><button class="demo-person-link" data-team-profile="${i}">Learn more</button></div></article>`).join('')}</div></section>
   <section class="demo-local demo-section"><div><span class="demo-kicker">RIGHT HERE IN FRISCO</span><h2>Care with a sense of place.</h2><p>Articella is a local practice built for ongoing conversations. Find us in Frisco, ask a practical question, or take the first step toward a visit.</p><div class="demo-hero-actions">${book('Book an appointment')}<a href="tel:+12148726502" class="demo-text-link">Call or text the team</a></div></div><div class="demo-local-image"><img src="assets/care-interior.webp" loading="lazy" alt="Welcoming, naturally lit care space"></div></section>
 </div>`;
-const demoLabels = {providers:'Providers',services:'Services',service:'Service',memberships:'Memberships','new-patients':'New Patients',insurance:'Insurance & Billing',insights:'Insights & Events',faq:'FAQs',locations:'Locations',contact:'Contact',portal:'Patient Portal',privacy:'Privacy',terms:'Terms'};
+const demoLabels = {providers:'Care Team',services:'Services',service:'Service',memberships:'Memberships','new-patients':'New Patients',insurance:'Insurance & Billing',insights:'Insights & Events',faq:'FAQs',locations:'Locations',contact:'Contact',portal:'Patient Portal',privacy:'Privacy',terms:'Terms'};
 const demoPlaceholder = (key) => `<div class="demo-page"><section class="demo-placeholder"><span class="demo-kicker">ARTICELLA · ${demoLabels[key]||'EXPLORE'}</span><div class="demo-placeholder-mark" aria-hidden="true"></div><h1>${demoLabels[key]||'This page'} is taking shape.</h1><p>We’re preparing this part of the Articella experience. For this presentation, explore the finished Home and About pages.</p><div><a class="button button-dark" href="#/">Explore Home</a><a class="demo-text-link" href="#/about">Read our story</a></div></section></div>`;
 const svcIcons = {
   preventive:'<path d="M16 3 27 7v8c0 7-4.5 11-11 14C9.5 26 5 22 5 15V7l11-4Z"/><path d="m11 16 3.5 3.5L21 13"/>',
@@ -52,40 +52,33 @@ const demoServices = () => `<div class="demo-page svc-page">
   <section class="svc-section svc-faq-section" id="svcFaq" aria-labelledby="svcFaqTitle"><div class="svc-faq-wrap"><div class="svc-faq-head"><h2 id="svcFaqTitle">FAQs</h2><p class="svc-faq-sub">Everything you need to know before you book</p><p class="svc-faq-contact">Can’t find what you’re looking for? Reach out to the <a href="tel:+12148726502">Articella team</a> at (214) 872-6502 for assistance.</p></div>${faqAccordion(svcFaqs)}</div></section>
   <section class="svc-end-section"><div class="svc-end"><div><h2>Not sure where to start?</h2><p>Tell us what is on your mind. The team will help you choose the right visit.</p></div><div class="svc-actions"><button class="button svc-end-button book-trigger" type="button">Book appointment</button><a class="svc-end-link" href="tel:+12148726502">Call or text the team</a></div></div></section>
 </div>`;
+const demoFaq = () => `<div class="demo-page demo-faq"><section class="faqp-hero"><div class="faqp-hero-inner"><div class="eyebrow">YOUR QUESTIONS, ANSWERED</div><h1>Here to make it <em>clearer.</em></h1><p class="faqp-hero-lead">Straight answers about appointments, coverage and getting here. Can’t find yours? The Frisco team is a call or text away.</p><div class="faqp-hero-actions">${book('Book an appointment')}<a class="faqp-hero-call" href="tel:+12148726502">Call or text (214) 872-6502</a></div></div></section><section class="faqp-tabs" aria-label="Browse FAQ topics"><div class="faqp-overview-grid" role="tablist" aria-label="FAQ categories">${faqGroups.map(([gid,name,items],g)=>`<button type="button" class="faqp-card${g===0?' is-active':''}" role="tab" id="faqtab-${gid}" aria-selected="${g===0?'true':'false'}" aria-controls="faqpanel-${gid}" tabindex="${g===0?'0':'-1'}" data-faq-tab="${gid}"><span class="faqp-card-name">${name}</span><span class="faqp-card-count">${items.length} question${items.length===1?'':'s'}</span><span class="faqp-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg></span></button>`).join('')}</div><div class="faqp-panels">${faqGroups.map(([gid,name,items],g)=>`<div class="faqp-panel-card${g===0?' is-active':''}" id="faqpanel-${gid}" role="tabpanel" aria-labelledby="faqtab-${gid}" tabindex="0"${g===0?'':' hidden'}><div class="faqp-group-head"><h2 id="faqg-${gid}">${name}</h2></div><div class="faq-accordion" data-faq-accordion>${items.map(([q,a],i)=>{const n=String(i+1).padStart(2,'0');const pid='faqp-'+gid+'-'+i,tid='faqt-'+gid+'-'+i;return `<div class="faq-item"><h3 class="faq-h"><button type="button" class="faq-trigger" id="${tid}" aria-expanded="false" aria-controls="${pid}"><span class="faq-num" aria-hidden="true">${n}</span><span class="faq-q">${q}</span><span class="faq-ctrl" aria-hidden="true"><svg class="faq-ctrl-icon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><line class="faq-ctrl-v" x1="12" y1="5.5" x2="12" y2="18.5"></line><line x1="5.5" y1="12" x2="18.5" y2="12"></line></svg></span></button></h3><div class="faq-panel" id="${pid}" role="region" aria-labelledby="${tid}"><div class="faq-panel-inner"><p>${a}</p></div></div></div>`;}).join('')}</div></div>`).join('')}</div></section><section class="faqp-closing"><div class="faqp-closing-card"><div class="faqp-closing-copy"><span class="eyebrow">STILL CURIOUS?</span><h2>Ask a person who can help.</h2><p>For scheduling, coverage or anything specific to your situation, the Articella team can confirm current details and next steps.</p></div><div class="faqp-closing-actions"><button class="button faqp-cta-btn book-trigger" type="button">Book an appointment</button><a class="faqp-closing-call" href="tel:+12148726502">Call or text (214) 872-6502</a></div></div></section></div>`;
 renderers['']=demoHome;renderers.about=()=>`<div class="about-restored">${about()}</div>`;
 Object.keys(renderers).forEach(key=>{if(key!==''&&key!=='about'&&key!=='service')renderers[key]=()=>demoPlaceholder(key)});
-renderers.services=demoServices;renderers['new-patients']=demoNewPatients;renderers.insurance=demoInsurance;renderers.contact=()=>`<div class="contact-restored">${contact()}</div>`;
+renderers.services=demoServices;renderers['new-patients']=demoNewPatients;renderers.faq=demoFaq;renderers.insurance=demoInsurance;renderers.contact=()=>`<div class="contact-restored">${contact()}</div>`;
 render();
 
-/* Stories rotator: one review at a time, cross-fading on an interval. Re-queries the DOM each tick so it survives route re-renders. */
+/* Stories reviews: user-controlled with prev/next arrows (and dots). No auto-advance. Delegated so it survives route re-renders. */
 (function(){
+  function cards(rot){return [].slice.call(rot.querySelectorAll('.review-card'));}
+  function current(rot){var i=cards(rot).findIndex(function(c){return c.classList.contains('is-active');});return i<0?0:i;}
   function setActive(rot,next){
-    var cards=[].slice.call(rot.querySelectorAll('.review-card'));
-    if(!cards.length)return;
-    next=((next%cards.length)+cards.length)%cards.length;
-    cards.forEach(function(c,i){c.classList.toggle('is-active',i===next);});
-    var dots=rot.parentElement?rot.parentElement.querySelectorAll('.review-dots button'):[];
-    [].forEach.call(dots,function(d,i){d.classList.toggle('is-active',i===next);});
+    var cs=cards(rot);if(!cs.length)return;
+    var n=cs.length;next=((next%n)+n)%n;
+    cs.forEach(function(c,i){c.classList.toggle('is-active',i===next);});
+    var wrap=rot.closest('.stories-content')||rot.parentElement;
+    var dots=wrap?wrap.querySelectorAll('.review-dots button'):[];
+    [].forEach.call(dots,function(d,i){d.classList.toggle('is-active',i===next);d.setAttribute('aria-current',i===next?'true':'false');});
   }
-  function current(rot){
-    var cards=[].slice.call(rot.querySelectorAll('.review-card'));
-    var i=cards.findIndex(function(c){return c.classList.contains('is-active');});
-    return i<0?0:i;
-  }
-  setInterval(function(){
-    var rot=document.querySelector('.demo-full-home .stories-rotator');
-    if(!rot||rot.matches(':hover'))return;
-    if(rot.querySelectorAll('.review-card').length<2)return;
-    setActive(rot,current(rot)+1);
-  },4500);
   document.addEventListener('click',function(e){
-    var btn=e.target.closest&&e.target.closest('.review-dots button');
-    if(!btn)return;
-    var wrap=btn.closest('.stories-center');
+    if(!e.target.closest)return;
+    var wrap=e.target.closest('.stories-content');
     var rot=wrap&&wrap.querySelector('.stories-rotator');
     if(!rot)return;
-    var dots=[].slice.call(btn.parentElement.children);
-    setActive(rot,dots.indexOf(btn));
+    if(e.target.closest('.review-prev')){setActive(rot,current(rot)-1);return;}
+    if(e.target.closest('.review-next')){setActive(rot,current(rot)+1);return;}
+    var dot=e.target.closest('.review-dots button');
+    if(dot){var dots=[].slice.call(dot.parentElement.children);setActive(rot,dots.indexOf(dot));}
   });
 })();
 
@@ -141,4 +134,42 @@ document.addEventListener('click',function(e){
     e.stopImmediatePropagation();
     openOnly(btn.closest('.cat-item'));
   },true);
+})();
+
+/* FAQ topic tabs: clicking a topic card shows only that category's questions in a centered panel below. Delegated so it survives route re-renders; arrow keys move between tabs. */
+(function(){
+  function activate(tab,focus){
+    var gid=tab.getAttribute('data-faq-tab');
+    var wrap=tab.closest('.faqp-tabs');if(!wrap)return;
+    var bar=wrap.querySelector('.faqp-overview-grid');
+    var panels=wrap.querySelector('.faqp-panels');
+    if(!bar||!panels)return;
+    [].forEach.call(bar.querySelectorAll('[data-faq-tab]'),function(b){
+      var on=b===tab;
+      b.classList.toggle('is-active',on);
+      b.setAttribute('aria-selected',on?'true':'false');
+      b.tabIndex=on?0:-1;
+    });
+    [].forEach.call(panels.querySelectorAll('.faqp-panel-card'),function(p){
+      var on=p.id==='faqpanel-'+gid;
+      p.classList.toggle('is-active',on);
+      p.hidden=!on;
+    });
+    if(focus)tab.focus();
+  }
+  document.addEventListener('click',function(e){
+    var tab=e.target.closest&&e.target.closest('[data-faq-tab]');
+    if(tab)activate(tab,false);
+  });
+  document.addEventListener('keydown',function(e){
+    var tab=e.target.closest&&e.target.closest('[data-faq-tab]');
+    if(!tab)return;
+    var keys={ArrowLeft:-1,ArrowRight:1,Home:'first',End:'last'};
+    if(!(e.key in keys))return;
+    e.preventDefault();
+    var tabs=[].slice.call(tab.closest('.faqp-overview-grid').querySelectorAll('[data-faq-tab]'));
+    var i=tabs.indexOf(tab),n=tabs.length,j;
+    if(keys[e.key]==='first')j=0;else if(keys[e.key]==='last')j=n-1;else j=(i+keys[e.key]+n)%n;
+    activate(tabs[j],true);
+  });
 })();

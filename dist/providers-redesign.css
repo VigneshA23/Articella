@@ -16,10 +16,10 @@
 .pv-gallery-head h2{font-size:clamp(2.1rem,3.4vw,3.8rem);line-height:1.1;margin:.8rem 0 0;color:var(--pv-ink)}
 .pv-ctrl{display:flex;align-items:center;gap:.7rem}.pv-ctrl[hidden]{display:none}
 .pv-count{font-size:.74rem;font-weight:700;letter-spacing:.08em;color:#4d5470;margin-right:.6rem;min-width:3.2em;text-align:right}
-.pv-nav{width:48px;height:48px;border-radius:50%;border:1px solid #00008b55;background:#fff;color:var(--pv-blue);display:grid;place-items:center;cursor:pointer;transition:background .25s,color .25s,opacity .25s,transform .25s}
+.pv-nav{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--pv-blue);background:#fff;color:var(--pv-blue);box-shadow:0 6px 16px rgba(0,0,139,.18);display:grid;place-items:center;cursor:pointer;transition:background .25s,color .25s,opacity .25s,transform .25s,box-shadow .25s}
 .pv-nav svg{width:20px;height:20px}
 .pv-nav:hover:not(:disabled){background:var(--pv-blue);color:#fff;transform:translateY(-2px)}
-.pv-nav:disabled{opacity:.35;cursor:default}
+.pv-nav:disabled{opacity:.5;cursor:default;box-shadow:none}
 .pv-track{list-style:none;margin:0;padding:.4rem var(--pv-pad) 1.6rem;display:flex;gap:1.4rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--pv-pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .pv-track::-webkit-scrollbar{display:none}
 
