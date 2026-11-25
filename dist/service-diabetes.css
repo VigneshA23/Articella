@@ -41,6 +41,21 @@
 .service-page--journey .dz-bring li{position:relative;padding-left:1.35rem;font-size:.8rem;font-weight:600;color:#33415c}
 .service-page--journey .dz-bring li::before{content:'';position:absolute;left:0;top:.38em;width:.62rem;height:.62rem;border-radius:50%;background:var(--dz-teal)}
 
+/* Know the signs: symptom / reasons-to-visit grid between the hero and "What can we talk about" */
+.service-page--journey .dz-signs{background:#fff;padding:4.4rem 0 1.4rem}
+.service-page--journey .dz-signs-head{max-width:48rem}
+.service-page--journey .dz-signs-head h2{font-size:clamp(2rem,3.1vw,3rem);line-height:1.12;margin:.5rem 0 .7rem;color:var(--dz-navy)}
+.service-page--journey .dz-signs-head>p{margin:0;font-size:.92rem;line-height:1.65;color:#56627a;max-width:54ch}
+.service-page--journey .dz-signs-grid{list-style:none;margin:2.4rem 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem 1.4rem}
+.service-page--journey .dz-sign{display:flex;gap:.95rem;align-items:flex-start;padding:1.15rem 1.25rem;border:1px solid var(--dz-line);border-radius:14px;background:#fff;animation:none;transition:transform .3s var(--dz-ease),box-shadow .3s,border-color .3s}
+.service-page--journey .dz-sign.is-in{animation:dzUp .7s var(--dz-ease) backwards;animation-delay:calc(var(--i,0)*80ms)}
+.service-page--journey .dz-sign:hover{transform:translateY(-3px);border-color:#b9c6e6;box-shadow:0 14px 28px #0c2a4d12}
+.service-page--journey .dz-sign-mark{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#edf1fb;color:var(--dz-royal);transition:background .3s,color .3s}
+.service-page--journey .dz-sign:hover .dz-sign-mark{background:var(--dz-royal);color:#fff}
+.service-page--journey .dz-sign-mark svg{width:19px;height:19px}
+.service-page--journey .dz-sign h3{margin:.1rem 0 .25rem;font-size:1.02rem;line-height:1.25;color:var(--dz-navy)}
+.service-page--journey .dz-sign p{margin:0;font-size:.82rem;line-height:1.55;color:#56627a}
+
 /* FAQ */
 .service-page--journey .dz-faq{background:var(--dz-mist);padding:5rem 0}
 .service-page--journey .dz-faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:clamp(2rem,6vw,6rem);align-items:start}
@@ -93,6 +108,8 @@
 @media(max-width:760px){
   .service-page--journey .dz-topics{padding:3.4rem 0}
   .service-page--journey .dz-topics .service-topic-photo{min-height:260px}
+  .service-page--journey .dz-signs{padding:3.2rem 0 .4rem}
+  .service-page--journey .dz-signs-grid{grid-template-columns:1fr}
   /* Journey becomes a vertical timeline */
   .service-page--journey .dz-journey{padding:3.6rem 0 3.2rem}
   .service-page--journey .dz-path{grid-template-columns:1fr;gap:0;margin-top:2rem}
