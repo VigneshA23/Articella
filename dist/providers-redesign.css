@@ -55,6 +55,7 @@
 .pv-help h3{font-size:1.35rem;margin:.2rem 0 .35rem;color:#fff}.pv-help li p{margin:0;font-size:.9rem;line-height:1.6;color:#fff;opacity:.88;max-width:470px}
 
 .pv-cta{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding:3.6rem var(--pv-pad);background:#ececfb}
+.pv-cta .pv-link{border:1.5px solid var(--pv-blue);border-radius:100px;background:#fff;padding:.85rem 1.4rem;transition:background .25s,color .25s,border-color .25s,gap .25s}.pv-cta .pv-link:hover{background:var(--pv-blue);color:#fff;border-color:var(--pv-blue)}
 .pv-cta h2{font-size:clamp(2rem,3.2vw,3.35rem);color:var(--pv-ink);margin:0 0 .6rem}.pv-cta p{margin:0;color:#50586c}
 .pv-cta-actions{margin-top:0}
 .pv-note{margin:0;padding:1.6rem var(--pv-pad);font-size:.76rem;line-height:1.6;color:#6a7185;background:#fff}

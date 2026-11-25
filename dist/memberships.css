@@ -1,6 +1,6 @@
 /* Memberships page. Every rule is scoped to .mem-page so it cannot leak into other pages. */
 .mem-page{--beige:#f4f5ff;--teal:#00008B;--teal2:#000070;--lime:#dfe2ff;--ink:#11111e;--muted:#555b6b;--white:#fff;--line:#dcddeb;
---m-serif:'Platypi',Georgia,serif;--m-sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+--m-serif:'Platypi',Georgia,serif;--m-sans:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
 background:var(--beige);color:var(--ink);font-family:var(--m-sans);line-height:1.55;overflow-x:hidden;font-size:16px}
 .mem-page *{box-sizing:border-box}
 .mem-page h1,.mem-page h2,.mem-page h3{margin:0;font-family:var(--m-serif);font-weight:400;letter-spacing:-.01em;color:inherit}

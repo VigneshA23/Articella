@@ -1,6 +1,6 @@
 /* Locations page. Every rule is scoped to .loc-page so it cannot leak into other pages. */
 .loc-page{--navy:#00008B;--ink:#11111e;--muted:#555b6b;--ice:#f4f5ff;--warm:#faf9f7;--line:#dcddeb;--green:#1f9d63;
---serif:'Platypi',Georgia,serif;--sans:'Helvetica Neue',Helvetica,Arial,sans-serif;--map:'Inter','Helvetica Neue',Arial,sans-serif}
+--serif:'Platypi',Georgia,serif;--sans:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;--map:'Inter','Helvetica Neue',Arial,sans-serif}
 .loc-page *{box-sizing:border-box;margin:0}
 .loc-page{font-family:var(--sans);font-size:14px;color:var(--ink);background:var(--warm);line-height:1.55;overflow-x:hidden}
 .loc-page a{color:inherit;text-decoration:none}

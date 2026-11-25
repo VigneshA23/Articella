@@ -51,7 +51,7 @@
 <div class="ins-layout"><div class="ins-main"><div class="ins-grid" id="insGrid"></div>
 <div class="ins-empty" id="insEmpty" hidden><h3>Nothing matches yet.</h3><p>Try a different word or category.</p><button type="button" class="ins-reset" data-ins-reset>${svg('x')} Reset search and filters</button></div>
 <div class="ins-loadmore" id="insMoreWrap" hidden><button type="button" id="insMore">Load more</button></div></div>${items.length >= RECENT_MIN ? recent() : ''}</div></section>
-<section class="ins-cta" data-reveal><div><h2>Questions about your care?</h2><p>Our Frisco team is happy to help you find the right next step.</p></div><div class="ins-cta-actions"><button type="button" class="button button-dark book-trigger">Explore appointments</button><a class="ins-call" href="tel:+12148726502">${svg('phone')} Call or text (214) 872-6502</a></div></section>
+<section class="ins-cta" data-reveal><div><h2>Questions about your care?</h2><p>Our Frisco team is happy to help you find the right next step.</p></div><div class="ins-cta-actions"><button type="button" class="button button-dark book-trigger">Explore appointments</button><a class="ins-call call-btn" href="tel:+12148726502">${svg('phone')} Call or text (214) 872-6502</a></div></section>
 </div>`;
   };
 

@@ -1,5 +1,5 @@
 /* Diabetes Care editorial layout. Everything is scoped to .service-page--journey so the other five service pages are untouched. */
-.service-page--journey{--dz-navy:#0c2a4d;--dz-royal:#1c3f9e;--dz-teal:#4a9aa6;--dz-cream:#faf6ee;--dz-mist:#f4f7fb;--dz-line:#dfe5ee;--dz-ease:cubic-bezier(.2,.7,.2,1)}
+.service-page--journey{--dz-navy:#0c2a4d;--dz-royal:#1c3f9e;--dz-teal:#4a9aa6;--dz-cream:#eef2fb;--dz-mist:#f4f7fb;--dz-line:#dfe5ee;--dz-ease:cubic-bezier(.2,.7,.2,1)}
 
 /* Hero: layout unchanged, only the photograph differs. */
 .service-page--journey .service-hero-photo img{object-position:46% 38%}

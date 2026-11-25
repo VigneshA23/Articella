@@ -25,7 +25,7 @@ const ibQuestions = [
 ];
 
 const demoInsurance = () => `<div class="demo-page np-page ib-page">
-  <section class="np-hero ib-hero"><div class="np-hero-copy"><h1>Coverage questions,<br><em>made clear.</em></h1><p>See the insurers Articella works with, then confirm your exact plan before your visit.</p><div class="svc-actions"><button class="button button-dark" type="button" data-scroll-target="ibPlans">See accepted insurers</button><a class="demo-text-link" href="tel:+12148726502">Call or text (214) 872-6502</a></div></div><div class="np-hero-media"><img src="assets/insurance-conversation.webp" alt="Illustrative conversation about insurance at a clinic front desk" fetchpriority="high"></div></section>
+  <section class="np-hero ib-hero"><div class="np-hero-copy"><h1>Coverage questions,<br><em>made clear.</em></h1><p>See the insurers Articella works with, then confirm your exact plan before your visit.</p><div class="svc-actions"><button class="button button-dark" type="button" data-scroll-target="ibPlans">See accepted insurers</button><a class="demo-text-link call-btn" href="tel:+12148726502">Call or text (214) 872-6502</a></div></div><div class="np-hero-media"><img src="assets/insurance-conversation.webp" alt="Illustrative conversation about insurance at a clinic front desk" fetchpriority="high"></div></section>
 
   <section class="svc-section ib-plans" id="ibPlans" aria-labelledby="ibPlansTitle"><div class="svc-heading"><h2 id="ibPlansTitle">Insurance we accept</h2></div>
     <div class="ib-explorer">
