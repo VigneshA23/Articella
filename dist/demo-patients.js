@@ -41,7 +41,7 @@ const npFacts = [
   ['pin','Address','10234 Coit Rd, Suite 100<br>Frisco, TX 75035'],
   ['clock','Hours','Mon to Fri, 8:30 AM to 4:30 PM<br>Sat, 8:30 AM to 12:00 PM<br>Sun, closed'],
   ['parking','Parking','Easy parking at the Frisco office. Allow a few minutes to check in.'],
-  ['phone','Phone','<a href="tel:+12148726502">Call or text (214) 872-6502</a>']
+  ['phone','Phone','<a class="call-btn" href="tel:+12148726502">Call or text (214) 872-6502</a>']
 ];
 
 const demoNewPatients = () => `<div class="demo-page np-page">

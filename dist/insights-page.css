@@ -1,5 +1,5 @@
 /* Insights & Events page. Everything is scoped to .ins-page. Brand: Articella Blue #00008B, Platypi + Helvetica Neue. */
-.ins-page{--ib:#00008B;--ik:#000;--im:#555b6b;--il:#dcddeb;--in:#f6f6fb;color:var(--ik);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;overflow:hidden}
+.ins-page{--ib:#00008B;--ik:#000;--im:#555b6b;--il:#dcddeb;--in:#f6f6fb;color:var(--ik);font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;overflow:hidden}
 .ins-page *{box-sizing:border-box}
 .ins-page h1,.ins-page h2,.ins-page h3{font-family:'Platypi',Georgia,serif;font-weight:500;letter-spacing:-.02em;line-height:1.15;margin:0;color:var(--ik)}
 .ins-page [hidden]{display:none!important}
@@ -33,7 +33,7 @@
 .ins-library{padding-top:clamp(40px,6vw,72px)}
 .ins-toolbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--il)}
 .ins-filters{display:flex;gap:8px;flex-wrap:wrap}
-.ins-filters button,.ins-loadmore button,.ins-reset{font:700 .82rem 'Helvetica Neue',Helvetica,Arial,sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.ins-filters button,.ins-loadmore button,.ins-reset{font:700 .82rem 'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
 .ins-filters button{min-height:44px;padding:0 20px;border:1px solid var(--il);background:#fff;color:var(--ik);border-radius:50px}
 .ins-filters button:hover{border-color:var(--ib);color:var(--ib)}
 .ins-filters button.active{background:var(--ib);border-color:var(--ib);color:#fff}

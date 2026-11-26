@@ -71,7 +71,7 @@ const memberships = () => `<div class="mem-page"><div class="mem-wrap">
 </section>
 
 </div></div>
-<div class="demo-page"><section class="demo-local demo-section"><div><span class="demo-kicker">RIGHT HERE IN FRISCO</span><h2>Care with a sense of place.</h2><p>Articella is a local practice built for ongoing conversations. Find us in Frisco, ask a practical question, or take the first step toward a visit.</p><div class="demo-hero-actions"><button class="button button-dark book-trigger">Book an appointment <span aria-hidden="true"></span></button><a href="tel:+12148726502" class="demo-text-link">Call or text the team</a></div></div><div class="demo-local-image"><img src="assets/care-interior.webp" loading="lazy" alt="Welcoming, naturally lit care space"></div></section></div>`;
+<div class="demo-page"><section class="demo-local demo-section"><div><span class="demo-kicker">RIGHT HERE IN FRISCO</span><h2>Care with a sense of place.</h2><p>Articella is a local practice built for ongoing conversations. Find us in Frisco, ask a practical question, or take the first step toward a visit.</p><div class="demo-hero-actions"><button class="button button-dark book-trigger">Book an appointment <span aria-hidden="true"></span></button><a href="tel:+12148726502" class="demo-text-link call-btn">Call or text the team</a></div></div><div class="demo-local-image"><img src="assets/care-interior.webp" loading="lazy" alt="Welcoming, naturally lit care space"></div></section></div>`;
 
 /* plan data */
 const L = a => a.map(i => '<li' + (i.startsWith('+') ? ' class="add"' : '') + '>' + i.replace(/^\+/, '') + '</li>').join('');
